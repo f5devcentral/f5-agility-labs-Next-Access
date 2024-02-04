@@ -1,8 +1,8 @@
-# F5 Agility 2020 WAF docs
+# F5 AppWorld Access
 
-https://github.com/f5devcentral/f5-agility-labs-waf
+https://github.com/f5devcentral/F5-appworld-next-access
 
 http://f5-agility-labs-waf.readthedocs.io/en/latest/
 
-git clone https://github.com/f5devcentral/f5-agility-labs-waf.git
+git clone https://github.com/f5devcentral/F5-appworld-next-access.git
 
