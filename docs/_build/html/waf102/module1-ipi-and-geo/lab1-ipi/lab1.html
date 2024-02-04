@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<head>
+  
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-PPZPQ6');</script>
+  <!-- End Google Tag Manager -->
+    <title>Exercise 1.1: IP Intelligence Policies</title>
+  
+
+  <meta charset="utf-8">
+  <!-- Twitter Bootstrap viewport setting -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <!-- F5 metadata -->
+  <meta name="title" content="Exercise 1.1: IP Intelligence Policies"/>
+  <meta name="product" content="F5 Web Application Firewall Solutions"/>
+  <meta name="version" content=""/>
+  <meta name="updated_date"  content="2023-05-04 07:11:03"/>
+  <meta name="archived" content="Archived documents excluded"/>
+  <meta name="doc_type" content="Manual"/>
+  <meta name="lifecycle" content="release"/>
+  <meta name="F5 Web Application Firewall Solutions" content=""/>
+
+
+  
+
+  
+  <link href="https://cdn.f5.com/favicon.ico" rel="icon">
+
+</head>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Exercise 1.1: IP Intelligence Policies &#8212; F5 Web Application Firewall Solutions  documentation</title>
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/graphviz.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
+    <link rel="stylesheet" href="../../../_static/css/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/css/f5.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/css/f5-theme.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/css/CoveoFullSearch.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/css/custom.css" type="text/css" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/21fb8a09c3.css" type="text/css" />
+    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/sphinx_highlight.js"></script>
+    <script src="../../../_static/clipboard.min.js"></script>
+    <script src="../../../_static/copybutton.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/jquery.mark.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="Exercise 1.2: Add a Geolocation Policy" href="../lab2-geo/lab2.html" />
+    <link rel="prev" title="Module 1: IPI &amp; Geolocation" href="../module1.html" /> 
+  </head><body>
+  <div id="clouddocs-header"></div>
+
+    <div id="sidebar" class="section-nav">
+      
+      <!--  version selector ------------------>
+      <div id="version_selector_wrapper">
+      </div>
+      <nav class="nav-sidebartoc">
+
+        
+         <h5>F5 Web Application Firewall Solutions  </h5>
+        
+
+        <hr>
+        <span class="nav-sidebartoc">
+            <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../../waf102.html">WAF 102 - Getting started with WAF, Bot Detection and Threat Campaigns</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../labinfo/labinfo.html">Lab Environment &amp; Topology</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../module1.html">Module 1: IPI &amp; Geolocation</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Exercise 1.1: IP Intelligence Policies</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../lab2-geo/lab2.html">Exercise 1.2: Add a Geolocation Policy</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../module2-bot/module2.html">Module 2: Bot Detection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../module3-tc/module3.html">Module 3: Threat Campaigns</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../module4-xparent-policy/module4.html">Module 4: Transparent WAF Policy</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../waf111/waf111.html">WAF 111 - Protecting Yourself Against the OWASP Top 10</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../waf201/waf201.html">WAF 201 – Elevated WAF Security</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../waf2023/waf2023.html">WAF 101 - BIG-IP Security:  Mitigating App Vulnerabilities with AWAF</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../waf301/waf301.html">WAF 301 - AWAF in a CI/CD Pipeline (Self Guided)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../waf302/waf302.html">WAF 302 - Enabling API Protection with APM and AWAF</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../waf341/waf341.html">WAF 341 – Advanced Protection and Positive Security (Self Guided)</a></li>
+</ul>
+
+        </span><!-- Use this file to add extra links to the bottom of the ToC sidebar -->
+<hr>
+  <span class="nav-sidebartoc">
+ <!-- insert content here -->
+  </span>
+      </nav>
+    </div>
+
+
+    <div id="right-sidebar">
+      <h7 style="font-weight:normal">On this page:</h7>
+      <nav class="nav-sidebartoc">
+        <span class="nav-sidebartoc">
+            <ul>
+<li><a class="reference internal" href="#">Exercise 1.1: IP Intelligence Policies</a><ul>
+<li><a class="reference internal" href="#objective">Objective</a></li>
+<li><a class="reference internal" href="#create-your-1st-l3-ipi-policy">Create Your 1st L3 IPI Policy</a></li>
+<li><a class="reference internal" href="#setup-logging-for-global-ipi">Setup Logging for Global IPI</a></li>
+<li><a class="reference internal" href="#test">Test</a></li>
+<li><a class="reference internal" href="#create-custom-category">Create Custom Category</a></li>
+<li><a class="reference internal" href="#create-your-first-waf-policy">Create your first WAF Policy</a></li>
+<li><a class="reference internal" href="#configure-l7-ipi">Configure L7 IPI</a></li>
+<li><a class="reference internal" href="#test-xff-inspection">Test XFF Inspection</a></li>
+</ul>
+</li>
+</ul>
+
+         </span>
+      </nav>
+    </div>
+
+
+
+
+
+  
+  <div class="main active" id="content" >
+    <article class="docs-container site-article-inner">
+              <!-- custom breadcrumb -->
+        <h5>
+            <a href="../../../index.html">F5 Web Application Firewall Solutions</a>
+              &gt; <a href="../../waf102.html">WAF 102 - Getting started with WAF, Bot Detection and Threat Campaigns</a>
+              &gt; <a href="../module1.html">Module 1: IPI &amp; Geolocation</a>
+
+          <span class="right">
+             <a href="../../../_sources/waf102/module1-ipi-and-geo/lab1-ipi/lab1.rst.txt" rel="nofollow">Source</a> |
+             <a href="https://github.com/f5devcentral/f5-agility-labs-waf">Edit on <i class="fa fa-github" aria-hidden="true"></i></a>
+          </span>
+        </h5>
+        <!-- end custom breadcrumb -->
+      
+
+
+    <!--a title="Export PDF" id="export-pdf" class="btn btn btn-link pull-right">View PDF</a-->
+    <button type="button" id="export-pdf" class="btn btn-link right">PDF</button>
+
+
+    
+     
+         <div class="sidebar" id="version-warning" style="display: none;">
+           <p class="first sidebar-title">
+           <span class="icon fa fa-info-circle fa-lg"></span> Version notice:</p>
+           <p class="last" id="currentVersion"></p>
+          </div>
+
+
+     <div role="main">
+        
+  <div class="section" id="exercise-1-1-ip-intelligence-policies">
+<h1>Exercise 1.1: IP Intelligence Policies<a class="headerlink" href="#exercise-1-1-ip-intelligence-policies" title="Permalink to this heading">¶</a></h1>
+<div class="section" id="objective">
+<h2>Objective<a class="headerlink" href="#objective" title="Permalink to this heading">¶</a></h2>
+<ul class="simple">
+<li>Configure Global IPI Profile &amp; Logging</li>
+<li>Review Global IPI Logs</li>
+<li>Configure Custom Category and add an IP</li>
+<li>Create your first WAF Policy and implement IPI w/ XFF inspection</li>
+<li>Estimated time for completion: <strong>30</strong> <strong>minutes</strong>.</li>
+</ul>
+</div>
+<div class="section" id="create-your-1st-l3-ipi-policy">
+<h2>Create Your 1st L3 IPI Policy<a class="headerlink" href="#create-your-1st-l3-ipi-policy" title="Permalink to this heading">¶</a></h2>
+<p>An IPI policy can be created and applied globally, at the virtual server (VS) level or within the WAF policy itself.
+We will follow security best-practice by applying IPI via a Global Policy to secure Layer 3 device-wide and within the Layer 7 WAF policy to protect the App by inspecting the HTTP X-Forwarded-For Header.</p>
+<a class="reference internal image-reference" href="../../../_images/ipi_options.png"><img alt="../../../_images/ipi_options.png" src="../../../_images/ipi_options.png" style="width: 600px;" /></a>
+<p>In this first lab, we will start by enabling a Global IPI Policy; much like you would do, as a day 1 task for your WAF:</p>
+<ol class="arabic simple">
+<li>RDP to the Linux Client by choosing the RDP access method from your UDF environment page. You will be presented with the following prompt where you will enter the password only. The <strong>f5student</strong> account is hard-coded into XRDP for your convenience.</li>
+</ol>
+<a class="reference internal image-reference" href="../../../_images/xrdp.png"><img alt="../../../_images/xrdp.png" src="../../../_images/xrdp.png" style="width: 600px;" /></a>
+<ol class="arabic simple" start="2">
+<li>Once logged in, launch Chrome Browser. You can double-click the icon or right click and choose execute but <strong>do not click multiple times</strong>. It does take a few moments for the browser to launch the first time.</li>
+<li>Click the <strong>F5 Advanced WAF bookmark</strong> and login to TMUI. admin/[password]. It is normal to see a certificate warning that you can safely click through.</li>
+<li>On the Main tab, click <strong>Local Traffic &gt; Virtual Servers</strong> and you will see the Virtual Servers that have been pre-configured for your lab. Essentially, these are the listening IP’s that receive requests for your application and proxy the requests to the backend “real” servers.</li>
+</ol>
+<div class="line-block">
+<div class="line">You will see 3 Virtual Servers:</div>
+</div>
+<a class="reference internal image-reference" href="../../../_images/virtual_servers.png"><img alt="../../../_images/virtual_servers.png" src="../../../_images/virtual_servers.png" style="width: 600px;" /></a>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<div class="line-block">
+<div class="line">* <strong>juiceshop-test.f5agility.com</strong> - Will be used later to send spoofed traffic to the main site</div>
+<div class="line">* <strong>owasp-juiceshop_443_vs</strong> - Main Site - Status of green indicates a healthy backend pool of real servers</div>
+<div class="line">* <strong>owasp-juiceshop_80_vs</strong> - Standard port 80 redirect to main site</div>
+</div>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<ol class="arabic simple" start="5">
+<li>On the Main tab, click <strong>Security &gt; Network Firewall &gt; IP Intelligence &gt; Policies</strong>.</li>
+</ol>
+<a class="reference internal image-reference" href="../../../_images/ipi.png"><img alt="../../../_images/ipi.png" src="../../../_images/ipi.png" style="width: 600px;" /></a>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Network Firewall IP Intelligence Policies are a layer 3 enforcement capability and part of Advanced WAF. No additional licensing is necessary beyond Advanced WAF with an IPI Subscription.</p>
+</div>
+<ol class="arabic simple" start="6">
+<li>Click on the <strong>Create</strong> button.</li>
+<li>For the name:  <strong>global_ipi</strong></li>
+<li>Under <strong>IP Intelligence Policy Properties</strong> For the <strong>Default Log Action</strong> choose <strong>yes</strong> to <strong>Log Category Matches</strong>.</li>
+<li>Browse to the inline <strong>Help</strong> tab at the top left of the GUI and examine the Default Log Action settings. Inline help is very useful when navigating the myriad of options available within any configuration screen.</li>
+</ol>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Notice in the setting descriptions that hardware acceleration is not available when “logging all matches”. This exercise is to familiarize you with the value of inline help and will not affect our virtual lab.</p>
+</div>
+<ol class="arabic simple" start="10">
+<li>To the right of the screen, click <strong>Add</strong> under the categories section.</li>
+<li>From the category section choose <strong>botnets</strong> and click <strong>Done editing</strong>.</li>
+<li>Repeat this process and add the following additional categories: <strong>phishing</strong>, <strong>scanners</strong>, <strong>spam_sources</strong>, &amp; <strong>denial_of_service</strong>. Outside of this lab, you would want to enable additional categories for protection.</li>
+</ol>
+<a class="reference internal image-reference" href="../../../_images/ipi_global.png"><img alt="../../../_images/ipi_global.png" src="../../../_images/ipi_global.png" style="width: 600px;" /></a>
+<ol class="arabic simple" start="13">
+<li>Commit the Changes to the System.</li>
+<li>Under <strong>Global Policy Assignment &gt; IP Intelligence Policy</strong> click on the dropdown and select the <strong>global_ipi</strong> policy and click <strong>Update</strong>.</li>
+</ol>
+<a class="reference internal image-reference" href="../../../_images/global_policy.png"><img alt="../../../_images/global_policy.png" src="../../../_images/global_policy.png" style="width: 600px;" /></a>
+</div>
+<div class="section" id="setup-logging-for-global-ipi">
+<h2>Setup Logging for Global IPI<a class="headerlink" href="#setup-logging-for-global-ipi" title="Permalink to this heading">¶</a></h2>
+<ol class="arabic simple">
+<li>In the upper left of the GUI under the <strong>Main</strong> tab, navigate to <strong>Security &gt; Event Logs &gt; Logging Profiles</strong> and click on <strong>global-network</strong></li>
+<li>Under the Network Firewall section configure the IP Intelligence publisher to use <strong>local-db-publisher</strong></li>
+<li>Check <strong>Log GEO Events</strong></li>
+<li>Click <strong>Update</strong></li>
+</ol>
+<a class="reference internal image-reference" href="../../../_images/ipi_global_log.png"><img alt="../../../_images/ipi_global_log.png" src="../../../_images/ipi_global_log.png" style="width: 600px;" /></a>
+</div>
+<div class="section" id="test">
+<h2>Test<a class="headerlink" href="#test" title="Permalink to this heading">¶</a></h2>
+<ol class="arabic simple">
+<li>On the Linux Client, open a terminal and <strong>cd</strong> to <strong>Agility2022wafTools</strong></li>
+<li>Run the following command to send some traffic to the site: <strong>./ipi_tester</strong>.</li>
+</ol>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">The script should continue to run for the remainder of Lab 1 &amp; 2. Do NOT stop the script.</p>
+</div>
+<ol class="arabic simple" start="3">
+<li>Navigate to <strong>Security &gt; Event Logs &gt; Network &gt; Ip Intelligence</strong> and review the entries. Notice the Geolocation Data as well as the Black List Class to the right of the log screen.</li>
+</ol>
+<a class="reference internal image-reference" href="../../../_images/global_event.png"><img alt="../../../_images/global_event.png" src="../../../_images/global_event.png" style="width: 600px;" /></a>
+</div>
+<div class="section" id="create-custom-category">
+<h2>Create Custom Category<a class="headerlink" href="#create-custom-category" title="Permalink to this heading">¶</a></h2>
+<ol class="arabic simple">
+<li>Navigate to: <strong>Security &gt; Network Firewall &gt; IP Intelligence &gt; Blacklist Categories</strong> and click <strong>Create</strong>.</li>
+<li>Name: <strong>my_bad_ips</strong> with a match type of <strong>Source</strong></li>
+<li>Click <strong>Finished</strong></li>
+<li>Click the checkbox next to the name <strong>my_bad_ips</strong> and then at the bottom of the GUI, click <strong>Add To Category</strong>.</li>
+</ol>
+<a class="reference internal image-reference" href="../../../_images/add_to_cat.png"><img alt="../../../_images/add_to_cat.png" src="../../../_images/add_to_cat.png" style="width: 600px;" /></a>
+<ol class="arabic simple" start="5">
+<li>Enter the ip address: <strong>134.119.218.243</strong> or any of the other malicious IP’s showing up in the IP Intelligence logs, and set the seconds to <strong>3600</strong> (1 hour)</li>
+<li>Click <strong>Insert Entry</strong></li>
+</ol>
+<a class="reference internal image-reference" href="../../../_images/add_ip.png"><img alt="../../../_images/add_ip.png" src="../../../_images/add_ip.png" style="width: 600px;" /></a>
+<ol class="arabic simple" start="7">
+<li>Navigate to <strong>Security &gt; Network Firewall &gt; IP Intelligence &gt; Policies</strong> and click <strong>global_ipi</strong></li>
+<li>Under <strong>Categories</strong> click <strong>Add</strong> and select your new custom category <strong>my_bad_ips</strong> from the drop-down. Click <strong>Done Editing</strong> and <strong>Commit Changes to System</strong>.</li>
+</ol>
+<a class="reference internal image-reference" href="../../../_images/my_bad_ips.png"><img alt="../../../_images/my_bad_ips.png" src="../../../_images/my_bad_ips.png" style="width: 600px;" /></a>
+<ol class="arabic simple" start="9">
+<li>Navigate back to <strong>Security &gt; Event Logs &gt; Network &gt; Ip Intelligence</strong> and review the entries under the column <strong>Black List Class</strong>. You will see entries for your custom category <strong>my_bad_ips</strong>.</li>
+</ol>
+<a class="reference internal image-reference" href="../../../_images/my_bad_ips_log.png"><img alt="../../../_images/my_bad_ips_log.png" src="../../../_images/my_bad_ips_log.png" style="width: 600px;" /></a>
+<p><strong>This concludes the Layer 3 IPI policy lab section.</strong></p>
+<div class="line-block">
+<div class="line"><strong>To recap, you have just configured a Global IP Intelligence policy and added a custom category.</strong></div>
+<div class="line"><strong>This policy is inspecting Layer 3 only and is a best-practice first step to securing your Application traffic.</strong></div>
+</div>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<div class="line-block">
+<div class="line"><strong>We will now configure a Layer 7 WAF policy to inspect the X-Forwarded-For HTTP Header.</strong></div>
+</div>
+</div>
+<div class="section" id="create-your-first-waf-policy">
+<h2>Create your first WAF Policy<a class="headerlink" href="#create-your-first-waf-policy" title="Permalink to this heading">¶</a></h2>
+<ol class="arabic simple">
+<li>Navigate to <strong>Security &gt; Application Security &gt; Security Policies</strong> and click the Plus (+) button.</li>
+<li>Name the policy: <strong>juiceshop_waf</strong></li>
+<li>Select Policy Template: <strong>Rapid Deployment Policy</strong> (accept the popup)</li>
+<li>Select Virtual Server: <strong>owasp-juiceshop_443_vs</strong></li>
+<li>Logging Profiles: <strong>Log all requests</strong></li>
+<li>Notice that the Enforcement Mode is already in <strong>Transparent Mode</strong> and Signature Staging is <strong>Enabled</strong></li>
+<li>Click <strong>Save</strong>.</li>
+</ol>
+<a class="reference internal image-reference" href="../../../_images/waf_policy.png"><img alt="../../../_images/waf_policy.png" src="../../../_images/waf_policy.png" style="width: 600px;" /></a>
+</div>
+<div class="section" id="configure-l7-ipi">
+<h2>Configure L7 IPI<a class="headerlink" href="#configure-l7-ipi" title="Permalink to this heading">¶</a></h2>
+<ol class="arabic simple">
+<li>Navigate to <strong>Security &gt; Application Security &gt; Policy Building &gt; Learning and Blocking Settings</strong> and expand the <strong>IP Addresses and Geolocations</strong> section.</li>
+</ol>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">These are the settings that govern what happens when a violation occurs such as <strong>Alarm</strong> and <strong>Block</strong>. We will cover these concepts later in the lab but for now the policy is still transparent so the blocking setting has no effect.</p>
+</div>
+<a class="reference internal image-reference" href="../../../_images/ipi_waf.png"><img alt="../../../_images/ipi_waf.png" src="../../../_images/ipi_waf.png" style="width: 600px;" /></a>
+<ol class="arabic simple" start="2">
+<li>Navigate to <strong>Security &gt; Application Security &gt; Security Policies</strong>. Select the <strong>juiceshop_waf</strong> policy from the policy list. Click <strong>IP Intelligence</strong> on the middle pane. In the <strong>IP Intelligence</strong> screen click on the <strong>OFF</strong> slider to enable IP Intelligence</li>
+</ol>
+<a class="reference internal image-reference" href="../../../_images/enable_ipi.png"><img alt="../../../_images/enable_ipi.png" src="../../../_images/enable_ipi.png" style="width: 600px;" /></a>
+<ol class="arabic simple" start="3">
+<li>Notice at the top left drop-down that you are working within the juiceshop_waf policy context. Enable <strong>Alarm</strong> and <strong>Block</strong> for each category.</li>
+</ol>
+<a class="reference internal image-reference" href="../../../_images/waf_ipi.png"><img alt="../../../_images/waf_ipi.png" src="../../../_images/waf_ipi.png" style="width: 600px;" /></a>
+<ol class="arabic simple" start="4">
+<li>Click <strong>Save</strong> and <strong>Apply Policy</strong>. You will get an “Are you sure” popup that you can banish by clicking <strong>Do not ask for this confirmation again</strong>.</li>
+</ol>
+<a class="reference internal image-reference" href="../../../_images/annoy.png"><img alt="../../../_images/annoy.png" src="../../../_images/annoy.png" style="width: 600px;" /></a>
+<ol class="arabic simple" start="5">
+<li>Enable XFF inspection in the WAF policy by going to <strong>Security &gt; Application Security &gt; Security Policies &gt; Policies List &gt;</strong> and click on <strong>juiceshop_waf</strong> policy.</li>
+<li>Finally, scroll down under <strong>General Settings</strong> and click <strong>Enabled</strong> under <strong>Trust XFF Header</strong>.</li>
+<li>Click <strong>Save</strong> and <strong>Apply Policy</strong></li>
+</ol>
+</div>
+<div class="section" id="test-xff-inspection">
+<h2>Test XFF Inspection<a class="headerlink" href="#test-xff-inspection" title="Permalink to this heading">¶</a></h2>
+<p>1. Open a new terminal or terminal tab on the Client (the ipi_tester script should still be running) and run the following command to insert a malicious IP into the XFF Header:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">curl</span> <span class="o">-</span><span class="n">H</span> <span class="s2">&quot;X-Forwarded-For: 134.119.218.243&quot;</span> <span class="o">-</span><span class="n">k</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">juiceshop</span><span class="o">.</span><span class="n">f5agility</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">xff</span><span class="o">-</span><span class="n">test</span>
+</pre></div>
+</div>
+<div class="line-block">
+<div class="line">If that IP has rotated out of the malicious DB, you can try one of these alternates:</div>
+</div>
+<ul class="simple">
+<li>80.191.169.66 - Spam Source</li>
+<li>85.185.152.146 - Spam Source</li>
+<li>220.169.127.172 - Scanner</li>
+<li>222.74.73.202 - Scanner</li>
+<li>62.149.29.36 - Spam Source</li>
+<li>82.200.247.241 - Phishing</li>
+<li>134.119.219.93 - Spam Source</li>
+<li>218.17.228.102 - Spam Source</li>
+<li>220.169.127.172 - Scanner</li>
+</ul>
+<ol class="arabic simple" start="2">
+<li>Navigate to <strong>Security &gt; Event Logs &gt; Application &gt; Requests</strong> and review the entries. You should see a Sev3 Alert for the attempted access to uri: <strong>/xff-test</strong> from a malicious IP.</li>
+</ol>
+<a class="reference internal image-reference" href="../../../_images/events.png"><img alt="../../../_images/events.png" src="../../../_images/events.png" style="width: 600px;" /></a>
+<ol class="arabic simple" start="3">
+<li>In the violation details you can see the entire request details including the XFF Header even though this site was using strong TLS for encryption.</li>
+</ol>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Attackers often use proxies to add in source IP randomness. Headers such as XFF are used to track the original source IP so the packets can be returned. In this example the HTTP request was sent from a malicious IP but through a proxy that was not known to be malicious. The request passed right through our Global Layer 3 IPI policy but was picked up at Layer 7 due to the WAF’s capabilities. This demonstrates the importance of implementing security in layers.</p>
+</div>
+<p><strong>This completes Exercise 1.1</strong></p>
+</div>
+</div>
+
+
+     </div>
+    
+     <div class="row next-prev-btn-row">
+       <div class="col-lg-12">
+       
+        <a href="../module1.html" title="Module 1: IPI &amp; Geolocation" accesskey="p" class="btn btn-primary left"><i class="fa fa-arrow-circle-left" aria-hidden="true"></i> Previous</a>
+       
+       
+          <a href="../lab2-geo/lab2.html" title="Exercise 1.2: Add a Geolocation Policy" accesskey="n" class="btn btn-primary right">Next <i class="fa fa-arrow-circle-right" aria-hidden="true"></i></a>
+       
+     </div>
+     </div>
+    
+
+    </article>
+  </div>
+
+</div>
+
+
+  <div id="clouddocs-footer"></div>
+  <!-- Bootstrap core JavaScript
+  ================================================== -->
+  <!-- Placed at the end of the document so the pages load faster -->
+
+  <script src="../../../_static/js/index.js"></script>
+  <script src="../../../_static/js/jquery.appear.js"></script>
+  <script src="../../../_static/js/printThis.js"></script>
+  <script src="../../../_static/js/bootstrap.min.js"></script>
+  <script src="../../../_static/js/clouddocs.js"></script>
+  <script src="../../../_static/js/CoveoJsSearch.Lazy.min.js"></script>
+  </body>
+</html>

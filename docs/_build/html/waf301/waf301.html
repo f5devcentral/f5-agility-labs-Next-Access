@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<head>
+  
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-PPZPQ6');</script>
+  <!-- End Google Tag Manager -->
+    <title>WAF 301 - AWAF in a CI/CD Pipeline (Self Guided)</title>
+  
+
+  <meta charset="utf-8">
+  <!-- Twitter Bootstrap viewport setting -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <!-- F5 metadata -->
+  <meta name="title" content="WAF 301 - AWAF in a CI/CD Pipeline (Self Guided)"/>
+  <meta name="product" content="F5 Web Application Firewall Solutions"/>
+  <meta name="version" content=""/>
+  <meta name="updated_date"  content="2023-05-04 07:11:03"/>
+  <meta name="archived" content="Archived documents excluded"/>
+  <meta name="doc_type" content="Manual"/>
+  <meta name="lifecycle" content="release"/>
+  <meta name="F5 Web Application Firewall Solutions" content=""/>
+
+
+  
+
+  
+  <link href="https://cdn.f5.com/favicon.ico" rel="icon">
+
+</head>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>WAF 301 - AWAF in a CI/CD Pipeline (Self Guided) &#8212; F5 Web Application Firewall Solutions  documentation</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/graphviz.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" href="../_static/css/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/css/f5.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/css/f5-theme.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/css/CoveoFullSearch.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/css/custom.css" type="text/css" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/21fb8a09c3.css" type="text/css" />
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/jquery.mark.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Lab Environment &amp; Topology" href="labinfo/labinfo.html" />
+    <link rel="prev" title="Lab 2 - Elevated Bot Defense" href="../waf2023/module5/lab2.html" /> 
+  </head><body>
+  <div id="clouddocs-header"></div>
+
+    <div id="sidebar" class="section-nav">
+      
+      <!--  version selector ------------------>
+      <div id="version_selector_wrapper">
+      </div>
+      <nav class="nav-sidebartoc">
+
+        
+         <h5>F5 Web Application Firewall Solutions  </h5>
+        
+
+        <hr>
+        <span class="nav-sidebartoc">
+            <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../waf102/waf102.html">WAF 102 - Getting started with WAF, Bot Detection and Threat Campaigns</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../waf111/waf111.html">WAF 111 - Protecting Yourself Against the OWASP Top 10</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../waf201/waf201.html">WAF 201 – Elevated WAF Security</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../waf2023/waf2023.html">WAF 101 - BIG-IP Security:  Mitigating App Vulnerabilities with AWAF</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">WAF 301 - AWAF in a CI/CD Pipeline (Self Guided)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#intro">Intro</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#two-main-features-that-make-awaf-to-devsecops-integration-frictionless">Two main features that make AWAF to DevSecOps integration frictionless</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#awaf-policy-overview">AWAF policy overview</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#policy-structure">Policy structure</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#chatops">ChatOps</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#lab-structure">Lab structure</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="labinfo/labinfo.html">Lab Environment &amp; Topology</a></li>
+<li class="toctree-l3"><a class="reference internal" href="module1/module1.html">Module 1: AWAF Policy Template Creation on BIG-IP (secops engineer)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="module2/module2.html">Module 2: Policy testing - Intro to f5 WAF Tester (secops engineer)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="module3/module3.html">Module 3: Pipeline integration (SRE)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../waf302/waf302.html">WAF 302 - Enabling API Protection with APM and AWAF</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../waf341/waf341.html">WAF 341 – Advanced Protection and Positive Security (Self Guided)</a></li>
+</ul>
+
+        </span><!-- Use this file to add extra links to the bottom of the ToC sidebar -->
+<hr>
+  <span class="nav-sidebartoc">
+ <!-- insert content here -->
+  </span>
+      </nav>
+    </div>
+
+
+    <div id="right-sidebar">
+      <h7 style="font-weight:normal">On this page:</h7>
+      <nav class="nav-sidebartoc">
+        <span class="nav-sidebartoc">
+            <ul>
+<li><a class="reference internal" href="#">WAF 301 - AWAF in a CI/CD Pipeline (Self Guided)</a><ul>
+<li><a class="reference internal" href="#intro">Intro</a><ul>
+<li><a class="reference internal" href="#two-main-features-that-make-awaf-to-devsecops-integration-frictionless">Two main features that make AWAF to DevSecOps integration frictionless</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#awaf-policy-overview">AWAF policy overview</a><ul>
+<li><a class="reference internal" href="#policy-structure">Policy structure</a><ul>
+<li><a class="reference internal" href="#baseline">Baseline</a></li>
+<li><a class="reference internal" href="#adjustments">Adjustments</a></li>
+<li><a class="reference internal" href="#modifications">Modifications</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#chatops">ChatOps</a></li>
+<li><a class="reference internal" href="#lab-structure">Lab structure</a></li>
+</ul>
+</li>
+</ul>
+
+         </span>
+      </nav>
+    </div>
+
+
+
+
+
+  
+  <div class="main active" id="content" >
+    <article class="docs-container site-article-inner">
+              <!-- custom breadcrumb -->
+        <h5>
+            <a href="../index.html">F5 Web Application Firewall Solutions</a>
+
+          <span class="right">
+             <a href="../_sources/waf301/waf301.rst.txt" rel="nofollow">Source</a> |
+             <a href="https://github.com/f5devcentral/f5-agility-labs-waf">Edit on <i class="fa fa-github" aria-hidden="true"></i></a>
+          </span>
+        </h5>
+        <!-- end custom breadcrumb -->
+      
+
+
+    <!--a title="Export PDF" id="export-pdf" class="btn btn btn-link pull-right">View PDF</a-->
+    <button type="button" id="export-pdf" class="btn btn-link right">PDF</button>
+
+
+    
+     
+         <div class="sidebar" id="version-warning" style="display: none;">
+           <p class="first sidebar-title">
+           <span class="icon fa fa-info-circle fa-lg"></span> Version notice:</p>
+           <p class="last" id="currentVersion"></p>
+          </div>
+
+
+     <div role="main">
+        
+  <div class="section" id="waf-301-awaf-in-a-ci-cd-pipeline-self-guided">
+<h1>WAF 301 - AWAF in a CI/CD Pipeline (Self Guided)<a class="headerlink" href="#waf-301-awaf-in-a-ci-cd-pipeline-self-guided" title="Permalink to this heading">¶</a></h1>
+<div class="section" id="intro">
+<h2>Intro<a class="headerlink" href="#intro" title="Permalink to this heading">¶</a></h2>
+<p>Welcome to F5’s Agility Labs, 2023 edition! This class will focus on how to integrate F5 AWAF into a CI/CD pipeline.</p>
+<p>By the end of this lab you should be able to:</p>
+<ol class="arabic simple">
+<li>Create an AWAF template</li>
+<li>Properly test the template</li>
+<li>Enable SRE’s to deploy applications using your template</li>
+<li>Enable SRE’s to make custom changes to the WAF policy</li>
+</ol>
+<p>In order to successfully complete the lab you should have a basic understanding of some of the DevOps methodologies and tools,</p>
+<p><strong>Source Control Management (SCM)</strong>
+(or version control) is the practice of tracking and managing changes to code. Source control management (SCM) systems provide a running history of code development and help to resolve conflicts when merging contributions from multiple sources.</p>
+<p><strong>Infrastructure as Code (IaC)</strong>
+is a set of configurations, policies, and profiles considered to be a “deployment artifacts” and can be treated just like code. That means they can be stored and managed in repositories, versioned, and reviewed. They can be pulled, cloned, and committed in the same way a developer pulls, clones, and commits code to and from a repository (like Github).</p>
+<p><strong>Continuos Integration/Continuos Deployment (CI/CD)</strong>
+works by pushing small code chunks to your application’s code base hosted in a Git repository, and, to every push, run a pipeline of scripts to build, test, and validate the code changes before merging them into the main branch.
+Continuous Delivery and Deployment consist of a step further CI, deploying your application to production at every push to the default branch of the repository.
+These methodologies allow you to catch bugs and errors early in the development cycle, ensuring that all the code deployed to production complies with the code standards you established for your app.</p>
+<div class="section" id="two-main-features-that-make-awaf-to-devsecops-integration-frictionless">
+<h3>Two main features that make AWAF to DevSecOps integration frictionless<a class="headerlink" href="#two-main-features-that-make-awaf-to-devsecops-integration-frictionless" title="Permalink to this heading">¶</a></h3>
+<ul class="simple">
+<li>Declarative AWAF policy expressed as a YAML or JSON blob</li>
+<li>Outgoing webhooks for Slack and MS Teams</li>
+</ul>
+<p>Declarative AWAF policy YAML/JSON file can be used in place of a legacy XML policy (XML policy is still supported) and can be easily applied to an app following the same pipeline of the DevOps toolchain. Policy can be kept in SCM alongside with app source code, and be used by CI server in a traditional DevOps deployment model. Since JSON and YAML are trivially mapped (and JSON can be converted to YAML and vice versa), AWAF supports both file types.
+For the purpose of this lab our WAF policy is expressed as a JSON blob.</p>
+</div>
+</div>
+<div class="section" id="awaf-policy-overview">
+<h2>AWAF policy overview<a class="headerlink" href="#awaf-policy-overview" title="Permalink to this heading">¶</a></h2>
+<div class="section" id="policy-structure">
+<h3>Policy structure<a class="headerlink" href="#policy-structure" title="Permalink to this heading">¶</a></h3>
+<p>AWAF policy consists of 3 parts:</p>
+<ul class="simple">
+<li>Baseline policy</li>
+<li>Adjustments</li>
+<li>Modifications</li>
+</ul>
+<div class="section" id="baseline">
+<h4>Baseline<a class="headerlink" href="#baseline" title="Permalink to this heading">¶</a></h4>
+<p><strong>Baseline</strong> policy part defines basic parameters - name, description and a template used for this policy</p>
+<img alt="../_images/baseline.png" src="../_images/baseline.png" />
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">In the future it will be possible to reference an externally hosted policy</p>
+</div>
+</div>
+<div class="section" id="adjustments">
+<h4>Adjustments<a class="headerlink" href="#adjustments" title="Permalink to this heading">¶</a></h4>
+<p><strong>Adjustments</strong> part defines overrides and/or additions to the baseline policy. This include any blocking settings overrides, signature settings and outgoing webhooks</p>
+<img alt="../_images/adjustments.png" src="../_images/adjustments.png" />
+</div>
+<div class="section" id="modifications">
+<h4>Modifications<a class="headerlink" href="#modifications" title="Permalink to this heading">¶</a></h4>
+<p><strong>Modifications</strong> policy part defines individual actions that modify the policy based on AWAF learning or other actions like DAST resolutions</p>
+<img alt="../_images/modifications.png" src="../_images/modifications.png" />
+</div>
+</div>
+</div>
+<div class="section" id="chatops">
+<h2>ChatOps<a class="headerlink" href="#chatops" title="Permalink to this heading">¶</a></h2>
+<p>New feature in 15.1 and above allows AWAF to use outgoing webhooks to send notifications to a Slack or MS Teams channels. This makes a great addition to a commonly-used “ChatOps” method where Devs, DevOps and DevSecOps monitor a particular channel for any notifications raised by SCM, WAF, Ci server etc.
+Webhooks are defined explicitly inside the AWAF policy and can be triggered by a number of different events. Notification messages are configurable and may contain various useful information about the event. AS it applies to AWAF, notification message can be sent when the policy has been applied, or a security event has been observed:</p>
+<p><strong>Webhooks are not used in this lab</strong></p>
+</div>
+<div class="section" id="lab-structure">
+<h2>Lab structure<a class="headerlink" href="#lab-structure" title="Permalink to this heading">¶</a></h2>
+<p>During this lab you will work with GitLab CE and utilize SCM and CI/CD pipelines to build, test and deploy ‘Arcadia’ App into a Docker host fronted by BIG-IP AWAF.</p>
+<p>You use AWAF suggestions for trusted traffic to modify WAF policy and re-deploy the app all the way to Production.</p>
+<div class="toctree-wrapper compound">
+<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="labinfo/labinfo.html">Lab Environment &amp; Topology</a></li>
+<li class="toctree-l1"><a class="reference internal" href="module1/module1.html">Module 1: AWAF Policy Template Creation on BIG-IP (secops engineer)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="module2/module2.html">Module 2: Policy testing - Intro to f5 WAF Tester (secops engineer)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="module3/module3.html">Module 3: Pipeline integration (SRE)</a></li>
+</ul>
+</div>
+</div>
+</div>
+
+
+     </div>
+    
+     <div class="row next-prev-btn-row">
+       <div class="col-lg-12">
+       
+        <a href="../waf2023/module5/lab2.html" title="Lab 2 - Elevated Bot Defense" accesskey="p" class="btn btn-primary left"><i class="fa fa-arrow-circle-left" aria-hidden="true"></i> Previous</a>
+       
+       
+          <a href="labinfo/labinfo.html" title="Lab Environment &amp; Topology" accesskey="n" class="btn btn-primary right">Next <i class="fa fa-arrow-circle-right" aria-hidden="true"></i></a>
+       
+     </div>
+     </div>
+    
+
+    </article>
+  </div>
+
+</div>
+
+
+  <div id="clouddocs-footer"></div>
+  <!-- Bootstrap core JavaScript
+  ================================================== -->
+  <!-- Placed at the end of the document so the pages load faster -->
+
+  <script src="../_static/js/index.js"></script>
+  <script src="../_static/js/jquery.appear.js"></script>
+  <script src="../_static/js/printThis.js"></script>
+  <script src="../_static/js/bootstrap.min.js"></script>
+  <script src="../_static/js/clouddocs.js"></script>
+  <script src="../_static/js/CoveoJsSearch.Lazy.min.js"></script>
+  </body>
+</html>

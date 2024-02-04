@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<head>
+  
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-PPZPQ6');</script>
+  <!-- End Google Tag Manager -->
+    <title>Lab Environment &amp; Topology</title>
+  
+
+  <meta charset="utf-8">
+  <!-- Twitter Bootstrap viewport setting -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <!-- F5 metadata -->
+  <meta name="title" content="Lab Environment &amp; Topology"/>
+  <meta name="product" content="F5 Web Application Firewall Solutions"/>
+  <meta name="version" content=""/>
+  <meta name="updated_date"  content="2023-05-04 07:11:03"/>
+  <meta name="archived" content="Archived documents excluded"/>
+  <meta name="doc_type" content="Manual"/>
+  <meta name="lifecycle" content="release"/>
+  <meta name="F5 Web Application Firewall Solutions" content=""/>
+
+
+  
+
+  
+  <link href="https://cdn.f5.com/favicon.ico" rel="icon">
+
+</head>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lab Environment &amp; Topology &#8212; F5 Web Application Firewall Solutions  documentation</title>
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/graphviz.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" href="../../_static/css/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/css/f5.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/css/f5-theme.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/css/CoveoFullSearch.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/css/custom.css" type="text/css" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/21fb8a09c3.css" type="text/css" />
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/sphinx_highlight.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/jquery.mark.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Module 1: AWAF Policy Template Creation on BIG-IP (secops engineer)" href="../module1/module1.html" />
+    <link rel="prev" title="WAF 301 - AWAF in a CI/CD Pipeline (Self Guided)" href="../waf301.html" /> 
+  </head><body>
+  <div id="clouddocs-header"></div>
+
+    <div id="sidebar" class="section-nav">
+      
+      <!--  version selector ------------------>
+      <div id="version_selector_wrapper">
+      </div>
+      <nav class="nav-sidebartoc">
+
+        
+         <h5>F5 Web Application Firewall Solutions  </h5>
+        
+
+        <hr>
+        <span class="nav-sidebartoc">
+            <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../waf102/waf102.html">WAF 102 - Getting started with WAF, Bot Detection and Threat Campaigns</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../waf111/waf111.html">WAF 111 - Protecting Yourself Against the OWASP Top 10</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../waf201/waf201.html">WAF 201 – Elevated WAF Security</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../waf2023/waf2023.html">WAF 101 - BIG-IP Security:  Mitigating App Vulnerabilities with AWAF</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../waf301.html">WAF 301 - AWAF in a CI/CD Pipeline (Self Guided)</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../waf301.html#intro">Intro</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../waf301.html#awaf-policy-overview">AWAF policy overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../waf301.html#chatops">ChatOps</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../waf301.html#lab-structure">Lab structure</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Lab Environment &amp; Topology</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../module1/module1.html">Module 1: AWAF Policy Template Creation on BIG-IP (secops engineer)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../module2/module2.html">Module 2: Policy testing - Intro to f5 WAF Tester (secops engineer)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../module3/module3.html">Module 3: Pipeline integration (SRE)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../waf302/waf302.html">WAF 302 - Enabling API Protection with APM and AWAF</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../waf341/waf341.html">WAF 341 – Advanced Protection and Positive Security (Self Guided)</a></li>
+</ul>
+
+        </span><!-- Use this file to add extra links to the bottom of the ToC sidebar -->
+<hr>
+  <span class="nav-sidebartoc">
+ <!-- insert content here -->
+  </span>
+      </nav>
+    </div>
+
+
+    <div id="right-sidebar">
+      <h7 style="font-weight:normal">On this page:</h7>
+      <nav class="nav-sidebartoc">
+        <span class="nav-sidebartoc">
+            <ul>
+<li><a class="reference internal" href="#">Lab Environment &amp; Topology</a><ul>
+<li><a class="reference internal" href="#environment">Environment</a></li>
+<li><a class="reference internal" href="#lab-topology">Lab Topology</a></li>
+</ul>
+</li>
+</ul>
+
+         </span>
+      </nav>
+    </div>
+
+
+
+
+
+  
+  <div class="main active" id="content" >
+    <article class="docs-container site-article-inner">
+              <!-- custom breadcrumb -->
+        <h5>
+            <a href="../../index.html">F5 Web Application Firewall Solutions</a>
+              &gt; <a href="../waf301.html">WAF 301 - AWAF in a CI/CD Pipeline (Self Guided)</a>
+
+          <span class="right">
+             <a href="../../_sources/waf301/labinfo/labinfo.rst.txt" rel="nofollow">Source</a> |
+             <a href="https://github.com/f5devcentral/f5-agility-labs-waf">Edit on <i class="fa fa-github" aria-hidden="true"></i></a>
+          </span>
+        </h5>
+        <!-- end custom breadcrumb -->
+      
+
+
+    <!--a title="Export PDF" id="export-pdf" class="btn btn btn-link pull-right">View PDF</a-->
+    <button type="button" id="export-pdf" class="btn btn-link right">PDF</button>
+
+
+    
+     
+         <div class="sidebar" id="version-warning" style="display: none;">
+           <p class="first sidebar-title">
+           <span class="icon fa fa-info-circle fa-lg"></span> Version notice:</p>
+           <p class="last" id="currentVersion"></p>
+          </div>
+
+
+     <div role="main">
+        
+  <div class="section" id="lab-environment-topology">
+<h1>Lab Environment &amp; Topology<a class="headerlink" href="#lab-environment-topology" title="Permalink to this heading">¶</a></h1>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">All work is done from the Linux client/jumphost (client01), which can
+be accessed via RDP (Windows Remote Desktop) or ssh. No installation or
+interaction with your local system is required.</p>
+</div>
+<div class="section" id="environment">
+<h2>Environment<a class="headerlink" href="#environment" title="Permalink to this heading">¶</a></h2>
+<p><strong>Linux client (client01):</strong></p>
+<p><strong>Web Attack Tools used in this lab:</strong></p>
+<ul class="simple">
+<li><a class="reference external" href="https://portswigger.net/burp/">BURP Community Edition</a> - Packet Crafting</li>
+<li><a class="reference external" href="https://curl.haxx.se/">curl</a> - command line webclient. Very useful for debugging and request crafting</li>
+</ul>
+<p><strong>Linux server (server01):</strong></p>
+<ul class="simple">
+<li><a class="reference external" href="https://github.com/WebGoat/WebGoat/wiki">WebGoat 8</a> - WebGoat is a deliberately insecure web application maintained by OWASP designed to teach web application security lessons. The primary goal of the WebGoat project is simple: create a de-facto interactive teaching environment for web application security.</li>
+</ul>
+</div>
+<div class="section" id="lab-topology">
+<h2>Lab Topology<a class="headerlink" href="#lab-topology" title="Permalink to this heading">¶</a></h2>
+<p>The network topology implemented for this lab is very simple, since the
+focus of the lab is Control Plane programmability rather than Data Plane
+traffic flow we can keep the data plane fairly simple. The following
+components have been included in your lab environment:</p>
+<ul class="simple">
+<li>1 x Ubuntu Linux 18.04 client, with client tools installed - aptly named: client01</li>
+<li>1 x F5 BIG-IP VE (v16.1.2.2) running ASM and LTM - aptly named: bigip01</li>
+<li>1 x Ubuntu Linux 18.04 server, with webgoat 8 installed - aptly named: server01</li>
+</ul>
+<div><span id="lab-topology-diagram"></span><svg height="385.32544378698225" viewBox="0 0 1014 444" width="880.0000000000001" xmlns="http://www.w3.org/2000/svg" xmlns:inkspace="http://www.inkscape.org/namespaces/inkscape" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <defs id="defs_block">
+    <filter height="1.504" id="filter_blur" inkspace:collect="always" width="1.1575" x="-0.07875" y="-0.252">
+      <feGaussianBlur id="feGaussianBlur3780" inkspace:collect="always" stdDeviation="4.2" />
+    </filter>
+  </defs>
+  <title>blockdiag</title>
+  <desc />
+  <rect fill="rgb(230,102,117)" height="92" style="filter:url(#filter_blur)" width="289" x="161" y="130" />
+  <rect fill="rgb(95,165,204)" height="92" style="filter:url(#filter_blur)" width="120" x="499" y="130" />
+  <rect fill="rgb(108,219,122)" height="92" style="filter:url(#filter_blur)" width="289" x="668" y="130" />
+  <rect fill="rgb(0,0,0)" height="40" stroke="rgb(0,0,0)" style="filter:url(#filter_blur);opacity:0.7;fill-opacity:1" width="104" x="172" y="162" />
+  <rect fill="rgb(0,0,0)" height="40" stroke="rgb(0,0,0)" style="filter:url(#filter_blur);opacity:0.7;fill-opacity:1" width="104" x="341" y="162" />
+  <rect fill="rgb(0,0,0)" height="40" stroke="rgb(0,0,0)" style="filter:url(#filter_blur);opacity:0.7;fill-opacity:1" width="104" x="510" y="162" />
+  <rect fill="rgb(0,0,0)" height="40" stroke="rgb(0,0,0)" style="filter:url(#filter_blur);opacity:0.7;fill-opacity:1" width="104" x="679" y="162" />
+  <rect fill="rgb(0,0,0)" height="40" stroke="rgb(0,0,0)" style="filter:url(#filter_blur);opacity:0.7;fill-opacity:1" width="104" x="848" y="162" />
+  <path d="M 140 103 L 984 103 A2,4 0 0 1 984 111 L 140 111 A2,4 0 0 1 140 103" fill="rgb(0,0,0)" style="filter:url(#filter_blur)" />
+  <path d="M 140 247 L 984 247 A2,4 0 0 1 984 255 L 140 255 A2,4 0 0 1 140 247" fill="rgb(0,0,0)" style="filter:url(#filter_blur)" />
+  <path d="M 140 391 L 984 391 A2,4 0 0 1 984 399 L 140 399 A2,4 0 0 1 140 391" fill="rgb(0,0,0)" style="filter:url(#filter_blur)" />
+  <path d="M 137 100 L 981 100 A2,4 0 0 1 981 108 L 137 108 A2,4 0 0 1 137 100" fill="rgb(185,203,228)" stroke="rgb(0,0,0)" />
+  <path d="M 981 108 A2,4 0 0 1 981 100" fill="none" stroke="rgb(0,0,0)" />
+  <path d="M 137 100 L 981 100" fill="none" stroke="none" />
+  <path d="M 559 35 L 559 100" fill="none" stroke="rgb(0,0,0)" />
+  <path d="M 137 244 L 981 244 A2,4 0 0 1 981 252 L 137 252 A2,4 0 0 1 137 244" fill="rgb(185,203,228)" stroke="rgb(0,0,0)" />
+  <path d="M 981 252 A2,4 0 0 1 981 244" fill="none" stroke="rgb(0,0,0)" />
+  <path d="M 137 244 L 981 244" fill="none" stroke="none" />
+  <path d="M 137 388 L 981 388 A2,4 0 0 1 981 396 L 137 396 A2,4 0 0 1 137 388" fill="rgb(185,203,228)" stroke="rgb(0,0,0)" />
+  <path d="M 981 396 A2,4 0 0 1 981 388" fill="none" stroke="rgb(0,0,0)" />
+  <path d="M 137 388 L 981 388" fill="none" stroke="none" />
+  <text fill="rgb(0,0,0)" font-family="sans-serif" font-size="12" font-style="normal" font-weight="normal" text-anchor="middle" textLength="66" x="96.0" y="103">Management</text>
+  <text fill="rgb(0,0,0)" font-family="sans-serif" font-size="12" font-style="normal" font-weight="normal" text-anchor="middle" textLength="73" x="92.5" y="117">10.1.1.0/24</text>
+  <text fill="rgb(0,0,0)" font-family="sans-serif" font-size="12" font-style="normal" font-weight="normal" text-anchor="middle" textLength="53" x="102.5" y="247">Internal</text>
+  <text fill="rgb(0,0,0)" font-family="sans-serif" font-size="12" font-style="normal" font-weight="normal" text-anchor="middle" textLength="80" x="89.0" y="261">10.1.10.0/24</text>
+  <text fill="rgb(0,0,0)" font-family="sans-serif" font-size="12" font-style="normal" font-weight="normal" text-anchor="middle" textLength="53" x="102.5" y="391">External</text>
+  <text fill="rgb(0,0,0)" font-family="sans-serif" font-size="12" font-style="normal" font-weight="normal" text-anchor="middle" textLength="80" x="89.0" y="405">10.1.20.0/24</text>
+  <path d="M 221 108 L 221 156" fill="none" stroke="rgb(0,0,0)" />
+  <text fill="rgb(0,0,0)" font-family="sans-serif" font-size="12" font-style="normal" font-weight="normal" text-anchor="middle" textLength="60" x="263.0" y="136">10.1.1.10</text>
+  <path d="M 229 196 L 229 244" fill="none" stroke="rgb(0,0,0)" />
+  <text fill="rgb(0,0,0)" font-family="sans-serif" font-size="12" font-style="normal" font-weight="normal" text-anchor="middle" textLength="66" x="274.0" y="217">10.1.10.10</text>
+  <text fill="rgb(0,0,0)" font-family="sans-serif" font-size="12" font-style="normal" font-weight="normal" text-anchor="middle" textLength="119" x="300.5" y="231">10.1.10.13 (Float)</text>
+  <path d="M 213 196 L 213 240" fill="none" stroke="rgb(0,0,0)" />
+  <path d="M 213.0 240.0 A8.0,8.0 0 0 1 213.0 256.0" fill="none" stroke="rgb(0,0,0)" />
+  <path d="M 213 256 L 213 388" fill="none" stroke="rgb(0,0,0)" />
+  <text fill="rgb(0,0,0)" font-family="sans-serif" font-size="12" font-style="normal" font-weight="normal" text-anchor="middle" textLength="66" x="258.0" y="361">10.1.20.10</text>
+  <text fill="rgb(0,0,0)" font-family="sans-serif" font-size="12" font-style="normal" font-weight="normal" text-anchor="middle" textLength="146" x="298.0" y="375">10.1.20.120-130 (VIPs)</text>
+  <rect fill="rgb(255,255,255)" height="40" stroke="rgb(0,0,0)" width="104" x="169" y="156" />
+  <text fill="rgb(0,0,0)" font-family="sans-serif" font-size="12" font-style="normal" font-weight="normal" text-anchor="middle" textLength="53" x="221.5" y="182">BIG-IP A</text>
+  <path d="M 390 108 L 390 156" fill="none" stroke="rgb(0,0,0)" />
+  <text fill="rgb(0,0,0)" font-family="sans-serif" font-size="12" font-style="normal" font-weight="normal" text-anchor="middle" textLength="60" x="432.0" y="136">10.1.1.11</text>
+  <path d="M 398 196 L 398 244" fill="none" stroke="rgb(0,0,0)" />
+  <text fill="rgb(0,0,0)" font-family="sans-serif" font-size="12" font-style="normal" font-weight="normal" text-anchor="middle" textLength="66" x="443.0" y="217">10.1.10.11</text>
+  <text fill="rgb(0,0,0)" font-family="sans-serif" font-size="12" font-style="normal" font-weight="normal" text-anchor="middle" textLength="119" x="469.5" y="231">10.1.10.13 (Float)</text>
+  <path d="M 382 196 L 382 240" fill="none" stroke="rgb(0,0,0)" />
+  <path d="M 382.0 240.0 A8.0,8.0 0 0 1 382.0 256.0" fill="none" stroke="rgb(0,0,0)" />
+  <path d="M 382 256 L 382 388" fill="none" stroke="rgb(0,0,0)" />
+  <text fill="rgb(0,0,0)" font-family="sans-serif" font-size="12" font-style="normal" font-weight="normal" text-anchor="middle" textLength="66" x="427.0" y="361">10.1.20.11</text>
+  <text fill="rgb(0,0,0)" font-family="sans-serif" font-size="12" font-style="normal" font-weight="normal" text-anchor="middle" textLength="146" x="467.0" y="375">10.1.20.120-130 (VIPs)</text>
+  <rect fill="rgb(255,255,255)" height="40" stroke="rgb(0,0,0)" width="104" x="338" y="156" />
+  <text fill="rgb(0,0,0)" font-family="sans-serif" font-size="12" font-style="normal" font-weight="normal" text-anchor="middle" textLength="53" x="390.5" y="182">BIG-IP B</text>
+  <path d="M 559 108 L 559 156" fill="none" stroke="rgb(0,0,0)" />
+  <text fill="rgb(0,0,0)" font-family="sans-serif" font-size="12" font-style="normal" font-weight="normal" text-anchor="middle" textLength="60" x="601.0" y="136">10.1.1.15</text>
+  <path d="M 559 196 L 559 244" fill="none" stroke="rgb(0,0,0)" />
+  <text fill="rgb(0,0,0)" font-family="sans-serif" font-size="12" font-style="normal" font-weight="normal" text-anchor="middle" textLength="7" x="574.5" y="217"> </text>
+  <text fill="rgb(0,0,0)" font-family="sans-serif" font-size="12" font-style="normal" font-weight="normal" text-anchor="middle" textLength="100" x="621.0" y="231">10.1.10.100-103</text>
+  <rect fill="rgb(255,255,255)" height="40" stroke="rgb(0,0,0)" width="104" x="507" y="156" />
+  <text fill="rgb(0,0,0)" font-family="sans-serif" font-size="12" font-style="normal" font-weight="normal" text-anchor="middle" textLength="33" x="559.5" y="175">Linux</text>
+  <text fill="rgb(0,0,0)" font-family="sans-serif" font-size="12" font-style="normal" font-weight="normal" text-anchor="middle" textLength="40" x="559.0" y="189">Server</text>
+  <path d="M 728 108 L 728 156" fill="none" stroke="rgb(0,0,0)" />
+  <text fill="rgb(0,0,0)" font-family="sans-serif" font-size="12" font-style="normal" font-weight="normal" text-anchor="middle" textLength="60" x="770.0" y="136">10.1.1.12</text>
+  <rect fill="rgb(255,255,255)" height="40" stroke="rgb(0,0,0)" width="104" x="676" y="156" />
+  <text fill="rgb(0,0,0)" font-family="sans-serif" font-size="12" font-style="normal" font-weight="normal" text-anchor="middle" textLength="60" x="728.0" y="182">iWorkflow</text>
+  <path d="M 897 108 L 897 156" fill="none" stroke="rgb(0,0,0)" />
+  <text fill="rgb(0,0,0)" font-family="sans-serif" font-size="12" font-style="normal" font-weight="normal" text-anchor="middle" textLength="60" x="939.0" y="136">10.1.1.20</text>
+  <path d="M 905 196 L 905 244" fill="none" stroke="rgb(0,0,0)" />
+  <text fill="rgb(0,0,0)" font-family="sans-serif" font-size="12" font-style="normal" font-weight="normal" text-anchor="middle" textLength="66" x="950.0" y="224">10.1.10.20</text>
+  <path d="M 889 196 L 889 240" fill="none" stroke="rgb(0,0,0)" />
+  <path d="M 889.0 240.0 A8.0,8.0 0 0 1 889.0 256.0" fill="none" stroke="rgb(0,0,0)" />
+  <path d="M 889 256 L 889 388" fill="none" stroke="rgb(0,0,0)" />
+  <text fill="rgb(0,0,0)" font-family="sans-serif" font-size="12" font-style="normal" font-weight="normal" text-anchor="middle" textLength="66" x="934.0" y="368">10.1.20.20</text>
+  <rect fill="rgb(255,255,255)" height="40" stroke="rgb(0,0,0)" width="104" x="845" y="156" />
+  <text fill="rgb(0,0,0)" font-family="sans-serif" font-size="12" font-style="normal" font-weight="normal" text-anchor="middle" textLength="33" x="897.5" y="175">Linux</text>
+  <text fill="rgb(0,0,0)" font-family="sans-serif" font-size="12" font-style="normal" font-weight="normal" text-anchor="middle" textLength="53" x="897.5" y="189">Jumphost</text>
+</svg>
+</div>
+<p>The following table lists VLANS, IP Addresses and Credentials for all
+components:</p>
+<table border="1" class="colwidths-given docutils align-default">
+<colgroup>
+<col width="20%" />
+<col width="20%" />
+<col width="20%" />
+<col width="20%" />
+<col width="20%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head"><strong>Component</strong></th>
+<th class="head"><strong>mgmtnet IP</strong></th>
+<th class="head"><strong>clientnet IP</strong></th>
+<th class="head"><strong>servernet IP</strong></th>
+<th class="head"><strong>Credentials</strong></th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>Linux Client (client01)</td>
+<td>10.1.1.51</td>
+<td>10.1.10.51</td>
+<td>N/A</td>
+<td>https-<code class="docutils literal notranslate"><span class="pre">f5student:password</span></code></td>
+</tr>
+<tr class="row-odd"><td>Bigip (bigip01)</td>
+<td>10.1.1.245</td>
+<td>10.1.10.245</td>
+<td>10.1.20.245</td>
+<td>https - <code class="docutils literal notranslate"><span class="pre">admin:f5DEMOs4u!</span></code> ssh - <code class="docutils literal notranslate"><span class="pre">f5student:password</span></code></td>
+</tr>
+<tr class="row-even"><td>Linux Server (server01)</td>
+<td>10.1.1.252</td>
+<td>N/A</td>
+<td>10.1.20.252</td>
+<td>ssh - <code class="docutils literal notranslate"><span class="pre">f5student:f5DEMOs4u!</span></code></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">External links are not required reading for the lab, rather
+supplemental if you you would like to get a different take or
+additional info.</p>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Replace all instances of &lt;bigip&gt; with the management ip of the
+bigip1, 10.1.1.245. The $password referenced in the curl commands is an
+environment variable, there is no need to modify it.</p>
+</div>
+</div>
+</div>
+
+
+     </div>
+    
+     <div class="row next-prev-btn-row">
+       <div class="col-lg-12">
+       
+        <a href="../waf301.html" title="WAF 301 - AWAF in a CI/CD Pipeline (Self Guided)" accesskey="p" class="btn btn-primary left"><i class="fa fa-arrow-circle-left" aria-hidden="true"></i> Previous</a>
+       
+       
+          <a href="../module1/module1.html" title="Module 1: AWAF Policy Template Creation on BIG-IP (secops engineer)" accesskey="n" class="btn btn-primary right">Next <i class="fa fa-arrow-circle-right" aria-hidden="true"></i></a>
+       
+     </div>
+     </div>
+    
+
+    </article>
+  </div>
+
+</div>
+
+
+  <div id="clouddocs-footer"></div>
+  <!-- Bootstrap core JavaScript
+  ================================================== -->
+  <!-- Placed at the end of the document so the pages load faster -->
+
+  <script src="../../_static/js/index.js"></script>
+  <script src="../../_static/js/jquery.appear.js"></script>
+  <script src="../../_static/js/printThis.js"></script>
+  <script src="../../_static/js/bootstrap.min.js"></script>
+  <script src="../../_static/js/clouddocs.js"></script>
+  <script src="../../_static/js/CoveoJsSearch.Lazy.min.js"></script>
+  </body>
+</html>

@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<head>
+  
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-PPZPQ6');</script>
+  <!-- End Google Tag Manager -->
+    <title>Lab 3.1: DataSafe</title>
+  
+
+  <meta charset="utf-8">
+  <!-- Twitter Bootstrap viewport setting -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <!-- F5 metadata -->
+  <meta name="title" content="Lab 3.1: DataSafe"/>
+  <meta name="product" content="F5 Web Application Firewall Solutions"/>
+  <meta name="version" content=""/>
+  <meta name="updated_date"  content="2023-05-04 07:11:03"/>
+  <meta name="archived" content="Archived documents excluded"/>
+  <meta name="doc_type" content="Manual"/>
+  <meta name="lifecycle" content="release"/>
+  <meta name="F5 Web Application Firewall Solutions" content=""/>
+
+
+  
+
+  
+  <link href="https://cdn.f5.com/favicon.ico" rel="icon">
+
+</head>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lab 3.1: DataSafe &#8212; F5 Web Application Firewall Solutions  documentation</title>
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/graphviz.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
+    <link rel="stylesheet" href="../../../_static/css/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/css/f5.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/css/f5-theme.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/css/CoveoFullSearch.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/css/custom.css" type="text/css" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/21fb8a09c3.css" type="text/css" />
+    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/sphinx_highlight.js"></script>
+    <script src="../../../_static/clipboard.min.js"></script>
+    <script src="../../../_static/copybutton.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/jquery.mark.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="Lab 3.2: Protection from Parameter Exploits" href="../lab2/lab2.html" />
+    <link rel="prev" title="Module 3: DataSafe, Parameter Protection" href="../module3.html" /> 
+  </head><body>
+  <div id="clouddocs-header"></div>
+
+    <div id="sidebar" class="section-nav">
+      
+      <!--  version selector ------------------>
+      <div id="version_selector_wrapper">
+      </div>
+      <nav class="nav-sidebartoc">
+
+        
+         <h5>F5 Web Application Firewall Solutions  </h5>
+        
+
+        <hr>
+        <span class="nav-sidebartoc">
+            <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../waf102/waf102.html">WAF 102 - Getting started with WAF, Bot Detection and Threat Campaigns</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../waf111/waf111.html">WAF 111 - Protecting Yourself Against the OWASP Top 10</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../waf201/waf201.html">WAF 201 – Elevated WAF Security</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../waf2023/waf2023.html">WAF 101 - BIG-IP Security:  Mitigating App Vulnerabilities with AWAF</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../waf301/waf301.html">WAF 301 - AWAF in a CI/CD Pipeline (Self Guided)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../waf302/waf302.html">WAF 302 - Enabling API Protection with APM and AWAF</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../waf341.html">WAF 341 – Advanced Protection and Positive Security (Self Guided)</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../labinfo/labinfo.html">Lab Environment &amp; TopologyLab Environment &amp; Topology</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../module1/module1.html">Module 1: Bruteforce Protection, Credential Stuffing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../module2/module2.html">Module 2: HTTP Methods, DataGuard, Sensitive Data</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../module3.html">Module 3: DataSafe, Parameter Protection</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Lab 3.1: DataSafe</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../lab2/lab2.html">Lab 3.2: Protection from Parameter Exploits</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </span><!-- Use this file to add extra links to the bottom of the ToC sidebar -->
+<hr>
+  <span class="nav-sidebartoc">
+ <!-- insert content here -->
+  </span>
+      </nav>
+    </div>
+
+
+    <div id="right-sidebar">
+      <h7 style="font-weight:normal">On this page:</h7>
+      <nav class="nav-sidebartoc">
+        <span class="nav-sidebartoc">
+            <ul>
+<li><a class="reference internal" href="#">Lab 3.1: DataSafe</a><ul>
+<li><a class="reference internal" href="#task-1-login-observation">Task 1 - Login Observation</a></li>
+<li><a class="reference internal" href="#task-2-configuring-datasafe">Task 2 - Configuring DataSafe</a></li>
+<li><a class="reference internal" href="#task-3-test-data-safe-configuration">Task 3 - Test Data Safe Configuration</a></li>
+</ul>
+</li>
+</ul>
+
+         </span>
+      </nav>
+    </div>
+
+
+
+
+
+  
+  <div class="main active" id="content" >
+    <article class="docs-container site-article-inner">
+              <!-- custom breadcrumb -->
+        <h5>
+            <a href="../../../index.html">F5 Web Application Firewall Solutions</a>
+              &gt; <a href="../../waf341.html">WAF 341 – Advanced Protection and Positive Security (Self Guided)</a>
+              &gt; <a href="../module3.html">Module 3: DataSafe, Parameter Protection</a>
+
+          <span class="right">
+             <a href="../../../_sources/waf341/module3/lab1/lab1.rst.txt" rel="nofollow">Source</a> |
+             <a href="https://github.com/f5devcentral/f5-agility-labs-waf">Edit on <i class="fa fa-github" aria-hidden="true"></i></a>
+          </span>
+        </h5>
+        <!-- end custom breadcrumb -->
+      
+
+
+    <!--a title="Export PDF" id="export-pdf" class="btn btn btn-link pull-right">View PDF</a-->
+    <button type="button" id="export-pdf" class="btn btn-link right">PDF</button>
+
+
+    
+     
+         <div class="sidebar" id="version-warning" style="display: none;">
+           <p class="first sidebar-title">
+           <span class="icon fa fa-info-circle fa-lg"></span> Version notice:</p>
+           <p class="last" id="currentVersion"></p>
+          </div>
+
+
+     <div role="main">
+        
+  <div class="section" id="lab-3-1-datasafe">
+<h1>Lab 3.1: DataSafe<a class="headerlink" href="#lab-3-1-datasafe" title="Permalink to this heading">¶</a></h1>
+<p>F5 Advanced WAF includes DataSafe which can protect your web applications from
+credential theft by MITB malware. In this exercise you will configure DataSafe
+to protect the Juiceshop login page from credential theft.</p>
+<div class="section" id="task-1-login-observation">
+<h2>Task 1 - Login Observation<a class="headerlink" href="#task-1-login-observation" title="Permalink to this heading">¶</a></h2>
+<ol class="arabic">
+<li><p class="first">Open a new Firefox Private Browsing window and go to the to Juiceshop login
+page by clicking <strong>account</strong> and then <strong>login</strong> in the upper right hand
+corner of the page</p>
+</li>
+<li><p class="first">Right click in the <strong>email</strong> field and choose <strong>inspect element</strong> (or use
+CTRL + SHIFT + N). Notice the form field is visible and is named <strong>email</strong></p>
+<p><a class="reference internal" href="../../../_images/lab3-00.png"><img alt="lab3-00" src="../../../_images/lab3-00.png" style="width: 800px;" /></a></p>
+<p><a class="reference internal" href="../../../_images/lab3-01.png"><img alt="lab3-01" src="../../../_images/lab3-01.png" style="width: 800px;" /></a></p>
+</li>
+<li><p class="first">Right click in the password field and choose ‘inspect element’. Notice the
+form field is visible and is named ‘password’</p>
+<p><a class="reference internal" href="../../../_images/lab3-02.png"><img alt="lab3-02" src="../../../_images/lab3-02.png" style="width: 800px;" /></a></p>
+</li>
+<li><p class="first">Click in the <strong>Network</strong> tab in the Firefox Inspector</p>
+</li>
+<li><p class="first">Login to the Juiceshop application as <strong>f5student&#64;agility.com</strong></p>
+</li>
+<li><p class="first">In the Firefox Inspector Network tab find the POST request to
+/rest/user/login. Notice the username and password are in clear text in the
+request and are in a JSON format.</p>
+<p><a class="reference internal" href="../../../_images/lab3-03.png"><img alt="lab3-03" src="../../../_images/lab3-03.png" style="width: 1000px;" /></a></p>
+</li>
+</ol>
+</div>
+<div class="section" id="task-2-configuring-datasafe">
+<h2>Task 2 - Configuring DataSafe<a class="headerlink" href="#task-2-configuring-datasafe" title="Permalink to this heading">¶</a></h2>
+<ol class="arabic">
+<li><p class="first">Browse to the BIGIP GUI.</p>
+</li>
+<li><p class="first">Navigate to <strong>Security -&gt; Data Protection -&gt; BIG-IP Data Safe</strong> and click +
+to create a new profile.</p>
+</li>
+<li><p class="first">Name the new Data Safe profile <strong>datasafe-341-profile</strong> .</p>
+<p><a class="reference internal" href="../../../_images/lab3-1.png"><img alt="lab3-1" src="../../../_images/lab3-1.png" style="width: 800px;" /></a></p>
+</li>
+<li><p class="first">Add 2 urls with settings seen below (notice case on url must be all
+lowercase)</p>
+<p><a class="reference internal" href="../../../_images/lab03-02.png"><img alt="Lab03-02" src="../../../_images/lab03-02.png" style="width: 800px;" /></a></p>
+<p><a class="reference internal" href="../../../_images/lab3-2.png"><img alt="lab3-2" src="../../../_images/lab3-2.png" style="width: 800px;" /></a></p>
+<p><a class="reference internal" href="../../../_images/Lab3-2aa.png"><img alt="Lab3-2aa" src="../../../_images/Lab3-2aa.png" style="width: 800px;" /></a></p>
+<p><a class="reference internal" href="../../../_images/lab3-2a.png"><img alt="Lab3-2a" src="../../../_images/lab3-2a.png" style="width: 800px;" /></a></p>
+<p><a class="reference internal" href="../../../_images/Lab3-2aa.png"><img alt="Lab3-2aa" src="../../../_images/Lab3-2aa.png" style="width: 800px;" /></a></p>
+</li>
+<li><p class="first">Add parameter <strong>email</strong> as seen below to the /rest/user/login url.</p>
+<p><a class="reference internal" href="../../../_images/lab3-3.png"><img alt="lab3-3" src="../../../_images/lab3-3.png" style="width: 800px;" /></a></p>
+</li>
+<li><p class="first">Apply Data Safe Profile to the owasp-juiceshop_443_vs Virtual Server and
+remove any WAF or other policies.</p>
+<p><a class="reference internal" href="../../../_images/lab3-5.png"><img alt="lab3-5" src="../../../_images/lab3-5.png" style="width: 800px;" /></a></p>
+</li>
+</ol>
+</div>
+<div class="section" id="task-3-test-data-safe-configuration">
+<h2>Task 3 - Test Data Safe Configuration<a class="headerlink" href="#task-3-test-data-safe-configuration" title="Permalink to this heading">¶</a></h2>
+<ol class="arabic">
+<li><p class="first">Open a new Firefox Private Browsing window and go to the to Juiceshop login
+page</p>
+</li>
+<li><p class="first">Login to the Juiceshop application as <a class="reference external" href="mailto:f5student&#37;&#52;&#48;agility&#46;com">f5student<span>&#64;</span>agility<span>&#46;</span>com</a></p>
+</li>
+<li><p class="first">In the Firefox Inspector Network tab find the POST request to
+/rest/user/login. Notice the JSON username and password fields are no longer
+in clear text.</p>
+<p><a class="reference internal" href="../../../_images/lab3-08.png"><img alt="Lab3-08" src="../../../_images/lab3-08.png" style="width: 800px;" /></a></p>
+</li>
+</ol>
+<p><strong>This concludes Lab 3.1.</strong></p>
+</div>
+</div>
+
+
+     </div>
+    
+     <div class="row next-prev-btn-row">
+       <div class="col-lg-12">
+       
+        <a href="../module3.html" title="Module 3: DataSafe, Parameter Protection" accesskey="p" class="btn btn-primary left"><i class="fa fa-arrow-circle-left" aria-hidden="true"></i> Previous</a>
+       
+       
+          <a href="../lab2/lab2.html" title="Lab 3.2: Protection from Parameter Exploits" accesskey="n" class="btn btn-primary right">Next <i class="fa fa-arrow-circle-right" aria-hidden="true"></i></a>
+       
+     </div>
+     </div>
+    
+
+    </article>
+  </div>
+
+</div>
+
+
+  <div id="clouddocs-footer"></div>
+  <!-- Bootstrap core JavaScript
+  ================================================== -->
+  <!-- Placed at the end of the document so the pages load faster -->
+
+  <script src="../../../_static/js/index.js"></script>
+  <script src="../../../_static/js/jquery.appear.js"></script>
+  <script src="../../../_static/js/printThis.js"></script>
+  <script src="../../../_static/js/bootstrap.min.js"></script>
+  <script src="../../../_static/js/clouddocs.js"></script>
+  <script src="../../../_static/js/CoveoJsSearch.Lazy.min.js"></script>
+  </body>
+</html>

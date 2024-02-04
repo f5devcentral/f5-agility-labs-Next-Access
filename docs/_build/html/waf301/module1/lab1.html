@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<head>
+  
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-PPZPQ6');</script>
+  <!-- End Google Tag Manager -->
+    <title>Lab 1.1: Creation of an AWAF base policy</title>
+  
+
+  <meta charset="utf-8">
+  <!-- Twitter Bootstrap viewport setting -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <!-- F5 metadata -->
+  <meta name="title" content="Lab 1.1: Creation of an AWAF base policy"/>
+  <meta name="product" content="F5 Web Application Firewall Solutions"/>
+  <meta name="version" content=""/>
+  <meta name="updated_date"  content="2023-05-04 07:11:03"/>
+  <meta name="archived" content="Archived documents excluded"/>
+  <meta name="doc_type" content="Manual"/>
+  <meta name="lifecycle" content="release"/>
+  <meta name="F5 Web Application Firewall Solutions" content=""/>
+
+
+  
+
+  
+  <link href="https://cdn.f5.com/favicon.ico" rel="icon">
+
+</head>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lab 1.1: Creation of an AWAF base policy &#8212; F5 Web Application Firewall Solutions  documentation</title>
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/graphviz.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" href="../../_static/css/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/css/f5.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/css/f5-theme.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/css/CoveoFullSearch.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/css/custom.css" type="text/css" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/21fb8a09c3.css" type="text/css" />
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/sphinx_highlight.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/jquery.mark.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Lab 1.2: Creation of an AWAF template" href="lab2.html" />
+    <link rel="prev" title="Module 1: AWAF Policy Template Creation on BIG-IP (secops engineer)" href="module1.html" /> 
+  </head><body>
+  <div id="clouddocs-header"></div>
+
+    <div id="sidebar" class="section-nav">
+      
+      <!--  version selector ------------------>
+      <div id="version_selector_wrapper">
+      </div>
+      <nav class="nav-sidebartoc">
+
+        
+         <h5>F5 Web Application Firewall Solutions  </h5>
+        
+
+        <hr>
+        <span class="nav-sidebartoc">
+            <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../waf102/waf102.html">WAF 102 - Getting started with WAF, Bot Detection and Threat Campaigns</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../waf111/waf111.html">WAF 111 - Protecting Yourself Against the OWASP Top 10</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../waf201/waf201.html">WAF 201 – Elevated WAF Security</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../waf2023/waf2023.html">WAF 101 - BIG-IP Security:  Mitigating App Vulnerabilities with AWAF</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../waf301.html">WAF 301 - AWAF in a CI/CD Pipeline (Self Guided)</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../waf301.html#intro">Intro</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../waf301.html#awaf-policy-overview">AWAF policy overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../waf301.html#chatops">ChatOps</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../waf301.html#lab-structure">Lab structure</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../labinfo/labinfo.html">Lab Environment &amp; Topology</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="module1.html">Module 1: AWAF Policy Template Creation on BIG-IP (secops engineer)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../module2/module2.html">Module 2: Policy testing - Intro to f5 WAF Tester (secops engineer)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../module3/module3.html">Module 3: Pipeline integration (SRE)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../waf302/waf302.html">WAF 302 - Enabling API Protection with APM and AWAF</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../waf341/waf341.html">WAF 341 – Advanced Protection and Positive Security (Self Guided)</a></li>
+</ul>
+
+        </span><!-- Use this file to add extra links to the bottom of the ToC sidebar -->
+<hr>
+  <span class="nav-sidebartoc">
+ <!-- insert content here -->
+  </span>
+      </nav>
+    </div>
+
+
+    <div id="right-sidebar">
+      <h7 style="font-weight:normal">On this page:</h7>
+      <nav class="nav-sidebartoc">
+        <span class="nav-sidebartoc">
+            <ul>
+<li><a class="reference internal" href="#">Lab 1.1: Creation of an AWAF base policy</a><ul>
+<li><a class="reference internal" href="#open-rdp-to-the-client-linux">1.1.1 Open RDP to the Client linux</a></li>
+<li><a class="reference internal" href="#log-into-the-big-ip">1.1.2 Log into the BIG-IP</a></li>
+<li><a class="reference internal" href="#create-a-policy">1.1.3 Create a policy</a></li>
+<li><a class="reference internal" href="#configure-policy-properties">1.1.4 Configure policy properties</a></li>
+<li><a class="reference internal" href="#block-traffic-from-north-korea">1.1.5 Block traffic from North Korea</a></li>
+</ul>
+</li>
+</ul>
+
+         </span>
+      </nav>
+    </div>
+
+
+
+
+
+  
+  <div class="main active" id="content" >
+    <article class="docs-container site-article-inner">
+              <!-- custom breadcrumb -->
+        <h5>
+            <a href="../../index.html">F5 Web Application Firewall Solutions</a>
+              &gt; <a href="../waf301.html">WAF 301 - AWAF in a CI/CD Pipeline (Self Guided)</a>
+              &gt; <a href="module1.html">Module 1: AWAF Policy Template Creation on BIG-IP (secops engineer)</a>
+
+          <span class="right">
+             <a href="../../_sources/waf301/module1/lab1.rst.txt" rel="nofollow">Source</a> |
+             <a href="https://github.com/f5devcentral/f5-agility-labs-waf">Edit on <i class="fa fa-github" aria-hidden="true"></i></a>
+          </span>
+        </h5>
+        <!-- end custom breadcrumb -->
+      
+
+
+    <!--a title="Export PDF" id="export-pdf" class="btn btn btn-link pull-right">View PDF</a-->
+    <button type="button" id="export-pdf" class="btn btn-link right">PDF</button>
+
+
+    
+     
+         <div class="sidebar" id="version-warning" style="display: none;">
+           <p class="first sidebar-title">
+           <span class="icon fa fa-info-circle fa-lg"></span> Version notice:</p>
+           <p class="last" id="currentVersion"></p>
+          </div>
+
+
+     <div role="main">
+        
+  <div class="section" id="lab-1-1-creation-of-an-awaf-base-policy">
+<h1>Lab 1.1: Creation of an AWAF base policy<a class="headerlink" href="#lab-1-1-creation-of-an-awaf-base-policy" title="Permalink to this heading">¶</a></h1>
+<p>We’re going to be working in the BIG-IP to create an ASM template with some specific settings applied that we can use on our VS.
+Once the template is created, we’ll use AS3 and Postman to add an ASM policy to a VS based on our template to show how to add automation of ASM policies to applications.</p>
+<div class="section" id="open-rdp-to-the-client-linux">
+<h2>1.1.1 Open RDP to the Client linux<a class="headerlink" href="#open-rdp-to-the-client-linux" title="Permalink to this heading">¶</a></h2>
+<p><strong>For users with Mac’s, keystrokes won’t show as you type.  Don’t worry, just keep typing and login.</strong></p>
+<p>Log into the Linux Client via RDP using the following credentials:</p>
+<blockquote>
+<div><p>Username:       f5student</p>
+<p>Password:       f5DEMOs4u!</p>
+</div></blockquote>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Copy/Paste doesn’t work in XRDP.</p>
+</div>
+<img alt="../../_images/1-module1.png" src="../../_images/1-module1.png" />
+</div>
+<div class="section" id="log-into-the-big-ip">
+<h2>1.1.2 Log into the BIG-IP<a class="headerlink" href="#log-into-the-big-ip" title="Permalink to this heading">¶</a></h2>
+<p>Log into the BIG-IP by opening the FireFox browser in the Linux client and selecting the browser bookmark titled <span class="guilabel">bigip01</span> using the following credentials:</p>
+<blockquote>
+<div><p>Username:       <span class="guilabel">admin</span></p>
+<p>Password:       <span class="guilabel">f5DEMOs4u!</span></p>
+</div></blockquote>
+<img alt="../../_images/2-module1.png" src="../../_images/2-module1.png" />
+</div>
+<div class="section" id="create-a-policy">
+<h2>1.1.3 Create a policy<a class="headerlink" href="#create-a-policy" title="Permalink to this heading">¶</a></h2>
+<p>Let’s create an AWAF base policy that we’ll reference later, by navigating to:</p>
+<blockquote>
+<div><blockquote>
+<div>Security  ››  Application Security : Security Policies : Policies List</div></blockquote>
+<p>Click ‘Create’</p>
+<img alt="../../_images/3-module1.png" src="../../_images/3-module1.png" />
+</div></blockquote>
+</div>
+<div class="section" id="configure-policy-properties">
+<h2>1.1.4 Configure policy properties<a class="headerlink" href="#configure-policy-properties" title="Permalink to this heading">¶</a></h2>
+<p>#Please fix all guilabel tags below. They are not rendering correctly in the remainder of this file</p>
+<p>Name the policy <span class="guilabel">base_policy</span> and set the following settings:</p>
+<blockquote>
+<div><p>policy Name:                                            <span class="guilabel">base_policy</span></p>
+<p>Policy Template:                                        <span class="guilabel">Rapid Deployment Policy</span></p>
+<p>Enforcement Mode:                                       <span class="guilabel">Blocking</span></p>
+<p>Auto-Added Signature Accuracy:                          <span class="guilabel">Medium</span></p>
+<p>Signature Staging:                                      <span class="guilabel">Disabled</span></p>
+<p>Policy is Case Sensitive:                               <span class="guilabel">Disabled</span></p>
+<p>Differentiate between HTTP/WS and HTTPS/WSS URLs:       <span class="guilabel">Disabled</span></p>
+</div></blockquote>
+<p>Click <span class="guilabel">Save</span> to save the policy</p>
+<img alt="../../_images/4-module1.png" src="../../_images/4-module1.png" />
+<p>Click <span class="guilabel">Save</span> to save the policy</p>
+</div>
+<div class="section" id="block-traffic-from-north-korea">
+<h2>1.1.5 Block traffic from North Korea<a class="headerlink" href="#block-traffic-from-north-korea" title="Permalink to this heading">¶</a></h2>
+<blockquote>
+<div><p>Navigate to:  Security  ››  Application Security : Security Policies : Policies List
+Select: <span class="guilabel">base_policy</span> and scroll to Advanced Settings, Geolocation Enforcement</p>
+<blockquote>
+<div><p>We’re going to create a Geo enforcement on this policy to block North Korea form accessing our site.
+From the ‘Allowed Geolocations’ on the right, find ‘Korea, Democratic People’s Republic of’ and bring it to the left window titled ‘Disallowed Geolocations’:</p>
+<img alt="../../_images/5-module1.png" src="../../_images/5-module1.png" />
+<p>Click <span class="guilabel">Save</span></p>
+</div></blockquote>
+<p>Navigate to:  ‘Security  ››  Application Security : Policy Building : Learning and Blocking Settings</p>
+<blockquote>
+<div><p>If you expand <span class="guilabel">IP Addresses and Geolocations</span> you’ll notice that we’re enforcing blocking of the Geolocation that we created in the previous step as well as access from known malicious IP addresses.</p>
+<img alt="../../_images/6-module1.png" src="../../_images/6-module1.png" />
+</div></blockquote>
+<p>On this same screen, under the section <span class="guilabel">File types</span> check the boxes on <span class="guilabel">Illegal file types</span> to ‘learn’, ‘alarm’, and ‘block’ as shown below.</p>
+<blockquote>
+<div><img alt="../../_images/7-module1.png" src="../../_images/7-module1.png" />
+<p>Click <span class="guilabel">Save</span> **at the bottom of this screen to save our changes.</p>
+<p>Click <span class="guilabel">Apply policy</span> **at the top right of the screen to save our changes.</p>
+</div></blockquote>
+</div></blockquote>
+</div>
+</div>
+
+
+     </div>
+    
+     <div class="row next-prev-btn-row">
+       <div class="col-lg-12">
+       
+        <a href="module1.html" title="Module 1: AWAF Policy Template Creation on BIG-IP (secops engineer)" accesskey="p" class="btn btn-primary left"><i class="fa fa-arrow-circle-left" aria-hidden="true"></i> Previous</a>
+       
+       
+          <a href="lab2.html" title="Lab 1.2: Creation of an AWAF template" accesskey="n" class="btn btn-primary right">Next <i class="fa fa-arrow-circle-right" aria-hidden="true"></i></a>
+       
+     </div>
+     </div>
+    
+
+    </article>
+  </div>
+
+</div>
+
+
+  <div id="clouddocs-footer"></div>
+  <!-- Bootstrap core JavaScript
+  ================================================== -->
+  <!-- Placed at the end of the document so the pages load faster -->
+
+  <script src="../../_static/js/index.js"></script>
+  <script src="../../_static/js/jquery.appear.js"></script>
+  <script src="../../_static/js/printThis.js"></script>
+  <script src="../../_static/js/bootstrap.min.js"></script>
+  <script src="../../_static/js/clouddocs.js"></script>
+  <script src="../../_static/js/CoveoJsSearch.Lazy.min.js"></script>
+  </body>
+</html>

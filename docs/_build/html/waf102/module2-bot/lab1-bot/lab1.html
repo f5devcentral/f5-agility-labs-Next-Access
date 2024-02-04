@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<head>
+  
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-PPZPQ6');</script>
+  <!-- End Google Tag Manager -->
+    <title>Exercise 2.1: Bot Defense with Signatures</title>
+  
+
+  <meta charset="utf-8">
+  <!-- Twitter Bootstrap viewport setting -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <!-- F5 metadata -->
+  <meta name="title" content="Exercise 2.1: Bot Defense with Signatures"/>
+  <meta name="product" content="F5 Web Application Firewall Solutions"/>
+  <meta name="version" content=""/>
+  <meta name="updated_date"  content="2023-05-04 07:11:03"/>
+  <meta name="archived" content="Archived documents excluded"/>
+  <meta name="doc_type" content="Manual"/>
+  <meta name="lifecycle" content="release"/>
+  <meta name="F5 Web Application Firewall Solutions" content=""/>
+
+
+  
+
+  
+  <link href="https://cdn.f5.com/favicon.ico" rel="icon">
+
+</head>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Exercise 2.1: Bot Defense with Signatures &#8212; F5 Web Application Firewall Solutions  documentation</title>
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/graphviz.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
+    <link rel="stylesheet" href="../../../_static/css/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/css/f5.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/css/f5-theme.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/css/CoveoFullSearch.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/css/custom.css" type="text/css" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/21fb8a09c3.css" type="text/css" />
+    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/sphinx_highlight.js"></script>
+    <script src="../../../_static/clipboard.min.js"></script>
+    <script src="../../../_static/copybutton.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/jquery.mark.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="Module 3: Threat Campaigns" href="../../module3-tc/module3.html" />
+    <link rel="prev" title="Module 2: Bot Detection" href="../module2.html" /> 
+  </head><body>
+  <div id="clouddocs-header"></div>
+
+    <div id="sidebar" class="section-nav">
+      
+      <!--  version selector ------------------>
+      <div id="version_selector_wrapper">
+      </div>
+      <nav class="nav-sidebartoc">
+
+        
+         <h5>F5 Web Application Firewall Solutions  </h5>
+        
+
+        <hr>
+        <span class="nav-sidebartoc">
+            <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../../waf102.html">WAF 102 - Getting started with WAF, Bot Detection and Threat Campaigns</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../labinfo/labinfo.html">Lab Environment &amp; Topology</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../module1-ipi-and-geo/module1.html">Module 1: IPI &amp; Geolocation</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../module2.html">Module 2: Bot Detection</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Exercise 2.1: Bot Defense with Signatures</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../module3-tc/module3.html">Module 3: Threat Campaigns</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../module4-xparent-policy/module4.html">Module 4: Transparent WAF Policy</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../waf111/waf111.html">WAF 111 - Protecting Yourself Against the OWASP Top 10</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../waf201/waf201.html">WAF 201 – Elevated WAF Security</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../waf2023/waf2023.html">WAF 101 - BIG-IP Security:  Mitigating App Vulnerabilities with AWAF</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../waf301/waf301.html">WAF 301 - AWAF in a CI/CD Pipeline (Self Guided)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../waf302/waf302.html">WAF 302 - Enabling API Protection with APM and AWAF</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../waf341/waf341.html">WAF 341 – Advanced Protection and Positive Security (Self Guided)</a></li>
+</ul>
+
+        </span><!-- Use this file to add extra links to the bottom of the ToC sidebar -->
+<hr>
+  <span class="nav-sidebartoc">
+ <!-- insert content here -->
+  </span>
+      </nav>
+    </div>
+
+
+    <div id="right-sidebar">
+      <h7 style="font-weight:normal">On this page:</h7>
+      <nav class="nav-sidebartoc">
+        <span class="nav-sidebartoc">
+            <ul>
+<li><a class="reference internal" href="#">Exercise 2.1: Bot Defense with Signatures</a><ul>
+<li><a class="reference internal" href="#objective">Objective</a></li>
+<li><a class="reference internal" href="#create-logging-profile">Create Logging Profile</a></li>
+<li><a class="reference internal" href="#apply-the-policy-and-logging-profile">Apply the Policy and Logging Profile</a></li>
+<li><a class="reference internal" href="#whitelisting-a-bot-demonstrating-rate-limiting">Whitelisting a Bot &amp; Demonstrating Rate-Limiting</a></li>
+<li><a class="reference internal" href="#testing-additional-user-agents">Testing Additional User-Agents</a></li>
+</ul>
+</li>
+</ul>
+
+         </span>
+      </nav>
+    </div>
+
+
+
+
+
+  
+  <div class="main active" id="content" >
+    <article class="docs-container site-article-inner">
+              <!-- custom breadcrumb -->
+        <h5>
+            <a href="../../../index.html">F5 Web Application Firewall Solutions</a>
+              &gt; <a href="../../waf102.html">WAF 102 - Getting started with WAF, Bot Detection and Threat Campaigns</a>
+              &gt; <a href="../module2.html">Module 2: Bot Detection</a>
+
+          <span class="right">
+             <a href="../../../_sources/waf102/module2-bot/lab1-bot/lab1.rst.txt" rel="nofollow">Source</a> |
+             <a href="https://github.com/f5devcentral/f5-agility-labs-waf">Edit on <i class="fa fa-github" aria-hidden="true"></i></a>
+          </span>
+        </h5>
+        <!-- end custom breadcrumb -->
+      
+
+
+    <!--a title="Export PDF" id="export-pdf" class="btn btn btn-link pull-right">View PDF</a-->
+    <button type="button" id="export-pdf" class="btn btn-link right">PDF</button>
+
+
+    
+     
+         <div class="sidebar" id="version-warning" style="display: none;">
+           <p class="first sidebar-title">
+           <span class="icon fa fa-info-circle fa-lg"></span> Version notice:</p>
+           <p class="last" id="currentVersion"></p>
+          </div>
+
+
+     <div role="main">
+        
+  <div class="section" id="exercise-2-1-bot-defense-with-signatures">
+<h1>Exercise 2.1: Bot Defense with Signatures<a class="headerlink" href="#exercise-2-1-bot-defense-with-signatures" title="Permalink to this heading">¶</a></h1>
+<p>The next logical step in our configuration is to deal with automated traffic. While Advanced WAF has some deep Bot Defense capabilities, we will start with Bot Signatures.
+A good goal during your initial deployment would be to get transparent BOT profiles deployed across your various application Virtual Servers so you can start to analyze your “normal” loads of automated traffic. This can be very surprising to an organization or a developer that thought they had a lot more “real users”.</p>
+<div class="section" id="objective">
+<h2>Objective<a class="headerlink" href="#objective" title="Permalink to this heading">¶</a></h2>
+<ul class="simple">
+<li>Create a Bot Defense logging profile</li>
+<li>Create and apply a transparent Bot Defense Profile with Signatures</li>
+<li>Test and verify logs</li>
+<li>Add a signature to the whitelist</li>
+<li>Estimated time for completion: <strong>20 minutes</strong></li>
+</ul>
+</div>
+<div class="section" id="create-logging-profile">
+<h2>Create Logging Profile<a class="headerlink" href="#create-logging-profile" title="Permalink to this heading">¶</a></h2>
+<ol class="arabic simple">
+<li>Navigate to <strong>Security &gt; Event Logs &gt; Logging Profiles</strong> and click <strong>Create</strong> to a new Logging Profile with the settings shown in the screenshot below. Click <strong>Create</strong>.</li>
+</ol>
+<a class="reference internal image-reference" href="../../../_images/log_profile.png"><img alt="../../../_images/log_profile.png" src="../../../_images/log_profile.png" style="width: 600px;" /></a>
+<ol class="arabic simple" start="2">
+<li>Navigate to <strong>Security &gt; Bot Defense &gt; Bot Defense Profiles</strong> and click <strong>Create</strong>.</li>
+<li>Name: <strong>juiceshop_bot</strong></li>
+<li>Profile Template: <strong>Relaxed</strong></li>
+<li>Click the <strong>Learn more</strong> link to see an explanation of the options. These will be explored further in the 241 lab but for now we are going with <strong>Relaxed</strong> aka <strong>Challenge-Free Verification</strong>.</li>
+</ol>
+<a class="reference internal image-reference" href="../../../_images/bot_profile.png"><img alt="../../../_images/bot_profile.png" src="../../../_images/bot_profile.png" style="width: 600px;" /></a>
+<ol class="arabic simple" start="6">
+<li>Click on the <strong>Bot Mitigation Settings</strong> tab and review the default configuration.</li>
+<li>Click on the <strong>Signature Enforcement</strong> tab and review the signatures and staging status.</li>
+<li>Click <strong>Save</strong>.</li>
+</ol>
+</div>
+<div class="section" id="apply-the-policy-and-logging-profile">
+<h2>Apply the Policy and Logging Profile<a class="headerlink" href="#apply-the-policy-and-logging-profile" title="Permalink to this heading">¶</a></h2>
+<ol class="arabic simple">
+<li>Navigate to <strong>Local Traffic &gt; Virtual Servers</strong> click on <strong>owasp-juiceshop_443_vs</strong> then go to the <strong>Security Tab &gt; Policies</strong> (top middle of screen).</li>
+</ol>
+<div class="admonition important">
+<p class="first admonition-title">Important</p>
+<p class="last">To clearly demonstrate just the Bot Defense profile, please disable all security policy on the virtual server. The ipi_tester script should still be running!</p>
+</div>
+<ol class="arabic simple" start="2">
+<li>Navigate to <strong>Local Traffic &gt; Virtual Servers &gt; owasp-juiceshop_443_vs &gt; Security &gt; Policies</strong> and <strong>disable the Application Security Policy</strong> and <strong>enable the Bot Defense Profile and Bot_Log Profile.</strong></li>
+<li>Click <strong>Update</strong></li>
+</ol>
+<a class="reference internal image-reference" href="../../../_images/blank_vs.png"><img alt="../../../_images/blank_vs.png" src="../../../_images/blank_vs.png" style="width: 600px;" /></a>
+<ol class="arabic simple" start="4">
+<li>Navigate to <strong>Security &gt; Event Logs &gt; Bot Defense &gt; Bot Requests</strong> and review the event logs. Notice curl (the bot being used in our ipi_tester script) is an untrusted bot in the HTTP Library category of Bots.</li>
+</ol>
+<a class="reference internal image-reference" href="../../../_images/bot_log.png"><img alt="../../../_images/bot_log.png" src="../../../_images/bot_log.png" style="width: 600px;" /></a>
+<ol class="arabic simple" start="5">
+<li>On the top middle of the screen under the <strong>Bot Defense</strong> Tab, click on <strong>Bot Traffic</strong> for a global view of all Bot Traffic. In this lab we only have one site configured.</li>
+</ol>
+<a class="reference internal image-reference" href="../../../_images/bot_traf.png"><img alt="../../../_images/bot_traf.png" src="../../../_images/bot_traf.png" style="width: 600px;" /></a>
+<ol class="arabic simple" start="6">
+<li>Click on the <strong>owasp-juiceshop_443_vs</strong> Virtual Server and explore the analytics available under <strong>View Detected Bots</strong> at the bottom of the screen.</li>
+</ol>
+<a class="reference internal image-reference" href="../../../_images/curl.png"><img alt="../../../_images/curl.png" src="../../../_images/curl.png" style="width: 600px;" /></a>
+</div>
+<div class="section" id="whitelisting-a-bot-demonstrating-rate-limiting">
+<h2>Whitelisting a Bot &amp; Demonstrating Rate-Limiting<a class="headerlink" href="#whitelisting-a-bot-demonstrating-rate-limiting" title="Permalink to this heading">¶</a></h2>
+<ol class="arabic simple">
+<li>Navigate to <strong>Security &gt; Bot Defense &gt; Bot Defense Profiles &gt; juiceshop_bot &gt; Bot Mitigation Settings</strong></li>
+<li>Under <strong>Mitigation Settings</strong> change Unknown Bots to <strong>Rate Limit</strong> with a setting of <strong>5</strong> TPS. <strong>5</strong> is a very aggressive rate-limit and used for demo purposes in this lab.</li>
+</ol>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">In the “real world” you will need to set this to a value that makes sense for your application or environment to ensure the logs do not become overwhelming. If you don’t know, it’s usually pretty safe to start with the default of 30.</p>
+</div>
+<ol class="arabic simple" start="3">
+<li>Under <strong>Mitigation Settings Exceptions</strong> click <strong>Add Exceptions</strong> and search for <strong>curl</strong> and click <strong>Add</strong>.</li>
+</ol>
+<a class="reference internal image-reference" href="../../../_images/addcurl.png"><img alt="../../../_images/addcurl.png" src="../../../_images/addcurl.png" style="width: 600px;" /></a>
+<ol class="arabic simple" start="4">
+<li>Change the Mitigation Setting to <strong>None</strong> and then <strong>Save</strong> the profile.</li>
+</ol>
+<a class="reference internal image-reference" href="../../../_images/rate-limit.png"><img alt="../../../_images/rate-limit.png" src="../../../_images/rate-limit.png" style="width: 600px;" /></a>
+<ol class="arabic simple" start="5">
+<li>Navigate to <strong>Security &gt; Event Logs &gt; Bot Defense &gt; Bot Requests</strong> and review the event logs.</li>
+<li>Notice the whitelisted bot’s class was changed to <strong>unknown</strong> and we set curl to not alarm but the requests are still being alarmed. What gives?</li>
+</ol>
+<a class="reference internal image-reference" href="../../../_images/bot-whitelist.png"><img alt="../../../_images/bot-whitelist.png" src="../../../_images/bot-whitelist.png" style="width: 600px;" /></a>
+<ol class="arabic simple" start="7">
+<li>Click the down arrow under <strong>Mitigation Action</strong> and note the reason for the alarm.</li>
+</ol>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Even though we have whitelisted this bot we can still ensure that it is rate-limited to prevent stress on the application and any violations to that rate-limit will be Alarmed. This bot is currently violating the rate-limit of 5 TPS.</p>
+</div>
+<a class="reference internal image-reference" href="../../../_images/bot-rate-limit.png"><img alt="../../../_images/bot-rate-limit.png" src="../../../_images/bot-rate-limit.png" style="width: 600px;" /></a>
+</div>
+<div class="section" id="testing-additional-user-agents">
+<h2>Testing Additional User-Agents<a class="headerlink" href="#testing-additional-user-agents" title="Permalink to this heading">¶</a></h2>
+<ol class="arabic simple">
+<li>Navigate to <strong>Local Traffic  &gt; Virtual Servers &gt; Virtual Server List &gt; juiceshop-test.f5agility.com &gt; Resources</strong> tab and under iRules click <strong>Manage</strong> and add the <strong>ua_tester</strong> iRule and click <strong>Finished</strong>.</li>
+</ol>
+<a class="reference internal image-reference" href="../../../_images/ua-irule.png"><img alt="../../../_images/ua-irule.png" src="../../../_images/ua-irule.png" style="width: 600px;" /></a>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">What you just added is an iRule that inserts poorly spoofed User-Agents. Our ipi_tester script has been sending traffic through this Virtual Server all along and spoofing source IP’s to the main site via the ipi_tester iRule.</p>
+</div>
+<ol class="arabic simple" start="2">
+<li>Navigate to <strong>Security &gt; Event Logs &gt; Bot Defense &gt; Bot Requests</strong> and review the event logs.</li>
+<li>All the <strong>Unknown</strong> bots are getting rate-limited and the known browsers that do not match the appropriate signatures, such as the spoofed Safari request in this example, are being marked as <strong>Suspicious or Malicious</strong>.</li>
+</ol>
+<a class="reference internal image-reference" href="../../../_images/ua-spoof-log.png"><img alt="../../../_images/ua-spoof-log.png" src="../../../_images/ua-spoof-log.png" style="width: 600px;" /></a>
+<p><strong>This completes Lab 2</strong></p>
+<p><strong>Congratulations! You have just completed Lab 2 by implementing a signature based bot profile. Implementing bot signatures is the bare minimum for bot mitigation and not a comprehensive security strategy. This is a excellent step in getting started with WAF and will provide actionable information on automated traffic. You can use this information to take next steps such as implementing challenges and blocking mode. At a very minimum, share this information with your Application teams. Automated traffic can negatively affect the bottom line especially in cloud environments where it’s pay to play. See our 241 class on Elevated WAF Security for more info on advanced bot mitigation techniques.</strong></p>
+</div>
+</div>
+
+
+     </div>
+    
+     <div class="row next-prev-btn-row">
+       <div class="col-lg-12">
+       
+        <a href="../module2.html" title="Module 2: Bot Detection" accesskey="p" class="btn btn-primary left"><i class="fa fa-arrow-circle-left" aria-hidden="true"></i> Previous</a>
+       
+       
+          <a href="../../module3-tc/module3.html" title="Module 3: Threat Campaigns" accesskey="n" class="btn btn-primary right">Next <i class="fa fa-arrow-circle-right" aria-hidden="true"></i></a>
+       
+     </div>
+     </div>
+    
+
+    </article>
+  </div>
+
+</div>
+
+
+  <div id="clouddocs-footer"></div>
+  <!-- Bootstrap core JavaScript
+  ================================================== -->
+  <!-- Placed at the end of the document so the pages load faster -->
+
+  <script src="../../../_static/js/index.js"></script>
+  <script src="../../../_static/js/jquery.appear.js"></script>
+  <script src="../../../_static/js/printThis.js"></script>
+  <script src="../../../_static/js/bootstrap.min.js"></script>
+  <script src="../../../_static/js/clouddocs.js"></script>
+  <script src="../../../_static/js/CoveoJsSearch.Lazy.min.js"></script>
+  </body>
+</html>

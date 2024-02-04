@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<head>
+  
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-PPZPQ6');</script>
+  <!-- End Google Tag Manager -->
+    <title>Lab 1.2 - Protecting API Endpoints</title>
+  
+
+  <meta charset="utf-8">
+  <!-- Twitter Bootstrap viewport setting -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <!-- F5 metadata -->
+  <meta name="title" content="Lab 1.2 - Protecting API Endpoints"/>
+  <meta name="product" content="F5 Web Application Firewall Solutions"/>
+  <meta name="version" content=""/>
+  <meta name="updated_date"  content="2023-05-04 07:11:03"/>
+  <meta name="archived" content="Archived documents excluded"/>
+  <meta name="doc_type" content="Manual"/>
+  <meta name="lifecycle" content="release"/>
+  <meta name="F5 Web Application Firewall Solutions" content=""/>
+
+
+  
+
+  
+  <link href="https://cdn.f5.com/favicon.ico" rel="icon">
+
+</head>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lab 1.2 - Protecting API Endpoints &#8212; F5 Web Application Firewall Solutions  documentation</title>
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/graphviz.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" href="../../_static/css/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/css/f5.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/css/f5-theme.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/css/CoveoFullSearch.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/css/custom.css" type="text/css" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/21fb8a09c3.css" type="text/css" />
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/sphinx_highlight.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/jquery.mark.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Lab 1.3 - Viewing oAuth Analytics" href="lab3.html" />
+    <link rel="prev" title="Lab 1.1 - Unprotected API" href="lab1.html" /> 
+  </head><body>
+  <div id="clouddocs-header"></div>
+
+    <div id="sidebar" class="section-nav">
+      
+      <!--  version selector ------------------>
+      <div id="version_selector_wrapper">
+      </div>
+      <nav class="nav-sidebartoc">
+
+        
+         <h5>F5 Web Application Firewall Solutions  </h5>
+        
+
+        <hr>
+        <span class="nav-sidebartoc">
+            <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../waf102/waf102.html">WAF 102 - Getting started with WAF, Bot Detection and Threat Campaigns</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../waf111/waf111.html">WAF 111 - Protecting Yourself Against the OWASP Top 10</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../waf201/waf201.html">WAF 201 – Elevated WAF Security</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../waf2023/waf2023.html">WAF 101 - BIG-IP Security:  Mitigating App Vulnerabilities with AWAF</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../waf301/waf301.html">WAF 301 - AWAF in a CI/CD Pipeline (Self Guided)</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../waf302.html">WAF 302 - Enabling API Protection with APM and AWAF</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../waf302.html#intro">Intro</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../waf302.html#lab-scenario">Lab Scenario</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../labinfo/labinfo.html">Lab Environment &amp; Topology</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="module1.html">Module 1 - API Protection Using APM oAuth</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../module2-arcadiareview/module2.html">Module 2: AWAF Policy Template Creation on BIG-IP (secops engineer)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../module3-deploydevdeploy/module3.html">Module 3: Deploying a development instance of Arcadia Finance</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../waf341/waf341.html">WAF 341 – Advanced Protection and Positive Security (Self Guided)</a></li>
+</ul>
+
+        </span><!-- Use this file to add extra links to the bottom of the ToC sidebar -->
+<hr>
+  <span class="nav-sidebartoc">
+ <!-- insert content here -->
+  </span>
+      </nav>
+    </div>
+
+
+    <div id="right-sidebar">
+      <h7 style="font-weight:normal">On this page:</h7>
+      <nav class="nav-sidebartoc">
+        <span class="nav-sidebartoc">
+            <ul>
+<li><a class="reference internal" href="#">Lab 1.2 - Protecting API Endpoints</a><ul>
+<li><a class="reference internal" href="#deploying-asm-guided-configuration">Deploying ASM Guided Configuration</a></li>
+</ul>
+</li>
+</ul>
+
+         </span>
+      </nav>
+    </div>
+
+
+
+
+
+  
+  <div class="main active" id="content" >
+    <article class="docs-container site-article-inner">
+              <!-- custom breadcrumb -->
+        <h5>
+            <a href="../../index.html">F5 Web Application Firewall Solutions</a>
+              &gt; <a href="../waf302.html">WAF 302 - Enabling API Protection with APM and AWAF</a>
+              &gt; <a href="module1.html">Module 1 - API Protection Using APM oAuth</a>
+
+          <span class="right">
+             <a href="../../_sources/waf302/module1-petstore/lab2.rst.txt" rel="nofollow">Source</a> |
+             <a href="https://github.com/f5devcentral/f5-agility-labs-waf">Edit on <i class="fa fa-github" aria-hidden="true"></i></a>
+          </span>
+        </h5>
+        <!-- end custom breadcrumb -->
+      
+
+
+    <!--a title="Export PDF" id="export-pdf" class="btn btn btn-link pull-right">View PDF</a-->
+    <button type="button" id="export-pdf" class="btn btn-link right">PDF</button>
+
+
+    
+     
+         <div class="sidebar" id="version-warning" style="display: none;">
+           <p class="first sidebar-title">
+           <span class="icon fa fa-info-circle fa-lg"></span> Version notice:</p>
+           <p class="last" id="currentVersion"></p>
+          </div>
+
+
+     <div role="main">
+        
+  <div class="section" id="lab-1-2-protecting-api-endpoints">
+<h1>Lab 1.2 - Protecting API Endpoints<a class="headerlink" href="#lab-1-2-protecting-api-endpoints" title="Permalink to this heading">¶</a></h1>
+<div class="section" id="deploying-asm-guided-configuration">
+<h2>Deploying ASM Guided Configuration<a class="headerlink" href="#deploying-asm-guided-configuration" title="Permalink to this heading">¶</a></h2>
+<ol class="arabic simple">
+<li>Open Google Chrome &gt; in the bookmark click on <strong>F5 BIG-IP</strong>.</li>
+</ol>
+<a class="reference internal image-reference" href="../../_images/chrome2.png"><img alt="../../_images/chrome2.png" src="../../_images/chrome2.png" style="width: 600px;" /></a>
+<ol class="arabic simple" start="2">
+<li>Log in with username/password: <strong>admin/admin</strong></li>
+</ol>
+<a class="reference internal image-reference" href="../../_images/f5_login.png"><img alt="../../_images/f5_login.png" src="../../_images/f5_login.png" style="width: 600px;" /></a>
+<ol class="arabic simple" start="3">
+<li>Click on <strong>Security</strong> &gt; <strong>Guided Configuration</strong></li>
+</ol>
+<a class="reference internal image-reference" href="../../_images/security-gc1.png"><img alt="../../_images/security-gc1.png" src="../../_images/security-gc1.png" style="width: 600px;" /></a>
+<ol class="arabic simple" start="4">
+<li>Click on <strong>API Security Protection</strong> &gt; Click on <strong>REST API Security</strong> &gt; Click <strong>Next</strong></li>
+</ol>
+<a class="reference internal image-reference" href="../../_images/security-gc2.png"><img alt="../../_images/security-gc2.png" src="../../_images/security-gc2.png" style="width: 600px;" /></a>
+<div class="line-block">
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+</div>
+<a class="reference internal image-reference" href="../../_images/security-gc3.png"><img alt="../../_images/security-gc3.png" src="../../_images/security-gc3.png" style="width: 600px;" /></a>
+<ol class="arabic simple" start="5">
+<li>In the <strong>API Protection Properties</strong> set the following properties</li>
+</ol>
+<p><strong>Configuration Name:</strong> petstore-api
+| <strong>Import OpenAPI Spec File</strong> click on <strong>Choose File</strong> in the File Explore window click on <strong>petstore-swagger.json</strong> file &gt; Click <strong>Open</strong></p>
+<blockquote>
+<div><div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">If you do not see the JSON file click on <strong>lab_files</strong> folder on the left pane of the explore window, this should open the lab_files directory.</p>
+</div>
+</div></blockquote>
+<a class="reference internal image-reference" href="../../_images/swagger.png"><img alt="../../_images/swagger.png" src="../../_images/swagger.png" style="width: 600px;" /></a>
+<p>Check <strong>Use Rate Limiting</strong> box
+Check <strong>OAuth 2.0</strong> box
+<strong>DNS Resolver:</strong> Select <strong>DNS_pub</strong> from the drop-down list</p>
+<p>The result should be like the following, Click <strong>Save and Next</strong></p>
+<a class="reference internal image-reference" href="../../_images/security-gc4.png"><img alt="../../_images/security-gc4.png" src="../../_images/security-gc4.png" style="width: 600px;" /></a>
+<ol class="arabic simple" start="6">
+<li><strong>API Protection Configuration</strong> step shows the imported paths and base path properties imported from the swagger file you imported in the previous step.</li>
+</ol>
+<p>Click <strong>Save and Next</strong></p>
+<a class="reference internal image-reference" href="../../_images/security-api-paths.png"><img alt="../../_images/security-api-paths.png" src="../../_images/security-api-paths.png" style="width: 600px;" /></a>
+<ol class="arabic simple" start="7">
+<li><strong>API Protection Responses</strong> shows the response code that will be used for Access Control, and Rate Limiting.</li>
+</ol>
+<p>Click <strong>Save and Next</strong></p>
+<a class="reference internal image-reference" href="../../_images/security-api-responses.png"><img alt="../../_images/security-api-responses.png" src="../../_images/security-api-responses.png" style="width: 600px;" /></a>
+<ol class="arabic" start="8">
+<li><p class="first">In the <strong>Web Application Security Policy Properties</strong> step sets F5 Application Security Manager Enforcement mode to either blocking or transparent mode.</p>
+<p><strong>Blocking</strong> enforcement mode, the system will start blocking either connection from attacking IP addresses or requests to attacked URLs.</p>
+<p><strong>Transparent</strong> enforcement mode, the system does not block the request but instead reviews and logs the violation event.</p>
+<p>In the lab we will leave the setting to <strong>Blocking</strong> &gt; Click <strong>Save and Next</strong></p>
+</li>
+</ol>
+<a class="reference internal image-reference" href="../../_images/security-gc5.png"><img alt="../../_images/security-gc5.png" src="../../_images/security-gc5.png" style="width: 600px;" /></a>
+<ol class="arabic" start="9">
+<li><p class="first">In the <strong>OAuth General Properties</strong> step, the setting allows for the BIG-IP to act as an OAuth provider to request a JSON Web Token also known as a JWT token from the Authorization Server.</p>
+<blockquote>
+<div><div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">OpenID Connect is not used in this scenario, even though it can be used as a way to help identify attributes to use for rate limiting.</p>
+</div>
+</div></blockquote>
+</li>
+</ol>
+<p>In this step please select the following:</p>
+<div class="line-block">
+<div class="line"><strong>OAuth Provider Type:</strong> F5</div>
+<div class="line"><strong>Choose OAuth Provider</strong> click on the drop-down and select <strong>oauthas.f5agility.com-provider</strong></div>
+</div>
+<a class="reference internal image-reference" href="../../_images/security-gc6.png"><img alt="../../_images/security-gc6.png" src="../../_images/security-gc6.png" style="width: 600px;" /></a>
+<p>The result should look like the screen below, click <strong>Save</strong></p>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<a class="reference internal image-reference" href="../../_images/security-oauth.png"><img alt="../../_images/security-oauth.png" src="../../_images/security-oauth.png" style="width: 600px;" /></a>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<ol class="arabic simple" start="10">
+<li>In the <strong>OAuth Provider List</strong> screen confirmed the OAuth provider selected from the previous step is shown here, then click <strong>Save and Next</strong></li>
+</ol>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<a class="reference internal image-reference" href="../../_images/security-gc7.png"><img alt="../../_images/security-gc7.png" src="../../_images/security-gc7.png" style="width: 600px;" /></a>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<blockquote>
+<div><div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">The pre-configured provider allows for OAuth authorization for the user, using a LocalDB on the APM device. Access Tokens are issued from APM and included in the token are certain claims which we can use to determine the rate limiting, which are configured in Step 11.</p>
+</div>
+</div></blockquote>
+<p>11. <strong>Rate Liming Configuration</strong> step, sets the maximum number of requests that are allowed in a time interval. When the threshold is met the request is dropped.
+For this lab set the following criteria:</p>
+<p><strong>Rate Limiting Factor:</strong> User</p>
+<a class="reference internal image-reference" href="../../_images/security-gc8.png"><img alt="../../_images/security-gc8.png" src="../../_images/security-gc8.png" style="width: 600px;" /></a>
+<p><strong>User ID Key</strong>: subsession.oauth.scope.last.jwt.family
+Check <strong>Enable Request Quota Settings</strong> box
+Allow <strong>5</strong> requests per <strong>1</strong> minute</p>
+<blockquote>
+<div>The end result should look like the following, click <strong>Save and Next</strong></div></blockquote>
+<a class="reference internal image-reference" href="../../_images/security-gc9.png"><img alt="../../_images/security-gc9.png" src="../../_images/security-gc9.png" style="width: 600px;" /></a>
+<ol class="arabic simple" start="12">
+<li>In the <strong>Virtual Server Properties</strong> step, you can assign the policy to an existing virtual server or create new virtual server. In this lab we will select the existing PetStore virtual server.</li>
+</ol>
+<blockquote>
+<div><p>Check the <strong>Assign Policy to Virtual Server(s)</strong> box</p>
+<p>Under <strong>Virtual Server</strong> select <strong>Use Existing</strong> radio button</p>
+<p>In <strong>Assign Virtual Servers</strong> box &gt; Select <strong>VS_API_petstore</strong> virtual server and move it to the right under <strong>Selected</strong> box as shown in the diagram below, click <strong>Save and Next</strong></p>
+</div></blockquote>
+<a class="reference internal image-reference" href="../../_images/security-gc10.png"><img alt="../../_images/security-gc10.png" src="../../_images/security-gc10.png" style="width: 600px;" /></a>
+<ol class="arabic simple" start="13">
+<li>In the <strong>Summary</strong> step, click on <strong>Deploy</strong></li>
+</ol>
+<blockquote>
+<div><strong>Note:</strong> this step may take a minute to complete.</div></blockquote>
+<a class="reference internal image-reference" href="../../_images/security-gc11.png"><img alt="../../_images/security-gc11.png" src="../../_images/security-gc11.png" style="width: 600px;" /></a>
+<ol class="arabic simple" start="14">
+<li>When the deployment is completed successfully and deployed, you should see the following screen</li>
+</ol>
+<a class="reference internal image-reference" href="../../_images/security-gc12.png"><img alt="../../_images/security-gc12.png" src="../../_images/security-gc12.png" style="width: 600px;" /></a>
+<div class="line-block">
+<div class="line">Click <strong>Finish</strong> at the bottom. This should take you back to the Guided Configuration dashboard. The new policy you created should show up on the list green, and deployed.</div>
+<div class="line"><br /></div>
+</div>
+<a class="reference internal image-reference" href="../../_images/security-gc13.png"><img alt="../../_images/security-gc13.png" src="../../_images/security-gc13.png" style="width: 600px;" /></a>
+<ol class="arabic simple" start="15">
+<li>Let’s verify an Access Policy Manager API Protection policy was created for the Authentication request.</li>
+</ol>
+<p>Click on <strong>Access Module</strong> &gt; Click on <strong>API Protection</strong></p>
+<a class="reference internal image-reference" href="../../_images/apm-auth1.png"><img alt="../../_images/apm-auth1.png" src="../../_images/apm-auth1.png" style="width: 600px;" /></a>
+<p>Observe an Access Policy was automatically created from the Application Security Guided Configuration in the previous exercise</p>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<a class="reference internal image-reference" href="../../_images/apm-auth2.png"><img alt="../../_images/apm-auth2.png" src="../../_images/apm-auth2.png" style="width: 600px;" /></a>
+<div class="line-block">
+<div class="line">Click on <strong>Edit</strong> link under Per-Request Policy to open the Visual Policy Editor</div>
+</div>
+<a class="reference internal image-reference" href="../../_images/apm-auth3.png"><img alt="../../_images/apm-auth3.png" src="../../_images/apm-auth3.png" style="width: 600px;" /></a>
+<div class="line-block">
+<div class="line"><br /></div>
+<div class="line">Observe the authentication and authorization flow. When you are done, click <strong>Close</strong> at the top right-hand corner.</div>
+<div class="line"><br /></div>
+</div>
+<a class="reference internal image-reference" href="../../_images/apm-auth4.png"><img alt="../../_images/apm-auth4.png" src="../../_images/apm-auth4.png" style="width: 600px;" /></a>
+<ol class="arabic simple" start="16">
+<li>Let’s verify the Access Policy and Security Policy have been applied to the PetStore virtual server. Click on <strong>Local Traffic</strong> module, click <strong>Virtual Servers</strong></li>
+</ol>
+<a class="reference internal image-reference" href="../../_images/ltm-vs1.png"><img alt="../../_images/ltm-vs1.png" src="../../_images/ltm-vs1.png" style="width: 600px;" /></a>
+<p>At the top right corner find the <strong>Partition box</strong>, click on the drop-down arrow, and switch to the <strong>petstore-prod</strong> partition</p>
+<p>Click on the <strong>VS_API_petstore</strong> virtual server listen on port 443
+|</p>
+<a class="reference internal image-reference" href="../../_images/ltm-vs-list.png"><img alt="../../_images/ltm-vs-list.png" src="../../_images/ltm-vs-list.png" style="width: 600px;" /></a>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<p>Scroll down to <strong>API Protection</strong>, verify <strong>petstore-api</strong> Access Policy is applied</p>
+<a class="reference internal image-reference" href="../../_images/ltm-vs5.png"><img alt="../../_images/ltm-vs5.png" src="../../_images/ltm-vs5.png" style="width: 600px;" /></a>
+<p>Scroll to the top, select <strong>Security</strong> tab &gt; Policies, verify <strong>Application Security Policy</strong> is set to <strong>Enabled</strong> and the <strong>petstore-api</strong> Application Security Policy is applied</p>
+<a class="reference internal image-reference" href="../../_images/ltm-vs7.png"><img alt="../../_images/ltm-vs7.png" src="../../_images/ltm-vs7.png" style="width: 600px;" /></a>
+<ol class="arabic simple" start="17">
+<li>Now the Access Policy has been deployed, let’s go back to the Postman Collection and see what the behavior is now that we have applied the policy.</li>
+</ol>
+<p>Click on the <strong>Place Order for Pet Request</strong> under <strong>PetStore</strong> &gt; <strong>Test API</strong></p>
+<a class="reference internal image-reference" href="../../_images/pm-place-order.png"><img alt="../../_images/pm-place-order.png" src="../../_images/pm-place-order.png" style="width: 600px;" /></a>
+<p>Noticed the Status is 403 Forbidden. The Access Policy Manager is blocking the access because no authentication was passed in the request.</p>
+<ol class="arabic simple" start="18">
+<li>Let’s set the authentication using a JSON web token (JWT).</li>
+</ol>
+<p>Click on the <strong>Authorization</strong> tab &gt; Click on the drop-down arrow under <strong>Type</strong>, Select <strong>OAuth2.0</strong>
+|</p>
+<a class="reference internal image-reference" href="../../_images/pm-authorize-place-order.png"><img alt="../../_images/pm-authorize-place-order.png" src="../../_images/pm-authorize-place-order.png" style="width: 600px;" /></a>
+<div class="line-block">
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+</div>
+<a class="reference internal image-reference" href="../../_images/pm2-auth2.png"><img alt="../../_images/pm2-auth2.png" src="../../_images/pm2-auth2.png" style="width: 600px;" /></a>
+<p>In the <strong>Configure New Token</strong> window scroll down to the bottom.</p>
+<blockquote>
+<div><div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">It is security best practice to set variables to hide Auth URL, Access Token URL, Client ID, and Client Secret as seen in the image below. These values are configured as part of the APM Access-&gt;Federation-&gt;OAuth Client /Resource Server -&gt; OAuth Server -&gt; Client Settings and would be provided in a production environment as part of the application configuration.</p>
+</div>
+</div></blockquote>
+<p>Click on the orange button <strong>Get New Access Token</strong></p>
+<p>In the pop window for authentication, enter username: <strong>user1</strong> and password: <strong>user</strong>, and click <strong>Logon</strong>
+|</p>
+<blockquote>
+<div><a class="reference internal image-reference" href="../../_images/pm2-get-token.png"><img alt="../../_images/pm2-get-token.png" src="../../_images/pm2-get-token.png" style="width: 600px;" /></a>
+</div></blockquote>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<div class="line-block">
+<div class="line">In the next screen, click on <strong>Authorize</strong></div>
+</div>
+<blockquote>
+<div><a class="reference internal image-reference" href="../../_images/pm2-userauth.png"><img alt="../../_images/pm2-userauth.png" src="../../_images/pm2-userauth.png" style="width: 600px;" /></a>
+</div></blockquote>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<blockquote>
+<div><div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">If you are still having authentication problems sending the request through, you can try clicking on the <strong>Clear cookies</strong> button above the Get New Access Token.</p>
+</div>
+</div></blockquote>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<blockquote>
+<div><a class="reference internal image-reference" href="../../_images/pm-auth-approval.png"><img alt="../../_images/pm-auth-approval.png" src="../../_images/pm-auth-approval.png" style="width: 600px;" /></a>
+</div></blockquote>
+<p>Click on <strong>Proceed</strong></p>
+<blockquote>
+<div><a class="reference internal image-reference" href="../../_images/pm2-auth-complete.png"><img alt="../../_images/pm2-auth-complete.png" src="../../_images/pm2-auth-complete.png" style="width: 600px;" /></a>
+</div></blockquote>
+<p>A JWT token name user1-oauth has been created. Click on Use <strong>Token</strong></p>
+<blockquote>
+<div><a class="reference internal image-reference" href="../../_images/pm2-token.png"><img alt="../../_images/pm2-token.png" src="../../_images/pm2-token.png" style="width: 600px;" /></a>
+</div></blockquote>
+<p>Send the request for <strong>Place Order for Pet</strong> through again by clicking the blue <strong>Send</strong> button</p>
+<a class="reference internal image-reference" href="../../_images/pm2-petorder-ok.png"><img alt="../../_images/pm2-petorder-ok.png" src="../../_images/pm2-petorder-ok.png" style="width: 600px;" /></a>
+<p>Notice the request status now is 200 OK</p>
+<ol class="arabic simple" start="19">
+<li>Let’s try sending some attack requests to the API endpoints</li>
+</ol>
+<p>In Postman PetStore collection go to the <strong>Attacks</strong> folder. Select a couple of attack requests and send the requests. What is the response code?</p>
+<a class="reference internal image-reference" href="../../_images/pm-injection1.png"><img alt="../../_images/pm-injection1.png" src="../../_images/pm-injection1.png" style="width: 600px;" /></a>
+<ol class="arabic simple" start="20">
+<li>Testing Rate Limiting</li>
+</ol>
+<p>Next, we will validate the rate limit setting defined in the Security Policy is working as expected. Recall in the security policy we set the rate-limiting factor as the user and the session famil name. This information is how the security policy identifies requests. If there are more than 5 API requests in 1 minute, the 6th request will not be processed.</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li>In the Windows 2019 host, open Postman</li>
+<li>Click on <strong>Check Status of Order</strong> request and click <strong>Send</strong> once. Observe a successful 200 response. Now click <strong>Send</strong> 5 more times, and noticed the response error message.</li>
+</ol>
+</div></blockquote>
+<img alt="../../_images/pm-api-requests.png" src="../../_images/pm-api-requests.png" />
+<p>You have successfully setup a security policy to protect PetStore resources. Now off to review some analytics you can gather from your hard work.</p>
+</div>
+</div>
+
+
+     </div>
+    
+     <div class="row next-prev-btn-row">
+       <div class="col-lg-12">
+       
+        <a href="lab1.html" title="Lab 1.1 - Unprotected API" accesskey="p" class="btn btn-primary left"><i class="fa fa-arrow-circle-left" aria-hidden="true"></i> Previous</a>
+       
+       
+          <a href="lab3.html" title="Lab 1.3 - Viewing oAuth Analytics" accesskey="n" class="btn btn-primary right">Next <i class="fa fa-arrow-circle-right" aria-hidden="true"></i></a>
+       
+     </div>
+     </div>
+    
+
+    </article>
+  </div>
+
+</div>
+
+
+  <div id="clouddocs-footer"></div>
+  <!-- Bootstrap core JavaScript
+  ================================================== -->
+  <!-- Placed at the end of the document so the pages load faster -->
+
+  <script src="../../_static/js/index.js"></script>
+  <script src="../../_static/js/jquery.appear.js"></script>
+  <script src="../../_static/js/printThis.js"></script>
+  <script src="../../_static/js/bootstrap.min.js"></script>
+  <script src="../../_static/js/clouddocs.js"></script>
+  <script src="../../_static/js/CoveoJsSearch.Lazy.min.js"></script>
+  </body>
+</html>
