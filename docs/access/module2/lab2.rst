@@ -1,152 +1,50 @@
-Lab 1.2 - Create an Access Security Policy
+Lab 1.2 - Create DNS Resolver
 ===========================================
 
-Creating an security policy with signed SAML assertion
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Configuring a L3 DNS Resolver
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 #. Access **BIG-IP Next Central Manager** if you're not already logged in.
 
 .. image:: images/lab2-cmlogin.png
 
-#. Click on the Workspace icon and select Security
+#. Click on the Workspace icon and select Infrastructure
 
-.. image:: images/lab1-securitybtn.png
+.. image:: images/lab2-infrastructure.png
 
-#. Under Security you will find all the security modules such as Access, WAF, and SSLO for example. The module may need to be enabled for the feature menu to show up on the Security list. For this lab we have already enabled Access module.
+#. In the My Instances dashboard, click on *big-ip-next-03.example.com* instance.
 
-Click on **Access** from the Security menu, this should default to Policies.
+.. image:: images/lab2-myinstances.png
 
-.. image:: images/lab1-accessbtn.png
+#. This will open the Instance Settings screen. On the left side, click on **Networking & Proxy**. Click on **Routes** tab from the menu across the top. 
 
-#. Click **Start Creating** button to create a new Access policy 
+.. image:: images/lab2-routes.png
 
-.. image:: images/lab1-createapbtn.png
+#. Click on **Start Adding Routes**
 
-#. This will open Access Visual Policy Design screen. Click on the pencil next to create new policy.
+#. We will add a new **L3 Forward Type** DNS resolver. In the New Route screen, please enter the following parameters.
 
-.. image:: images/lab1-createpolicypencil.png
+- **Name:** global_f5_internal_net_resolver 
+- **VLANs:** external-vlan, internal-vlan
+- **Config:** L3 DNS Cache Net Resolver
 
-#. In the **Create Policy** screen, this is where you set the different properties of the policy, such as, logging, language, Single Sign On, etc… Let’s start configuring the policy Start Selecting policy name and adjust policy parameters.
+.. image:: images/lab2-l3fwd.png
 
-In the **General Properties** screen set the following parameters, for the rest of the settings you may leave it as default.
+#. In the same screen, scroll down to **Forward Zone** in the L3 DNS Cache Net Resolver, and click **Create**. Enter the following parameters.
 
-- **Policy Name:** okta_signed_policy
-- **Cookie Option:** check the **Secure** box
-- Click **Continue** 
+- **Forward zone:** .  This is a period or single dot
+- **Nameserver:** 10.1.1.6:53
 
-.. note:: As you continue the rest of the policy creation process, see the screen shot in each section for a visual example of the configuration.
+.. image:: images/lab2-dnscache.png
 
-.. image:: images/lab1-oktageneral.png
+#. Scroll down to **L3 Forward Type**, set the following parameters.
 
-#. **Session Propertie** screen, you can specify session specific settings in this screen. For this lab we will keep the default. Click **Continue**.
+**L3 Forward Type:** netResolver
+**Name:** global_f5_internal_net_resolver
+**Select:** Use IPv4, Use TCP, Use UDP
 
-.. image:: images/lab1-oktasession.png
+.. image:: images/lab2-l3types.png
 
-#. **Logging screen** you can adjust the logging level to help with debugging or troubleshooting. For this lab we will keep the default settings. Click **Continue**. 
+#. Click **Save**, and then click **Cancel & Exit** to exit out of the Instance Setting screen.
 
-.. image:: images/lab1-oktalogging.png
-
-#. **Single Sign On** screen, you can set the Single Sign On configuration with an IDP. For this lab we will not use any SSO. Click **Continue**.
-
-
-.. image:: images/lab1-oktasso.png
-
-#. **Endpoint Security** screen, you can setup Endpoint Security such as ensuring firewall is enabled on a client workstation before access is granted. For this lab we will not use this feature. Click **Continue**.
-
-.. image:: images/lab1-oktaendpoint.png
-
-#. **Resources** you can set additional capabilities and features such as Network Access, and Webtops in this screen. For this lab we will not use these capabilities. Click **Continue**.
-
-.. image:: images/lab1-oktaresources.png
-
-#. **Policy Endings** you can define additional policy ending logic as needed for your use case here. For this lab we will accept the default. Click **Finish**.
-
-.. image:: images/lab1-oktapolicyendings.png
-
-After clicking on Finish it should bring you back to the Create Policy screen. Now, we will use the Visual Policy Designer (VPD) to build the policy.
-
-In Next Access we have two terms in the Visual Policy Designer (VPD); flows and rules, we set the flows in the VPD and within each flow we can define multiple rules.
-
-.. image:: images/lab1-createpolicy2.png
-
-#. Under **Flows**, drag and drop **Generic SAML Federation** flow to the VPD. You will need click on the little dots to the right of the flow type to grab the flow and drop into the VPD. 
-
-.. image:: images/lab1-oktasaml.png
-
-When dropping the flow type onto the VPD, you will want to make sure the flow type box is over the plus sign and the plus sign turns blue.
-
-.. image:: images/lab1-oktasamldragndrop.png
-
-The result should look like the following screen shot.
-
-.. image:: images/lab1-oktasamldragndrop2.png
-
-#. Click inside the Flow type box. This show 3 buttons; **Delete**, **Edit**, and **Collapse** buttons. Click on the **Collapse** button to start adding Rules to the Flow.
-
-.. image:: images/lab1-oktaflowbox1.png
-
-Clicking on the Collapse button will expand the SAML Federation Flow type box. 
-
-.. image:: images/lab1-oktasamlflow1.png
-
-.. note:: Noticed the title on the top left hand corner is Generic-SAML-Federation follow by a series of unique number. This can help identify which Flow you're currently viewing in VPD.
-
-#. Click inside the **SAML-Federation** Rule box, and select the **Edit** button
-
-.. image:: images/lab1-oktasamlrule1.png
-
-This will open the SAML Federation Rule properties screen. Please follow the images below for each section.
-
-#. In the **Rule Configuration**, **Rule Properties** screen, add **SAML-Federation-Okta-Rule** as the name of the rule, leave the rest as default. Click **Continue**.
-
-.. image:: images/lab1-oktasamlrule2.png
-
-#. In the **Rule Configuration**, **Providers** screen, this is where you can configure Service Provider and Identity Provider. 
-
-.. image:: images/lab1-oktasamlruleproviders.png
-
-#. For this lab, we will need to configure both a **Service Provider** and **Identity Provider**.
-
-In the **Service Provider** section, click on the **Start Creating** button. 
-
-.. image:: images/lab1-oktasamlrule3.png
-
-#. In the **Add Service Provider** screen add the following parameters:
-
-- **EntityID:** https://signed.example.com
-- **Host:** https://signed.example.com
-- **Check Want Signed Assertion** box
-- Click **Save**
-
-.. image:: images/lab1-oktasamlrule4.png
-
-#. In the **Identity Provider** section, click on the **Start Creating** button. 
-
-.. image:: images/lab1-oktasamlidentity.png
-
-#. In the **Add Idnentity Provider** screen add the following parameters:
-
-- **EntityID:** http://www.okta.com/exk93cs4on3gGVej44x7
-- **SSO URL:** https://dev-818899.okta.com/app/dev-818899_signedexamplecom_1/exk93cs4on3gGVej44x7/sso/saml
-- **Identity Provider’s Assertion Verification Certificate:** select the *okta_signed_cert* imported previously
-- Click **Save**
-
-#. Below is a summary of the completed Providers screen confirm you have both a Service Provider and Identity Provider configured, then Click **Continue**.
-
-.. image:: images/lab1-oktasamlconfirm.png
-
-#. In the **Branches** screen, keep the default. Click **Finish**.
-
-.. image:: images/lab1-oktasamlrule6.png
-
-#. This should bring you back to the Visual Policy Designer. Close the SAML flow by clicking on the **Collapse** icon.
-
-#. In the SAML Flow, change the Allow flow ending from Deny to **Allow**.
-
-.. image:: images/lab1-oktasamlrule17.png
-
-#. Click **Save** button at the top right hand corner to save the policy. After the policy is saved, click **Cancel** to close the policy.
-
-.. image:: images/lab1-oktasamlflow2.png
-
-You have completed creating a security policy. Next we will deploy an Application and assigned the access policy. 
+This ends this section of the lab, onto the next. 

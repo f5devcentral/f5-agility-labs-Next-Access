@@ -26,7 +26,7 @@ Click on **Access** from the Security menu, this should default to Policies.
 
 .. image:: images/lab1-createpolicypencil.png
 
-#. In the **Create Policy** screen, this is where you set the different properties of the policy, such as, logging, language, Single Sign On, etc… Let’s start configuring the policy Start Selecting policy name and adjust policy parameters.
+#. In the **Create Policy** screen, this is where you set the different properties of the policy, such as, logging, language, Single Sign On, etc… Let’s start configuring the policy by setting a policy name and policy parameters.
 
 In the **General Properties** screen set the following parameters, for the rest of the settings you may leave it as default.
 
