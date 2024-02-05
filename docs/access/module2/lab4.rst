@@ -1,132 +1,124 @@
-Lab 1.3 - Create an Application
+Lab 1.4 - Create an Application
 =================================
 
 Creating an application and assign an Access policy to the application.
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-#. Access **BIG-IP Next Central Manager** if you're not already logged in.
+1. Access **BIG-IP Next Central Manager** if you're not already logged in.
 
 .. image:: images/lab2-cmlogin.png
 
-#. Click on the Workspace icon and select Application.
+2. Click on the Workspace icon and select Application.
 
-.. image:: images/lab3-app1.png
+.. image:: images/lab2-app1.png
 
-#. Click on **Start Adding Apps** button to create an Application.
+3. Click on **Start Adding Apps** button to create an Application.
 
-.. image:: images/lab3-app3.png
+.. image:: images/lab2-addapp.png
 
-#. In the **Add Application** screen, you can choose to create an application based on a template or create a standard application from scratch. In this lab, we will start with a **Standard** application.
+4. In the **Add Application** screen, you can choose to create an application based on a template or create a standard application from scratch. In this lab, we will start with a **Standard** application.
 
-In the Application Service Name type: demo_okta_app
-Click **Start Creating**
+- **In Application Service Name type:** azure_kerb_sso
+- **Under What kind of Application Service are you creating?:** select **Standard**
+- Click on **Start Creating** button
 
-.. image:: images/lab3-app4.png
+.. image:: images/lab2-createapp1.png
 
-#. In the Application Service Properties screen, click on **Start Creating** to start creating a virtual server.
+5. In the Application Services Properties, click **Start Creating**.
 
-.. image:: images/lab3-app5.png
+.. image:: images/lab2-createapp2.png
 
-#. In the Application Services Propertes screen, Virtual Servers tab, you will define the virtual servers, pools, and profiles. Let’s start with creating Pools.
+6. In the Virtual Servers configuration screen, we will define the Pool first, so click on **Pools** tab, click **Create**, and type in **Pool Name:** azure_pool.
 
-.. image:: images/lab3-app6.png
+.. image:: images/lab2-createapp3.png
 
-#. Click on **Pools** tab, and Click on **Create** button.
+7. Switch to the **Virtual Servers** tab. Now let’s define the Virtual Server properties.
 
-.. image:: images/lab3-app7.png
+**Virtual Server Name:** vs_azure
+**Pool:** azure_pool
+**Virtual Port:** 443
 
-#. Define the following pool properties:
+.. image:: images/lab2-createapp4.png
 
-- **Pool Name:** okta_pool
-- **Load-Balancing Mode:** round-robin
+8. Click on the **Edit** button under **Protocols & Profiles** to enable HTTPS 
 
-.. image:: images/lab3-app8.png
+9. In the **Protocols and Profiles**, tick the slider button for **Enable HTTPS (Client-Side TLS)**
 
-#. Click on **Virtual Servers** tab, and define the following virtual server properties.
+.. image:: images/lab2-pp.png
 
-- **Virtual Server Name:** vs_okta
-- **Pool:** okta_pool
-- **Virtual Port:** 443
+10. This will enable the features under HTTPS. Click on the **Add** button under the **No Client-Side TLS** to add a certificate.
 
-.. image:: images/lab3-app9.png
+.. image:: images/lab2-tls.png
 
-#. Click on the edit button under **Protocols & Profiles**.
+11.  In the Add **Client-Side TLS** screen, input the following information
 
-#. In the **Protocols and Profiles**, tick the slider button for **Enable HTTPS (Client-Side TLS)**. This will enable the features under HTTPS. Click on the **Add** button under the **No Client-Side TLS** to add a certificate.
-
-.. image:: images/lab3-app10.png
-
-#. In the Add Client-Side TLS screen, provide the input the following information.
-
-- **Name:** okta_signed_client_cert
-- **RSA Certificate:** select from the drop down box, *self_demo.f5.com* cert
+- **Name:** azure_signed_client_cert
+- **RSA Certificate:** self_demo.f5.com
 - Click **Save**
 
-.. image:: images/lab3-app11.png
+.. image:: images/lab2-addtls.png
 
-#. This should take you back to the **Protocols and Profiles** screen. Keep the rest of the settings as default. Click **Save**. 
+12. This will take you back to the **Protocols and Profiles** screen. Keep the rest of the settings as default. Click **Save**. 
 
-.. image:: images/lab3-app12.png
+.. image:: images/lab2-addtls2.png
 
-#. This will take you back to the Virtual Server screen. Now we will attach the Access Policy we created previously to this application. Click on the edit button under **Security Policies**.
+13. This will take you back to the **Virtual Server** screen. Now we will attach the Access Policy we created previously to this application. Click on the **Edit** button under Security Policies.
 
-.. image:: images/lab3-app13.png
+.. image:: images/lab2-vsazure.png
 
-#. This will open the **Security Policies** screen. Slide the button next to **Use an Access Policy**. Under **Specify the Access Policy for this Application**, click the drop down box and select the *okta_signed_policy* created previously. Click **Save**.
+14. This will open the **Security Policies** screen. Slide the button next to **Use an Access Policy**. Under Specify the Access Policy for this Application, click the drop-down box and select the **signed_azure_policy** created previously. Click **Save**.
 
-.. image:: images/lab3-app14.png
+.. image:: images/lab2-vsaddpolicy.png
 
-#. After clicking **Save**, you should be returned to the Virtual Server property page. Click on **Review & Deploy** at the bottom right-hand corner. 
+15. After clicking **Save**, you should be returned to the Virtual Server property page. Click on **Review & Deploy** at the bottom right-hand corner.    
 
-.. image:: images/lab3-app15.png
+.. image:: images/lab2-revdeploy.png
 
-#. In the **Deploy-to** screen, this is where you define which BIG-IP Next instance to deploy the application. Click on **Start Adding** to select a BIG-IP Next Instance.
+16. In the **Deploy** screen, this is where you define which BIG-IP Next instance to deploy the application. Click on **Start Adding** to select a BIG-IP Next Instance.
 
-.. image:: images/lab3-app16.png
+.. image:: images/lab2-deployto.png
 
-#. In the drop down box, select *big-ip-next-03.example.com*, then click on **Add to List** button.
+17. In the drop down box, select *big-ip-next-03.example.com*, then click on **Add to List** button.
 
-.. image:: images/lab3-app17.png
+.. image:: images/lab2-deployto2.png
 
-#. Add **Virtual Address** *10.1.10.101* to associate with the vs_okta. 
+18. In the **Virtual Address:** box type: **10.1.10.100** to associate with the virutal server vs_azure. 
 
-.. image:: images/lab3-app18.png
+.. image:: images/lab2-vsinstance.png
 
-#. Click on the drop down arrow under the **Members** column. This is where we will add the backend pool members to the virtual server.
+19.  Click on the drop down arrow under the Members column. This is where you can add the backend pool members to the virtual server. 
 
-.. image:: images/lab3-app19.png
+.. image:: images/lab2-poolmember.png
 
-#. In the okta_pool screen, click on **Add** Row, and enter the following information for the pool member.
 
-- **Name:** backend_okta_signed
+20. In the azure_pool screen, click on **Add Row**, and enter the following information for the pool member.
+
+- **Name:** backend_azure_signed
 - **IP Address:** 10.1.20.6
 - Click **Save**
 
-.. image:: images/lab3-app20.png
+.. image:: images/lab2-azurepool.png
 
-#. Now you’re ready to Deploy your application. Click on **Deploy Changes** at the bottom right-hand corner.
+21. Now you’re ready to Deploy your application. Click on **Deploy Changes** at the bottom right-hand corner.
 
-.. image:: images/lab3-app21.png
+.. image:: images/lab2-deploychanges.png
 
-#. Confirm in the pop up window that you’re deploy to big-ip-next-03.example.com instance.
+22. Confirm in the pop-up window that you’re deploy to *big-ip-next-03.example.com* instance.
 
-.. image:: images/lab3-app22.png
+.. image:: images/lab2-yesdeploy.png
 
-Click on **Yes, Deploy**. 
+Click on **Yes, Deploy**
 
-#. You will get a status pop up window, and after a few seconds, the screen should refresh and show you the My Application Service dashboard, with a confirmation that Deployment Complete.
+23. You will get a status pop up window, and after a few seconds the screen should refresh and show you the My Application Service dashboard, with a confirmation that Deployment Complete.
 
-.. image:: images/lab3-app23.png
-.. image:: images/lab3-app24.png
+.. image:: images2/lab2-deploystatus.png
+.. image:: images2/lab2-deploycomp.png
 
-#. My Application Services Dashboard should show you one application has been deployed, and Health is Good. 
+24. My Application Services Dashboard should show you one application has been deployed, and Health is Good. 
 
-.. image:: images/lab3-app25.png
+.. image:: images2/lab2-appdash.png
 
-Yay! You have completed deploying an Application and have associated it with an Access policy. Let's move to the next step to test the Application you have just deployed.
-
-
-
+You have successfully created an application and assigned an access policy to it. Let's test the application!
 
 
 

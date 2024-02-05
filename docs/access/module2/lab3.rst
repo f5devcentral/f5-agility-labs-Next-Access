@@ -76,7 +76,70 @@ Click on the drop-down arrow on the **Start Creating** button and select **Kerbe
 
 .. image:: images/lab2-samlflow.png
 
-> :bulb: **Tip:** Remember to appreciate the little things in life.
+:bulb: **Tip:** When dropping the flow type onto the VPD, you want to make sure the flow type box is over the plus sign and the plus sign turns blue.
+
+.. image:: images/lab2-flowdraganddrop.png
+
+The result should look like the following screen shot.
+
+.. image:: images/lab2-flow1.png
+
+#. Click inside the Flow type box. This show 3 buttons; **Delete**, **Edit**, and **Collapse** buttons. Click on the **Collapse** button to start adding Rules to the Flow.
+
+.. image:: images/lab2-flow2.png
+
+Clicking on the **Collapse** button will expand the Flow type box.
+
+.. image:: images/lab2-flow3.png
+
+#. Click inside the SAML-Federation Rule box, and select the **Edit** button
+
+.. image:: images/lab2-flow4.png
+
+This will open the **SAML Federation Rule** properties screen. Please follow the screenshots below for each section.
+
+#. In the **SAML Rule Properties** configuration, replace the trailing number in the Name field to **azure_signed_policy**. Leave the **Provider Configuration** as **Basic**. Click **Continue**.
+
+.. image:: images/lab2-ruleprop1.png
+
+#. In the **Providers** screen, you can set the different Service and Identity Providers in this screen. In this lab we will setup both a Service Provider and Identity Provider.
+
+.. image:: images/lab2-ruleprop2.png
+
+#. Click on **Start Creating** under Service Provider. In the **Add Service Provider** screen input the following information, and then click **Save**.
+
+**EntityID:** https://mbip-1.f5access.onmicrosoft.com 
+**Host:** https://mbip-1.f5access.onmicrosoft.com 
+**Security Properties:** check the box for **Want Signed Assertion**
+
+.. image:: images/lab2-serviceprovider.png
+
+#. Click on **Start Creating** under Identity Provider. In the **Add Identity Provider** screen input the following information, and then click **Save**.
+
+- **Name:** remove the trailing number, and replace with **azure_signed_policy**
+- **EntityID:** https://sts.windows.net/8807dced-9637-4205-a520-423077750c60/  
+- **SSO URL:** https://login.microsoftonline.com/8807dced-9637-4205-a520-423077750c60/saml2  
+- **Identity Provider’s Assertion Verification Certificate:** click the drop down arrow, and select the *azure_signed_cert*
+
+.. image:: images/lab2-identityprovider.png
+
+#. After you click **Save** this should take you back to the Rule Configuration Screen, click **Continue**.
+
+#. In the **Branches** screen, keep the default. Click **Finish**.
+
+#. Close the SAML Rule by clicking on the **Collapse** button.
+
+.. image:: images/lab2-samlclose.png
+
+#. In the SAML Flow Allow branch, set the policy to **Allow**.
+
+.. image:: images/lab2-samlending.png
+
+#. **Save** the policy and close the VPD by clicking on **Cancel**.
+
+You have completed creating an security policy!
+
+
 
 
 
