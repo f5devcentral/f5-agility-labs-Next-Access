@@ -4,149 +4,130 @@ Lab 1.2 - Create an Access Security Policy
 Creating an security policy with signed SAML assertion
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-#. Access **BIG-IP Next Central Manager** if you're not already logged in.
+1. Access **BIG-IP Next Central Manager** if you're not already logged in.
 
-.. image:: images/lab2-cmlogin.png
+.. image:: images/lab3-cmlogin.png
 
-#. Click on the Workspace icon and select Security
+2. Click on the Workspace icon and select Security
 
-.. image:: images/lab1-securitybtn.png
+.. image:: images/lab3-securitybtn.png
 
-#. Under Security you will find all the security modules such as Access, WAF, and SSLO for example. The module may need to be enabled for the feature menu to show up on the Security list. For this lab we have already enabled Access module.
+3. Click on **Access** from the Security menu, this should default to Policies.
 
-Click on **Access** from the Security menu, this should default to Policies.
+.. image:: images/lab3-accessbtn.png
 
-.. image:: images/lab1-accessbtn.png
+4. Click **Start Creating** button to create a new Access policy 
 
-#. Click **Start Creating** button to create a new Access policy 
+.. image:: images/lab3-createapbtn.png
 
-.. image:: images/lab1-createapbtn.png
+5. This will open Access Visual Policy Design screen. Click on the pencil next to create new policy.
 
-#. This will open Access Visual Policy Design screen. Click on the pencil next to create new policy.
+.. image:: images/lab3-createpolicypencil.png
 
-.. image:: images/lab1-createpolicypencil.png
-
-#. In the **Create Policy** screen, this is where you set the different properties of the policy, such as, logging, language, Single Sign On, etc… Let’s start configuring the policy Start Selecting policy name and adjust policy parameters.
+6. In the **Create Policy** screen, this is where you set the different properties of the policy, such as, logging, language, Single Sign On, etc… Let’s start configuring the policy Start Selecting policy name and adjust policy parameters.
 
 In the **General Properties** screen set the following parameters, for the rest of the settings you may leave it as default.
 
-- **Policy Name:** okta_signed_policy
+- **Policy Name:** certAuth
 - **Cookie Option:** check the **Secure** box
 - Click **Continue** 
 
 .. note:: As you continue the rest of the policy creation process, see the screen shot in each section for a visual example of the configuration.
 
-.. image:: images/lab1-oktageneral.png
+7. In **Session Properties**, keep the default settings, click **Continue**.
 
-#. **Session Propertie** screen, you can specify session specific settings in this screen. For this lab we will keep the default. Click **Continue**.
+.. image:: images/lab3-session.png
 
-.. image:: images/lab1-oktasession.png
+8. **Logging screen** you can adjust the logging level to help with debugging or troubleshooting. For this lab we will keep the default settings. Click **Continue**. 
 
-#. **Logging screen** you can adjust the logging level to help with debugging or troubleshooting. For this lab we will keep the default settings. Click **Continue**. 
+.. image:: images/lab3-logging.png
 
-.. image:: images/lab1-oktalogging.png
+9. **Single Sign On** screen, you can set the Single Sign On configuration with an IDP. For this lab we will not use any SSO. Click **Continue**.
 
-#. **Single Sign On** screen, you can set the Single Sign On configuration with an IDP. For this lab we will not use any SSO. Click **Continue**.
+.. image:: images/lab3-sso.png
 
+10. **Endpoint Security** screen, you can setup Endpoint Security such as ensuring firewall is enabled on a client workstation before access is granted. For this lab we will not use this feature. Click **Continue**.
 
-.. image:: images/lab1-oktasso.png
+.. image:: images/lab3-aendpoint.png
 
-#. **Endpoint Security** screen, you can setup Endpoint Security such as ensuring firewall is enabled on a client workstation before access is granted. For this lab we will not use this feature. Click **Continue**.
+11. **Resources** you can set additional capabilities and features such as Network Access, and Webtops in this screen. For this lab we will not use these capabilities. Click **Continue**.
 
-.. image:: images/lab1-oktaendpoint.png
+.. image:: images/lab3-resources.png
 
-#. **Resources** you can set additional capabilities and features such as Network Access, and Webtops in this screen. For this lab we will not use these capabilities. Click **Continue**.
+12. **Policy Endings** you can define additional policy ending logic as needed for your use case here. For this lab we will accept the default. Click **Finish**.
 
-.. image:: images/lab1-oktaresources.png
-
-#. **Policy Endings** you can define additional policy ending logic as needed for your use case here. For this lab we will accept the default. Click **Finish**.
-
-.. image:: images/lab1-oktapolicyendings.png
+.. image:: images/lab3-policyendings.png
 
 After clicking on Finish it should bring you back to the Create Policy screen. Now, we will use the Visual Policy Designer (VPD) to build the policy.
 
-In Next Access we have two terms in the Visual Policy Designer (VPD); flows and rules, we set the flows in the VPD and within each flow we can define multiple rules.
+.. image:: images/lab3-createpolicy2.png
 
-.. image:: images/lab1-createpolicy2.png
+13. Under **Flows**, drag and drop **Empty** flow to the VPD. You will need click on the little dots to the right of the flow type to grab the flow and drop into the VPD. 
 
-#. Under **Flows**, drag and drop **Generic SAML Federation** flow to the VPD. You will need click on the little dots to the right of the flow type to grab the flow and drop into the VPD. 
-
-.. image:: images/lab1-oktasaml.png
+.. image:: images/lab3-emptyflow.png
 
 When dropping the flow type onto the VPD, you will want to make sure the flow type box is over the plus sign and the plus sign turns blue.
 
-.. image:: images/lab1-oktasamldragndrop.png
-
+.. image:: images/lab3-emptydd.png
 The result should look like the following screen shot.
 
-.. image:: images/lab1-oktasamldragndrop2.png
+.. image:: images/lab3-emptyok.png
 
-#. Click inside the Flow type box. This show 3 buttons; **Delete**, **Edit**, and **Collapse** buttons. Click on the **Collapse** button to start adding Rules to the Flow.
+14. Click inside the Flow type box. This show 3 buttons; **Delete**, **Edit**, and **Collapse** buttons. Click on the **Collapse** button to start adding Rules to the Flow.
 
-.. image:: images/lab1-oktaflowbox1.png
+.. image:: images/lab3-allthebtns.png
 
-Clicking on the Collapse button will expand the SAML Federation Flow type box. 
+15. On the left hand side menu, select the **R** (Rules) button, and scroll down on the **Rules** till you find **On-Demand Certificate Authentication**.
 
-.. image:: images/lab1-oktasamlflow1.png
+.. image:: images/lab3-rules1.png
 
-.. note:: Noticed the title on the top left hand corner is Generic-SAML-Federation follow by a series of unique number. This can help identify which Flow you're currently viewing in VPD.
+ 16. Click and drag **On-Demand Certificate Authenticate** to the VPD.
 
-#. Click inside the **SAML-Federation** Rule box, and select the **Edit** button
+.. image:: images/lab3-rules2.png
 
-.. image:: images/lab1-oktasamlrule1.png
+17. Edit the **On-Demand Certificate** rule by clicking on the edit button.
 
-This will open the SAML Federation Rule properties screen. Please follow the images below for each section.
+.. image:: images/lab3-rules3.png
 
-#. In the **Rule Configuration**, **Rule Properties** screen, add **SAML-Federation-Okta-Rule** as the name of the rule, leave the rest as default. Click **Continue**.
+18. In the **Rule Configurations**, **Rule Properties**, change **Authentication Mode** to **Require**. Click **Continue**.
 
-.. image:: images/lab1-oktasamlrule2.png
+.. image:: images/lab3-rules4.png
 
-#. In the **Rule Configuration**, **Providers** screen, this is where you can configure Service Provider and Identity Provider. 
+19. In the **Rule Configurations**, **Branches** screen we will add another branch for a successful authentication. 
 
-.. image:: images/lab1-oktasamlruleproviders.png
+Click on **Create** button to add a new Branch 
 
-#. For this lab, we will need to configure both a **Service Provider** and **Identity Provider**.
+.. image:: images/lab3-branches.png
 
-In the **Service Provider** section, click on the **Start Creating** button. 
+20. In the **Create Branch** screen, adjust the parameters to the following, and click **Save** when done. 
 
-.. image:: images/lab1-oktasamlrule3.png
+- **Name:** Successful
+- **Context:** Client Certificate
+- **Condition:** Validity
+- **Client Certificate:** Valid
 
-#. In the **Add Service Provider** screen add the following parameters:
+.. image:: images/lab3-branches2.png
 
-- **EntityID:** https://signed.example.com
-- **Host:** https://signed.example.com
-- **Check Want Signed Assertion** box
-- Click **Save**
+You should now have two branches in Successful and Fallback, see image below. Click **Finish**.
 
-.. image:: images/lab1-oktasamlrule4.png
+.. image:: images/lab3-branchcomp.png
 
-#. In the **Identity Provider** section, click on the **Start Creating** button. 
+21. Click on the **Collapse** button to close the **Rules and Flow** box so you’re back to the main VPD. See image below for reference.
 
-.. image:: images/lab1-oktasamlidentity.png
+.. image:: images/lab3-branchclose.png
 
-#. In the **Add Idnentity Provider** screen add the following parameters:
+22. Click on **Edit** button on the **Empty Flow** box. This will open up the **Empty Flow** property screen. 
 
-- **EntityID:** http://www.okta.com/exk93cs4on3gGVej44x7
-- **SSO URL:** https://dev-818899.okta.com/app/dev-818899_signedexamplecom_1/exk93cs4on3gGVej44x7/sso/saml
-- **Identity Provider’s Assertion Verification Certificate:** select the *okta_signed_cert* imported previously
-- Click **Save**
+.. image:: images/lab3-term1.png
 
-#. Below is a summary of the completed Providers screen confirm you have both a Service Provider and Identity Provider configured, then Click **Continue**.
+23. We want to add another terminal or Flow Ending for an Allow policy if the certificate matches. 
 
-.. image:: images/lab1-oktasamlconfirm.png
+- Click on **Create** to add another Flow Ending
+- In the **Name** box type **Allow** 
+- Select the color **#199D4D** (Green) for the Allow ending
 
-#. In the **Branches** screen, keep the default. Click **Finish**.
+.. image:: images/lab3-flowending.png
 
-.. image:: images/lab1-oktasamlrule6.png
-
-#. This should bring you back to the Visual Policy Designer. Close the SAML flow by clicking on the **Collapse** icon.
-
-#. In the SAML Flow, change the Allow flow ending from Deny to **Allow**.
-
-.. image:: images/lab1-oktasamlrule17.png
-
-#. Click **Save** button at the top right hand corner to save the policy. After the policy is saved, click **Cancel** to close the policy.
-
-.. image:: images/lab1-oktasamlflow2.png
+ 24. Save the policy and close the VPD by clicking on **Cancel**.
 
 You have completed creating a security policy. Next we will deploy an Application and assigned the access policy. 

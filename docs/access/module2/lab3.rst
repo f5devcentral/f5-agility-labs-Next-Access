@@ -1,143 +1,124 @@
-Lab 1.3 - Create an Access Security Policy
-===========================================
+Lab 1.3 - Create an Application
+=================================
 
-Creating an security policy with authentication to Azure and Kerberos Single Sign-On
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Creating an application and assign an Access policy to the application.
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-#. Access **BIG-IP Next Central Manager** if you're not already logged in.
+1. Access **BIG-IP Next Central Manager** if you're not already logged in.
 
 .. image:: images/lab2-cmlogin.png
 
-#. Click on the Workspace icon and select Security
+2. Click on the Workspace icon and select Application.
 
-.. image:: images/lab2-securitybtn.png
+.. image:: images/lab2-app1.png
 
-Click on **Access** from the Security menu.
+3. Click on **Start Adding Apps** button to create an Application.
 
-.. image:: images/lab2-accessbtn.png
+.. image:: images/lab2-addapp.png
 
-#. Click **Start Creating** button to create a new Access policy 
+4. In the **Add Application** screen, you can choose to create an application based on a template or create a standard application from scratch. In this lab, we will start with a **Standard** application.
 
-.. image:: images/lab2-createapbtn.png
+- **In Application Service Name type:** azure_kerb_sso
+- **Under What kind of Application Service are you creating?:** select **Standard**
+- Click on **Start Creating** button
 
-#. This will open Access Visual Policy Design screen. Click on the pencil next to create new policy.
+.. image:: images/lab2-createapp1.png
 
-.. image:: images/lab2-createpolicypencil.png
+5. In the Application Services Properties, click **Start Creating**.
 
-#. In the **Create Policy** screen, let's start configuring the policy.
+.. image:: images/lab2-createapp2.png
 
-In the **General Properties** screen set the following parameter(s), for the rest of the settings you may leave it as default.
+6. In the Virtual Servers configuration screen, we will define the Pool first, so click on **Pools** tab, click **Create**, and type in **Pool Name:** azure_pool.
 
-- **Policy Name:** signed_azure_policy
-- Click **Continue** 
+.. image:: images/lab2-createapp3.png
 
-.. note:: As you continue the rest of the policy creation process, see the screen shot in each section for a visual example of the configuration.
+7. Switch to the **Virtual Servers** tab. Now let’s define the Virtual Server properties.
 
-.. image:: images/lab2-azurepolicy.png
+**Virtual Server Name:** vs_azure
+**Pool:** azure_pool
+**Virtual Port:** 443
 
-#. In **Session Properties**, keep the default settings, click **Continue**
+.. image:: images/lab2-createapp4.png
 
-.. image:: images/lab2-session.png
+8. Click on the **Edit** button under **Protocols & Profiles** to enable HTTPS 
 
-#. In the **Logging** screen, you may want to adjust the logging to debug for troubleshooting propose. For this lab we will keep all the default settings.
+9. In the **Protocols and Profiles**, tick the slider button for **Enable HTTPS (Client-Side TLS)**
 
-.. image:: images/lab2-logging.png
+.. image:: images/lab2-pp.png
 
-#. In the **Single Sign-On** screen, is where you can configure Single Sign-On to your applications. In this lab we will setup Single Sign-On for Kerberos.
+10. This will enable the features under HTTPS. Click on the **Add** button under the **No Client-Side TLS** to add a certificate.
 
-Click on the drop-down arrow on the **Start Creating** button and select **Kerberos**.
+.. image:: images/lab2-tls.png
 
-.. image:: images/lab2-sso.png
+11.  In the Add **Client-Side TLS** screen, input the following information
 
-#. This will open the SSO Method Configuration screen. In this screen set the parameters as follow.
+- **Name:** azure_signed_client_cert
+- **RSA Certificate:** self_demo.f5.com
+- Click **Save**
 
-- **Name:** remove the trailing number and replace with “signed_azure_policy”. See image below as reference.
-- **Kerberos Realm:** F5ACCESS.ONMICROSOFT.COM  
-- **KDC:** 10.1.20.6
-- **Account Name:** host/apm-deleg.f5access.onmicrosoft.com
-- **Account Password:** F5twister$ 
-- **SPN Pattern:** HTTP/%h@F5ACCESS.ONMICROSOFT.COM
-- **Username Source:** session.saml.last.identity
-- **User Realm Source:** session.logon.last.domain
+.. image:: images/lab2-addtls.png
 
-.. image:: images/lab2-sso2.png
+12. This will take you back to the **Protocols and Profiles** screen. Keep the rest of the settings as default. Click **Save**. 
 
-#. Click **Continue**, this will take you back to the Policy Configurations screen. Click **Continue** on the next screen.
+.. image:: images/lab2-addtls2.png
 
-#. Endpoint Security screen, you can setup Endpoint Security such as ensuring firewall is enabled on a client workstation before access is granted. In this lab, we will not use this feature. Click Continue. 
+13. This will take you back to the **Virtual Server** screen. Now we will attach the Access Policy we created previously to this application. Click on the **Edit** button under Security Policies.
 
-#. Resources screen, you can set additional capabilities and features such as Network Access, and Webtops in this screen. In this lab we will not use these capabilities. Click Continue.
+.. image:: images/lab2-vsazure.png
 
-#. Policy Endings, you can define addition policy ending logic as needed for your use case here. In this lab we will accept the default. Click Finish.
+14. This will open the **Security Policies** screen. Slide the button next to **Use an Access Policy**. Under Specify the Access Policy for this Application, click the drop-down box and select the **signed_azure_policy** created previously. Click **Save**.
 
-#. After clicking on Finish it should bring you back to the **Create Policy** screen. Now, we will use the Visual Policy Designer (VPD) to continue building the policy.
+.. image:: images/lab2-vsaddpolicy.png
 
-#. Under Flows, drag and drop **Generic SAML Federation** flow to the VPD. You will need click on the little dots to the right of the flow type to grab the flow and drop into the VPD. 
+15. After clicking **Save**, you should be returned to the Virtual Server property page. Click on **Review & Deploy** at the bottom right-hand corner.    
 
-.. image:: images/lab2-samlflow.png
+.. image:: images/lab2-revdeploy.png
 
-:bulb: **Tip:** When dropping the flow type onto the VPD, you want to make sure the flow type box is over the plus sign and the plus sign turns blue.
+16. In the **Deploy** screen, this is where you define which BIG-IP Next instance to deploy the application. Click on **Start Adding** to select a BIG-IP Next Instance.
 
-.. image:: images/lab2-flowdraganddrop.png
+.. image:: images/lab2-deployto.png
 
-The result should look like the following screen shot.
+17. In the drop down box, select *big-ip-next-03.example.com*, then click on **Add to List** button.
 
-.. image:: images/lab2-flow1.png
+.. image:: images/lab2-deployto2.png
 
-#. Click inside the Flow type box. This show 3 buttons; **Delete**, **Edit**, and **Collapse** buttons. Click on the **Collapse** button to start adding Rules to the Flow.
+18. In the **Virtual Address:** box type: **10.1.10.100** to associate with the virutal server vs_azure. 
 
-.. image:: images/lab2-flow2.png
+.. image:: images/lab2-vsinstance.png
 
-Clicking on the **Collapse** button will expand the Flow type box.
+19.  Click on the drop down arrow under the Members column. This is where you can add the backend pool members to the virtual server. 
 
-.. image:: images/lab2-flow3.png
+.. image:: images/lab2-poolmember.png
 
-#. Click inside the SAML-Federation Rule box, and select the **Edit** button
 
-.. image:: images/lab2-flow4.png
+20. In the azure_pool screen, click on **Add Row**, and enter the following information for the pool member.
 
-This will open the **SAML Federation Rule** properties screen. Please follow the screenshots below for each section.
+- **Name:** backend_azure_signed
+- **IP Address:** 10.1.20.6
+- Click **Save**
 
-#. In the **SAML Rule Properties** configuration, replace the trailing number in the Name field to **azure_signed_policy**. Leave the **Provider Configuration** as **Basic**. Click **Continue**.
+.. image:: images/lab2-azurepool.png
 
-.. image:: images/lab2-ruleprop1.png
+21. Now you’re ready to Deploy your application. Click on **Deploy Changes** at the bottom right-hand corner.
 
-#. In the **Providers** screen, you can set the different Service and Identity Providers in this screen. In this lab we will setup both a Service Provider and Identity Provider.
+.. image:: images/lab2-deploychanges.png
 
-.. image:: images/lab2-ruleprop2.png
+22. Confirm in the pop-up window that you’re deploy to *big-ip-next-03.example.com* instance.
 
-#. Click on **Start Creating** under Service Provider. In the **Add Service Provider** screen input the following information, and then click **Save**.
+.. image:: images/lab2-yesdeploy.png
 
-**EntityID:** https://mbip-1.f5access.onmicrosoft.com 
-**Host:** https://mbip-1.f5access.onmicrosoft.com 
-**Security Properties:** check the box for **Want Signed Assertion**
+Click on **Yes, Deploy**
 
-.. image:: images/lab2-serviceprovider.png
+23. You will get a status pop up window, and after a few seconds the screen should refresh and show you the My Application Service dashboard, with a confirmation that Deployment Complete.
 
-#. Click on **Start Creating** under Identity Provider. In the **Add Identity Provider** screen input the following information, and then click **Save**.
+.. image:: images2/lab2-deploystatus.png
+.. image:: images2/lab2-deploycomp.png
 
-- **Name:** remove the trailing number, and replace with **azure_signed_policy**
-- **EntityID:** https://sts.windows.net/8807dced-9637-4205-a520-423077750c60/  
-- **SSO URL:** https://login.microsoftonline.com/8807dced-9637-4205-a520-423077750c60/saml2  
-- **Identity Provider’s Assertion Verification Certificate:** click the drop down arrow, and select the *azure_signed_cert*
+24. My Application Services Dashboard should show you one application has been deployed, and Health is Good. 
 
-.. image:: images/lab2-identityprovider.png
+.. image:: images2/lab2-appdash.png
 
-#. After you click **Save** this should take you back to the Rule Configuration Screen, click **Continue**.
-
-#. In the **Branches** screen, keep the default. Click **Finish**.
-
-#. Close the SAML Rule by clicking on the **Collapse** button.
-
-.. image:: images/lab2-samlclose.png
-
-#. In the SAML Flow Allow branch, set the policy to **Allow**.
-
-.. image:: images/lab2-samlending.png
-
-#. **Save** the policy and close the VPD by clicking on **Cancel**.
-
-You have completed creating an security policy!
+You have successfully created an application and assigned an access policy to it. Let's test the application!
 
 
 

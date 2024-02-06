@@ -3,44 +3,42 @@ Lab 1.1 - Creating a Certificate
 
 Create a certificate in Next Central Manager
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-#. Access **BIG-IP Next Central Manager** 
+1. Access **BIG-IP Next Central Manager** if you're not already logged in.
 
-.. image:: images/lab1-cmlogin.png
+.. image:: images/lab3-cmlogin.png
 
-After logging in, you should be presented with Dashboard like below. This is the main Dashboard for BIG-IP Next Central Manager. You can return to this screen anytime by clicking on the red F5 circle or the word BIG-IP Next Central Manager at the top left-hand corner.
+2. Click on the Workspace button and select **Application**. 
 
-.. image:: images/lab1-cmdashboard.png
+.. image:: images/lab3-applications
 
-You can also navigate BIG-IP Next Central Manager using the Workspace Menu by clicking on the dotted icon to the left of the F5 circle.
+3. Click on **Certificate & Keys**
 
-.. image:: images/lab1-cmworkspacebtn.png
+.. image:: images/lab3-certkeysbtn.png
 
-**Workspace Menu**
+4. Click on **Add** button to add a certifcate. 
 
-.. image:: images/lab1-cmworkspacemenu.png
+.. image:: images/lab3-certadd.png
 
-- **Home** This is the main dashboard.
-- **Applicaitons** This is where you create Applications, Application templates, and Services.
-- **Security** This is where you create Access Policy, Security Policy, and view security related events and reports.
-- **Infrastructure** This is where you can view and manage BIG-IP Next Instances.
-- **System** This is where you can access system settings for Central Manager such as Users and Roles, perform system upgrades.
+5. In the **Add Certificate & Keys** fly out menu 
 
-Now that we are familiar with the Dashboard let’s get started with the first lab. First objective is to upload a certificate.
+- Select the **Import a Certificate**. 
+- Under **Name**, select **New**, and type: **ADDC_CA**
+- In the **Tag** drop down box, select **Access**
+- In the **Type** drop down box, select **Certificate**
+- In the **Source** section, select **Import**
+- In the **Certificate Section**, click on the **Import** button, and import the **f5access-ADDC-CA.crt** certificate
+.. note:: The certificates are in the Access Lab folder in Documents as well as pinned to the Windows Explorer Quick Access
 
-**Create a Certificate**
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+The result should look like the image below.
 
-#. Click on the Workspace button and select **Application**. 
+.. image:: images/lab3-cacert.png
 
-.. image:: images/lab1-applications
+7. Click **Save**
 
-#. Click on **Certificate & Keys**
+You have successfully uploaded a certificate. 
 
-.. image:: images/lab1-certkeysbtn.png
 
-#. Click on Add button to add a certifcate. 
 
-### come back to add this section upload certificate
 
 
 

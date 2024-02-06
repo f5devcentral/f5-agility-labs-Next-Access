@@ -1,152 +1,134 @@
-Lab 1.2 - Create an Access Security Policy
-===========================================
+Lab 1.2 - Create an Application
+=================================
 
-Creating an security policy with signed SAML assertion
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Creating an application and assign an Access policy to the application.
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 #. Access **BIG-IP Next Central Manager** if you're not already logged in.
 
 .. image:: images/lab2-cmlogin.png
 
-#. Click on the Workspace icon and select Security
+#. Click on the Workspace icon and select Application.
 
-.. image:: images/lab1-securitybtn.png
+.. image:: images/lab3-app1.png
 
-#. Under Security you will find all the security modules such as Access, WAF, and SSLO for example. The module may need to be enabled for the feature menu to show up on the Security list. For this lab we have already enabled Access module.
+#. Click on **Start Adding Apps** button to create an Application.
 
-Click on **Access** from the Security menu, this should default to Policies.
+.. image:: images/lab3-app3.png
 
-.. image:: images/lab1-accessbtn.png
+#. In the **Add Application** screen, you can choose to create an application based on a template or create a standard application from scratch. In this lab, we will start with a **Standard** application.
 
-#. Click **Start Creating** button to create a new Access policy 
+In the Application Service Name type: demo_okta_app
+Click **Start Creating**
 
-.. image:: images/lab1-createapbtn.png
+.. image:: images/lab3-app4.png
 
-#. This will open Access Visual Policy Design screen. Click on the pencil next to create new policy.
+#. In the Application Service Properties screen, click on **Start Creating** to start creating a virtual server.
 
-.. image:: images/lab1-createpolicypencil.png
+.. image:: images/lab3-app5.png
 
-#. In the **Create Policy** screen, this is where you set the different properties of the policy, such as, logging, language, Single Sign On, etc… Let’s start configuring the policy by setting a policy name and policy parameters.
+#. In the Application Services Propertes screen, Virtual Servers tab, you will define the virtual servers, pools, and profiles. Let’s start with creating Pools.
 
-In the **General Properties** screen set the following parameters, for the rest of the settings you may leave it as default.
+.. image:: images/lab3-app6.png
 
-- **Policy Name:** okta_signed_policy
-- **Cookie Option:** check the **Secure** box
-- Click **Continue** 
+#. Click on **Pools** tab, and Click on **Create** button.
 
-.. note:: As you continue the rest of the policy creation process, see the screen shot in each section for a visual example of the configuration.
+.. image:: images/lab3-app7.png
 
-.. image:: images/lab1-oktageneral.png
+#. Define the following pool properties:
 
-#. **Session Propertie** screen, you can specify session specific settings in this screen. For this lab we will keep the default. Click **Continue**.
+- **Pool Name:** okta_pool
+- **Load-Balancing Mode:** round-robin
 
-.. image:: images/lab1-oktasession.png
+.. image:: images/lab3-app8.png
 
-#. **Logging screen** you can adjust the logging level to help with debugging or troubleshooting. For this lab we will keep the default settings. Click **Continue**. 
+#. Click on **Virtual Servers** tab, and define the following virtual server properties.
 
-.. image:: images/lab1-oktalogging.png
+- **Virtual Server Name:** vs_okta
+- **Pool:** okta_pool
+- **Virtual Port:** 443
 
-#. **Single Sign On** screen, you can set the Single Sign On configuration with an IDP. For this lab we will not use any SSO. Click **Continue**.
+.. image:: images/lab3-app9.png
 
+#. Click on the edit button under **Protocols & Profiles**.
 
-.. image:: images/lab1-oktasso.png
+#. In the **Protocols and Profiles**, tick the slider button for **Enable HTTPS (Client-Side TLS)**. This will enable the features under HTTPS. Click on the **Add** button under the **No Client-Side TLS** to add a certificate.
 
-#. **Endpoint Security** screen, you can setup Endpoint Security such as ensuring firewall is enabled on a client workstation before access is granted. For this lab we will not use this feature. Click **Continue**.
+.. image:: images/lab3-app10.png
 
-.. image:: images/lab1-oktaendpoint.png
+#. In the **Add Client-Side TLS** screen, provide the input the following information.
 
-#. **Resources** you can set additional capabilities and features such as Network Access, and Webtops in this screen. For this lab we will not use these capabilities. Click **Continue**.
-
-.. image:: images/lab1-oktaresources.png
-
-#. **Policy Endings** you can define additional policy ending logic as needed for your use case here. For this lab we will accept the default. Click **Finish**.
-
-.. image:: images/lab1-oktapolicyendings.png
-
-After clicking on Finish it should bring you back to the Create Policy screen. Now, we will use the Visual Policy Designer (VPD) to build the policy.
-
-In Next Access we have two terms in the Visual Policy Designer (VPD); flows and rules, we set the flows in the VPD and within each flow we can define multiple rules.
-
-.. image:: images/lab1-createpolicy2.png
-
-#. Under **Flows**, drag and drop **Generic SAML Federation** flow to the VPD. You will need click on the little dots to the right of the flow type to grab the flow and drop into the VPD. 
-
-.. image:: images/lab1-oktasaml.png
-
-When dropping the flow type onto the VPD, you will want to make sure the flow type box is over the plus sign and the plus sign turns blue.
-
-.. image:: images/lab1-oktasamldragndrop.png
-
-The result should look like the following screen shot.
-
-.. image:: images/lab1-oktasamldragndrop2.png
-
-#. Click inside the Flow type box. This show 3 buttons; **Delete**, **Edit**, and **Collapse** buttons. Click on the **Collapse** button to start adding Rules to the Flow.
-
-.. image:: images/lab1-oktaflowbox1.png
-
-Clicking on the Collapse button will expand the SAML Federation Flow type box. 
-
-.. image:: images/lab1-oktasamlflow1.png
-
-.. note:: Noticed the title on the top left hand corner is Generic-SAML-Federation follow by a series of unique number. This can help identify which Flow you're currently viewing in VPD.
-
-#. Click inside the **SAML-Federation** Rule box, and select the **Edit** button
-
-.. image:: images/lab1-oktasamlrule1.png
-
-This will open the SAML Federation Rule properties screen. Please follow the images below for each section.
-
-#. In the **Rule Configuration**, **Rule Properties** screen, add **SAML-Federation-Okta-Rule** as the name of the rule, leave the rest as default. Click **Continue**.
-
-.. image:: images/lab1-oktasamlrule2.png
-
-#. In the **Rule Configuration**, **Providers** screen, this is where you can configure Service Provider and Identity Provider. 
-
-.. image:: images/lab1-oktasamlruleproviders.png
-
-#. For this lab, we will need to configure both a **Service Provider** and **Identity Provider**.
-
-In the **Service Provider** section, click on the **Start Creating** button. 
-
-.. image:: images/lab1-oktasamlrule3.png
-
-#. In the **Add Service Provider** screen add the following parameters:
-
-- **EntityID:** https://signed.example.com
-- **Host:** https://signed.example.com
-- **Check Want Signed Assertion** box
+- **Name:** okta_signed_client_cert
+- **RSA Certificate:** Select the *self_demo.f5.com* certificate
 - Click **Save**
 
-.. image:: images/lab1-oktasamlrule4.png
+.. image:: images/lab3-app11.png
 
-#. In the **Identity Provider** section, click on the **Start Creating** button. 
+#. This should take you back to the **Protocols and Profiles** screen. Keep the rest of the settings as default. Click **Save**. 
 
-.. image:: images/lab1-oktasamlidentity.png
+.. image:: images/lab3-app12.png
 
-#. In the **Add Idnentity Provider** screen add the following parameters:
+#. This will take you back to the Virtual Server screen. Now we will attach the Access Policy we created previously to this application. Click on the edit button under **Security Policies**.
 
-- **EntityID:** http://www.okta.com/exk93cs4on3gGVej44x7
-- **SSO URL:** https://dev-818899.okta.com/app/dev-818899_signedexamplecom_1/exk93cs4on3gGVej44x7/sso/saml
-- **Identity Provider’s Assertion Verification Certificate:** select the *okta_signed_cert* imported previously
+.. image:: images/lab3-app13.png
+
+#. This will open the **Security Policies** screen. Slide the button next to **Use an Access Policy**. Under **Specify the Access Policy for this Application**, click the drop down box and select the *okta_signed_policy* created previously. Click **Save**.
+
+.. image:: images/lab3-app14.png
+
+#. After clicking **Save**, you should be returned to the Virtual Server property page. Click on **Review & Deploy** at the bottom right-hand corner. 
+
+.. image:: images/lab3-app15.png
+
+#. In the **Deploy-to** screen, this is where you define which BIG-IP Next instance to deploy the application. Click on **Start Adding** to select a BIG-IP Next Instance.
+
+.. image:: images/lab3-app16.png
+
+#. In the drop down box, select *big-ip-next-03.example.com*, then click on **Add to List** button.
+
+.. image:: images/lab3-app17.png
+
+#. Add **Virtual Address** *10.1.10.101* to associate with the vs_okta. 
+
+.. image:: images/lab3-app18.png
+
+#. Click on the drop down arrow under the **Members** column. This is where we will add the backend pool members to the virtual server.
+
+.. image:: images/lab3-app19.png
+
+#. In the okta_pool screen, click on **Add** Row, and enter the following information for the pool member.
+
+- **Name:** backend_okta_signed
+- **IP Address:** 10.1.20.6
 - Click **Save**
 
-#. Below is a summary of the completed Providers screen confirm you have both a Service Provider and Identity Provider configured, then Click **Continue**.
+.. image:: images/lab3-app20.png
 
-.. image:: images/lab1-oktasamlconfirm.png
+#. Now you’re ready to Deploy your application. Click on **Deploy Changes** at the bottom right-hand corner.
 
-#. In the **Branches** screen, keep the default. Click **Finish**.
+.. image:: images/lab3-app21.png
 
-.. image:: images/lab1-oktasamlrule6.png
+#. Confirm in the pop up window that you’re deploy to big-ip-next-03.example.com instance.
 
-#. This should bring you back to the Visual Policy Designer. Close the SAML flow by clicking on the **Collapse** icon.
+.. image:: images/lab3-app22.png
 
-#. In the SAML Flow, change the Allow flow ending from Deny to **Allow**.
+Click on **Yes, Deploy**. 
 
-.. image:: images/lab1-oktasamlrule17.png
+#. You will get a status pop up window, and after a few seconds, the screen should refresh and show you the My Application Service dashboard, with a confirmation that Deployment Complete.
 
-#. Click **Save** button at the top right hand corner to save the policy. After the policy is saved, click **Cancel** to close the policy.
+.. image:: images/lab3-app23.png
+.. image:: images/lab3-app24.png
 
-.. image:: images/lab1-oktasamlflow2.png
+#. My Application Services Dashboard should show you one application has been deployed, and Health is Good. 
 
-You have completed creating a security policy. Next we will deploy an Application and assigned the access policy. 
+.. image:: images/lab3-app25.png
+
+Yay! You have completed deploying an Application and have associated it with an Access policy. Let's move to the next step to test the Application you have just deployed.
+
+
+
+
+
+
+
+
