@@ -1,18 +1,14 @@
-F5 Agility Labs - Index
-=======================
+F5 BIG-IP Next Access - Introduction
+====================================
 
 Welcome
 -------
 
-Welcome to the |classbold| labs for F5 Agility |year|
+Welcome to the |classbold| for F5 AppWorld |year|
 
 .. toctree::
    :maxdepth: 3
    :caption: Contents:
    :glob:
 
-   
-   waf*/*
-   
-
-   
+   class*/class*

@@ -1,5 +1,5 @@
-BIG-IP Next Access - (need to added something here)
-==================================================================
+BIG-IP Next Access
+==================
 
 Intro
 -----
@@ -22,8 +22,7 @@ Certificate Authentication: We will also explore how to leverage Next Access to 
 
 .. toctree::
    :maxdepth: 1
-   :caption: Contents:
    :glob:
 
-   labinfo/labinfo
    module*/module*
+
