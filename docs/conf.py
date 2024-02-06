@@ -1,3 +1,11 @@
+import os
+import sys
+import time
+import re
+import pkgutil
+import string
+import f5_sphinx_theme
+
 # -*- coding: utf-8 -*-
 #
 #
@@ -5,23 +13,16 @@
 # ------------
 #
 # REQUIRED: Your class/lab name
-classname = "F5 Web Application Firewall Solutions"
+classname = "F5 BIG-IP Next Access Labs"
 
 # OPTIONAL: The URL to the GitHub Repository for this class
-github_repo = "https://github.com/f5devcentral/f5-agility-labs-waf"
+github_repo = "https://github.com/f5devcentral/F5-appworld-next-access"
 
 #
 # END CONFIG
 # ----------
 
-import os
-import sys
-import time
-import re
-import pkgutil
-import string
 sys.path.insert(0, os.path.abspath('.'))
-import f5_sphinx_theme
 
 year = time.strftime("%Y")
 eventname = "Agility %s Hands-on Lab Guide" % (year)
@@ -77,25 +78,25 @@ else:
 # ones.
 
 extensions = [
-  'sphinx.ext.todo',
-  'sphinx.ext.extlinks',
-  'sphinx.ext.graphviz',
-  'sphinxcontrib.nwdiag',
-  'sphinx_copybutton',
-  'sphinxcontrib.blockdiag'
-  #'sphinx.ext.autosectionlabel'
+    'sphinx.ext.todo',
+    'sphinx.ext.extlinks',
+    'sphinx.ext.graphviz',
+    'sphinxcontrib.nwdiag',
+    'sphinx_copybutton',
+    'sphinxcontrib.blockdiag'
+    # 'sphinx.ext.autosectionlabel'
 ]
 
 graphviz_output_format = 'svg'
 graphviz_font = 'DejaVu Sans:style=Book'
 graphviz_dot_args = [
-     "-Gfontname='%s'" % graphviz_font,
-     "-Nfontname='%s'" % graphviz_font,
-     "-Efontname='%s'" % graphviz_font
+    "-Gfontname='%s'" % graphviz_font,
+    "-Nfontname='%s'" % graphviz_font,
+    "-Efontname='%s'" % graphviz_font
 ]
 
 html_context = {
-    "github_url":github_repo
+    "github_url": github_repo
 }
 
 diag_fontpath = '/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf'
@@ -112,16 +113,16 @@ eggs_loader = pkgutil.find_loader('sphinxcontrib.spelling')
 found = eggs_loader is not None
 
 if found:
-  extensions += ['sphinxcontrib.spelling']
-  spelling_lang='en_US'
-  spelling_word_list_filename='../wordlist'
-  spelling_show_suggestions=True
-  spelling_ignore_pypi_package_names=False
-  spelling_ignore_wiki_words=True
-  spelling_ignore_acronyms=True
-  spelling_ignore_python_builtins=True
-  spelling_ignore_importable_modules=True
-  spelling_filters=[]
+    extensions += ['sphinxcontrib.spelling']
+    spelling_lang = 'en_US'
+    spelling_word_list_filename = '../wordlist'
+    spelling_show_suggestions = True
+    spelling_ignore_pypi_package_names = False
+    spelling_ignore_wiki_words = True
+    spelling_ignore_acronyms = True
+    spelling_ignore_python_builtins = True
+    spelling_ignore_importable_modules = True
+    spelling_filters = []
 
 source_parsers = {
     '.md': 'recommonmark.parser.CommonMarkParser'
@@ -140,8 +141,8 @@ master_doc = 'index'
 
 # General information about the project.
 project = classname
-copyright = u'2019, F5 Networks, Inc.'
-author = u'F5 Networks, Inc.'
+copyright = "2024, F5, Inc."
+author = "F5, Inc."
 
 # The version info for the project you're documenting, acts as replacement for
 # |version| and |release|, also used in various other places throughout the
@@ -157,7 +158,7 @@ release = u''
 #
 # This is also used if you do content translation via gettext catalogs.
 # Usually you set "language" from the command line for these cases.
-language = None
+language = "en"
 
 # List of patterns, relative to source directory, that match files and
 # directories to ignore when looking for source files.
@@ -181,14 +182,14 @@ html_theme = 'f5_sphinx_theme'
 html_theme_path = f5_sphinx_theme.get_html_theme_path()
 html_sidebars = {'**': ['searchbox.html', 'localtoc.html', 'globaltoc.html']}
 html_theme_options = {
-                        'site_name': 'Community Training Classes & Labs',
-                        'next_prev_link': True
-                     }
+    'site_name': 'Community Training Classes & Labs',
+    'next_prev_link': True
+}
 html_codeblock_linenos_style = 'table'
 html_last_updated_fmt = '%Y-%m-%d %H:%M:%S'
 
 extlinks = {
-    'issues':( ("%s/issues/%%s" % github_repo), 'issue ' )
+    'issues': (("%s/issues/%%s" % github_repo), 'issue ')
 }
 
 # Theme options are theme-specific and customize the look and feel of a theme
@@ -205,10 +206,10 @@ html_static_path = ['_static']
 
 # -- Options for HTMLHelp output ------------------------------------------
 
-cleanname = re.sub('\W+','',classname)
+cleanname = re.sub('\W+', '', classname)
 
 # Output file base name for HTML help builder.
-htmlhelp_basename =  cleanname + 'doc'
+htmlhelp_basename = cleanname + 'doc'
 
 # -- Options for LaTeX output ---------------------------------------------
 
@@ -273,6 +274,3 @@ texinfo_documents = [
      author, classname, classname,
      'Training'),
 ]
-
-
-
