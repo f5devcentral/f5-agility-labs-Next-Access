@@ -6,18 +6,22 @@ Create a certificate in Next Central Manager
 1. Access **BIG-IP Next Central Manager** if you're not already logged in.
 
 .. image:: images/lab3-cmlogin.png
+    :width: 600 px
 
 2. Click on the Workspace button and select **Application**. 
 
-.. image:: images/lab3-applications
+.. image:: images/lab3-app1
+    :width: 600 px
 
 3. Click on **Certificate & Keys**
 
 .. image:: images/lab3-certkeysbtn.png
+    :width: 600 px
 
 4. Click on **Add** button to add a certifcate. 
 
 .. image:: images/lab3-certadd.png
+    :width: 600 px
 
 5. In the **Add Certificate & Keys** fly out menu 
 
@@ -32,6 +36,7 @@ Create a certificate in Next Central Manager
 The result should look like the image below.
 
 .. image:: images/lab3-cacert.png
+    :width: 600 px
 
 7. Click **Save**
 
