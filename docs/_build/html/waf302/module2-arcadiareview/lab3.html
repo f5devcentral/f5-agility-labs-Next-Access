@@ -14,7 +14,7 @@
   <meta name="title" content="Lab 2.3: Reviewing the BIG-IP Configuration"/>
   <meta name="product" content="F5 BIG-IP Next Access Labs"/>
   <meta name="version" content=""/>
-  <meta name="updated_date"  content="2024-02-06 19:52:15"/>
+  <meta name="updated_date"  content="2024-02-06 20:02:46"/>
   <meta name="archived" content="Archived documents excluded"/>
   <meta name="doc_type" content="Manual"/>
   <meta name="lifecycle" content="release"/>
@@ -49,9 +49,7 @@
     <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
     <script src="../../_static/underscore.js"></script>
-    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../../_static/doctools.js"></script>
-    <script src="../../_static/sphinx_highlight.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/jquery.mark.js"></script>
@@ -155,9 +153,9 @@
      <div role="main">
         
   <div class="section" id="lab-2-3-reviewing-the-big-ip-configuration">
-<h1>Lab 2.3: Reviewing the BIG-IP Configuration<a class="headerlink" href="#lab-2-3-reviewing-the-big-ip-configuration" title="Permalink to this heading">¶</a></h1>
+<h1>Lab 2.3: Reviewing the BIG-IP Configuration<a class="headerlink" href="#lab-2-3-reviewing-the-big-ip-configuration" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="log-into-the-big-ip">
-<h2>Log into the BIG-IP<a class="headerlink" href="#log-into-the-big-ip" title="Permalink to this heading">¶</a></h2>
+<h2>Log into the BIG-IP<a class="headerlink" href="#log-into-the-big-ip" title="Permalink to this headline">¶</a></h2>
 <p>Back on the Lab Components deployment page, click <strong>Access</strong> under <em>F5 BIG-IP</em> and select <em>TMUI</em></p>
 <ol class="arabic">
 <li><p class="first">Log into the BIG-IP by launching the <strong>Access</strong> &gt; <strong>TMUI</strong> from the UDF components screen. You make logon to the <span class="guilabel">F5 BIG-IP</span> using the following credentials:</p>
@@ -180,7 +178,7 @@
 </div>
 </div>
 <div class="section" id="review-security-policy">
-<h2>Review Security Policy<a class="headerlink" href="#review-security-policy" title="Permalink to this heading">¶</a></h2>
+<h2>Review Security Policy<a class="headerlink" href="#review-security-policy" title="Permalink to this headline">¶</a></h2>
 <p>7. Click on the vs_arcadia VIP and select the Security tab at the top.
 Verify the security policy <em>arcadia_waap_policy</em> is attached.</p>
 <img alt="../../_images/big-ip-policyattached.png" src="../../_images/big-ip-policyattached.png" />
@@ -204,12 +202,12 @@ Click on <em>URL Parameters</em> at the top and again you can see we are allowin
 </ol>
 </div>
 <div class="section" id="question">
-<h2>Question?<a class="headerlink" href="#question" title="Permalink to this heading">¶</a></h2>
+<h2>Question?<a class="headerlink" href="#question" title="Permalink to this headline">¶</a></h2>
 <p>Q: What is this policy doing as far as the APIs are concerned?</p>
 <p>A: <em>Nothing beyond OWASP Top 10</em></p>
 </div>
 <div class="section" id="more-testing-with-postman">
-<h2>More testing with Postman<a class="headerlink" href="#more-testing-with-postman" title="Permalink to this heading">¶</a></h2>
+<h2>More testing with Postman<a class="headerlink" href="#more-testing-with-postman" title="Permalink to this headline">¶</a></h2>
 <p>12. Go back to <em>Postman</em> within your Windows RDP session
 Select the <em>Arcadia</em> &gt;&gt; <em>Prod</em> &gt;&gt; <em>Test API</em> &gt;&gt; <em>PROD - buy stocks</em> request and review the <em>Headers</em>. Specifically, the <em>Content-Type</em> header.</p>
 <p>This value is important for enabling F5 BIG-IP AWAF’s JSON parser.</p>

@@ -14,7 +14,7 @@
   <meta name="title" content="Lab 3.4: Add Money Transfer Service to an OpenAPI File"/>
   <meta name="product" content="F5 BIG-IP Next Access Labs"/>
   <meta name="version" content=""/>
-  <meta name="updated_date"  content="2024-02-06 19:52:15"/>
+  <meta name="updated_date"  content="2024-02-06 20:02:46"/>
   <meta name="archived" content="Archived documents excluded"/>
   <meta name="doc_type" content="Manual"/>
   <meta name="lifecycle" content="release"/>
@@ -49,9 +49,7 @@
     <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
     <script src="../../_static/underscore.js"></script>
-    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../../_static/doctools.js"></script>
-    <script src="../../_static/sphinx_highlight.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/jquery.mark.js"></script>
@@ -149,7 +147,7 @@
      <div role="main">
         
   <div class="section" id="lab-3-4-add-money-transfer-service-to-an-openapi-file">
-<h1>Lab 3.4: Add Money Transfer Service to an OpenAPI File<a class="headerlink" href="#lab-3-4-add-money-transfer-service-to-an-openapi-file" title="Permalink to this heading">¶</a></h1>
+<h1>Lab 3.4: Add Money Transfer Service to an OpenAPI File<a class="headerlink" href="#lab-3-4-add-money-transfer-service-to-an-openapi-file" title="Permalink to this headline">¶</a></h1>
 <p><strong>Configure OpenAPI Spec for New API</strong></p>
 <p>1. Open a new tab in Chrome and click the JSONMate bookmark
 Click “New” on the left and right JSONMate window panes.
@@ -193,7 +191,7 @@ You can review the Postman response body for how to configure your API spec resp
 <ol class="arabic simple" start="7">
 <li>Copy the left-side JSONMate to clipboard and create a new OAS file in your repo.</li>
 </ol>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>nano<span class="w"> </span>/home/ubuntu/repo/arcadia/dev/arcadia-oas3-test.json
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>nano /home/ubuntu/repo/arcadia/dev/arcadia-oas3-test.json
 </pre></div>
 </div>
 <div class="admonition note">
@@ -201,7 +199,7 @@ You can review the Postman response body for how to configure your API spec resp
 <p class="last">We’re using this time to get around paste formatting issues with vi.</p>
 </div>
 <p>Now you need to update the WAF policy file used in our AS3 declaration to use the newly created OAS file:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>vi<span class="w"> </span>/home/ubuntu/repo/arcadia/dev/policy-api-arcadia-dev.json
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>vi /home/ubuntu/repo/arcadia/dev/policy-api-arcadia-dev.json
 </pre></div>
 </div>
 <p>edit openapi spec file location to the test version we just created in the previous step</p>

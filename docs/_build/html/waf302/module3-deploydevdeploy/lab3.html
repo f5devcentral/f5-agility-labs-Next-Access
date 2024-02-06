@@ -14,7 +14,7 @@
   <meta name="title" content="Lab 3.3: Test Money Transfer app"/>
   <meta name="product" content="F5 BIG-IP Next Access Labs"/>
   <meta name="version" content=""/>
-  <meta name="updated_date"  content="2024-02-06 19:52:15"/>
+  <meta name="updated_date"  content="2024-02-06 20:02:46"/>
   <meta name="archived" content="Archived documents excluded"/>
   <meta name="doc_type" content="Manual"/>
   <meta name="lifecycle" content="release"/>
@@ -49,9 +49,7 @@
     <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
     <script src="../../_static/underscore.js"></script>
-    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../../_static/doctools.js"></script>
-    <script src="../../_static/sphinx_highlight.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/jquery.mark.js"></script>
@@ -149,7 +147,7 @@
      <div role="main">
         
   <div class="section" id="lab-3-3-test-money-transfer-app">
-<h1>Lab 3.3: Test Money Transfer app<a class="headerlink" href="#lab-3-3-test-money-transfer-app" title="Permalink to this heading">¶</a></h1>
+<h1>Lab 3.3: Test Money Transfer app<a class="headerlink" href="#lab-3-3-test-money-transfer-app" title="Permalink to this headline">¶</a></h1>
 <p>Scenario:  One of the Arcadia App teams has released a new microservice that is ready for security testing. You have been tasked with incorporating the new Money Transfer microservice into our API gateway security policy.</p>
 <p>In order to achieve this, we will need to:</p>
 <ul class="simple">
@@ -162,7 +160,7 @@
 <ol class="arabic simple">
 <li>From Ubuntu CLI enter:</li>
 </ol>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>docker<span class="w"> </span>start<span class="w"> </span>app2
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>docker start app2
 </pre></div>
 </div>
 <p><strong>Update Nginx Container Ingress</strong></p>
@@ -172,7 +170,7 @@
 <ol class="arabic simple" start="2">
 <li>In the Ubuntu CLI,</li>
 </ol>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>vi<span class="w"> </span>/home/ubuntu/nginx.conf
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>vi /home/ubuntu/nginx.conf
 </pre></div>
 </div>
 <ol class="arabic simple" start="3">
@@ -185,11 +183,11 @@
 <li>From the Ubuntu CLI enter the command: docker stop nginx &amp;&amp; docker rm nginx</li>
 </ol>
 <p>Now enter (copy/paste all as one line):</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>docker<span class="w"> </span>run<span class="w"> </span>-dit<span class="w"> </span>-h<span class="w"> </span>nginx<span class="w"> </span>--name<span class="o">=</span>nginx<span class="w"> </span>--net<span class="o">=</span>internal<span class="w"> </span>--restart<span class="o">=</span>unless-stopped<span class="w"> </span>-p<span class="w"> </span><span class="m">80</span>:80<span class="w"> </span>-v<span class="w"> </span>/home/ubuntu/nginx.conf:/etc/nginx/conf.d/default.conf<span class="w"> </span>registry.gitlab.com/mattdierick/arcadia-finance/nginx_oss:latest
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>docker run -dit -h nginx --name<span class="o">=</span>nginx --net<span class="o">=</span>internal --restart<span class="o">=</span>unless-stopped -p <span class="m">80</span>:80 -v /home/ubuntu/nginx.conf:/etc/nginx/conf.d/default.conf registry.gitlab.com/mattdierick/arcadia-finance/nginx_oss:latest
 </pre></div>
 </div>
 <p>Then enter,</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>docker<span class="w"> </span>ps
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>docker ps
 </pre></div>
 </div>
 <p>…and you should see six containers are running as seen below:</p>
@@ -225,10 +223,10 @@ Go to <em>Application Security</em> go to <em>URLs</em> &gt;&gt; <em>Allowed URL
 <p class="first admonition-title">Note</p>
 <p class="last">If you get ASM Block with “Illegal HTTP Status Code” and a 404-server response then delete the app2 container and rebuild by the following CLI commands:</p>
 </div>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>docker<span class="w"> </span>stop<span class="w"> </span>app2<span class="w"> </span>mainapp<span class="w"> </span>nginx
-docker<span class="w"> </span>rm<span class="w"> </span>app2
-docker<span class="w"> </span>run<span class="w"> </span>-dit<span class="w"> </span>-h<span class="w"> </span>app2<span class="w"> </span>--name<span class="o">=</span>app2<span class="w"> </span>--net<span class="o">=</span>internal<span class="w"> </span>registry.gitlab.com/mattdierick/arcadia-finance/app2:latest
-docker<span class="w"> </span>start<span class="w"> </span>mainapp<span class="w"> </span>nginx
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>docker stop app2 mainapp nginx
+docker rm app2
+docker run -dit -h app2 --name<span class="o">=</span>app2 --net<span class="o">=</span>internal registry.gitlab.com/mattdierick/arcadia-finance/app2:latest
+docker start mainapp nginx
 </pre></div>
 </div>
 <p>If requests are successful, it is time to make these changes permanent in your OpenAPI file</p>
