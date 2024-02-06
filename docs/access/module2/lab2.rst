@@ -1,152 +1,167 @@
 Lab 1.2 - Create an Access Security Policy
 ===========================================
 
-Creating an security policy with signed SAML assertion
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Creating an security policy with authentication to Azure and Kerberos Single Sign-On
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-#. Access **BIG-IP Next Central Manager** if you're not already logged in.
+1. Access **BIG-IP Next Central Manager** if you're not already logged in.
 
 .. image:: images/lab2-cmlogin.png
+    :width: 600 px
 
-#. Click on the Workspace icon and select Security
+2. Click on the Workspace icon and select Security
 
-.. image:: images/lab1-securitybtn.png
+.. image:: images/lab2-securitybtn.png
+    :width: 600 px
 
-#. Under Security you will find all the security modules such as Access, WAF, and SSLO for example. The module may need to be enabled for the feature menu to show up on the Security list. For this lab we have already enabled Access module.
+Click on **Access** from the Security menu.
 
-Click on **Access** from the Security menu, this should default to Policies.
+.. image:: images/lab2-accessbtn.png
+    :width: 600 px
 
-.. image:: images/lab1-accessbtn.png
+3. Click **Start Creating** button to create a new Access policy 
 
-#. Click **Start Creating** button to create a new Access policy 
+.. image:: images/lab2-createapbtn.png
+    :width: 600 px
 
-.. image:: images/lab1-createapbtn.png
+4. This will open Access Visual Policy Design screen. Click on the pencil next to create new policy.
 
-#. This will open Access Visual Policy Design screen. Click on the pencil next to create new policy.
+.. image:: images/lab2-createpolicypencil.png
+    :width: 600 px
 
-.. image:: images/lab1-createpolicypencil.png
+5. In the **Create Policy** screen, let's start configuring the policy.
 
-#. In the **Create Policy** screen, this is where you set the different properties of the policy, such as, logging, language, Single Sign On, etc… Let’s start configuring the policy Start Selecting policy name and adjust policy parameters.
+In the **General Properties** screen set the following parameter(s), for the rest of the settings you may leave it as default.
 
-In the **General Properties** screen set the following parameters, for the rest of the settings you may leave it as default.
-
-- **Policy Name:** okta_signed_policy
-- **Cookie Option:** check the **Secure** box
+- **Policy Name:** signed_azure_policy
 - Click **Continue** 
 
 .. note:: As you continue the rest of the policy creation process, see the screen shot in each section for a visual example of the configuration.
 
-.. image:: images/lab1-oktageneral.png
+.. image:: images/lab2-azurepolicy.png
+    :width: 600 px
 
-#. **Session Propertie** screen, you can specify session specific settings in this screen. For this lab we will keep the default. Click **Continue**.
+6. In **Session Properties**, keep the default settings, click **Continue**
 
-.. image:: images/lab1-oktasession.png
+.. image:: images/lab2-session.png
+    :width: 600 px
 
-#. **Logging screen** you can adjust the logging level to help with debugging or troubleshooting. For this lab we will keep the default settings. Click **Continue**. 
+7. In the **Logging** screen, you may want to adjust the logging to debug for troubleshooting propose. For this lab we will keep all the default settings.
 
-.. image:: images/lab1-oktalogging.png
+.. image:: images/lab2-logging.png
+    :width: 600 px
 
-#. **Single Sign On** screen, you can set the Single Sign On configuration with an IDP. For this lab we will not use any SSO. Click **Continue**.
+8. In the **Single Sign-On** screen, is where you can configure Single Sign-On to your applications. In this lab we will setup Single Sign-On for Kerberos.
 
+Click on the drop-down arrow on the **Start Creating** button and select **Kerberos**.
 
-.. image:: images/lab1-oktasso.png
+.. image:: images/lab2-sso.png
+    :width: 600 px
 
-#. **Endpoint Security** screen, you can setup Endpoint Security such as ensuring firewall is enabled on a client workstation before access is granted. For this lab we will not use this feature. Click **Continue**.
+9. This will open the SSO Method Configuration screen. In this screen set the parameters as follow.
 
-.. image:: images/lab1-oktaendpoint.png
+- **Name:** remove the trailing number and replace with **signed_azure_policy**. See image below as reference.
+- **Kerberos Realm:** F5ACCESS.ONMICROSOFT.COM  
+- **KDC:** 10.1.20.6
+- **Account Name:** host/apm-deleg.f5access.onmicrosoft.com
+- **Account Password:** F5twister$ 
+- **SPN Pattern:** HTTP/%h@F5ACCESS.ONMICROSOFT.COM
+- **Username Source:** session.saml.last.identity
+- **User Realm Source:** session.logon.last.domain
 
-#. **Resources** you can set additional capabilities and features such as Network Access, and Webtops in this screen. For this lab we will not use these capabilities. Click **Continue**.
+.. image:: images/lab2-sso2.png
+    :width: 600 px
 
-.. image:: images/lab1-oktaresources.png
+10. Click **Continue**, this will take you back to the Policy Configurations screen. Click **Continue** on the next screen.
 
-#. **Policy Endings** you can define additional policy ending logic as needed for your use case here. For this lab we will accept the default. Click **Finish**.
+11. **Endpoint Security** screen, you can setup Endpoint Security such as ensuring firewall is enabled on a client workstation before access is granted. In this lab, we will not use this feature. Click Continue. 
 
-.. image:: images/lab1-oktapolicyendings.png
+12. **Resources screen**, you can set additional capabilities and features such as Network Access, and Webtops in this screen. In this lab we will not use these capabilities. Click Continue.
 
-After clicking on Finish it should bring you back to the Create Policy screen. Now, we will use the Visual Policy Designer (VPD) to build the policy.
+13. **Policy Endings**, you can define addition policy ending logic as needed for your use case here. In this lab we will accept the default. Click Finish.
 
-In Next Access we have two terms in the Visual Policy Designer (VPD); flows and rules, we set the flows in the VPD and within each flow we can define multiple rules.
+14. After clicking on **Finish** it should bring you back to the **Create Policy** screen. Now, we will use the Visual Policy Designer (VPD) to continue building the policy.
 
-.. image:: images/lab1-createpolicy2.png
+15. Under Flows, drag and drop **Generic SAML Federation** flow to the VPD. You will need click on the little dots to the right of the flow type to grab the flow and drop into the VPD. 
 
-#. Under **Flows**, drag and drop **Generic SAML Federation** flow to the VPD. You will need click on the little dots to the right of the flow type to grab the flow and drop into the VPD. 
+.. image:: images/lab2-samlflow.png
+    :width: 600 px
 
-.. image:: images/lab1-oktasaml.png
+:bulb: **Tip:** When dropping the flow type onto the VPD, you want to make sure the flow type box is over the plus sign and the plus sign turns blue.
 
-When dropping the flow type onto the VPD, you will want to make sure the flow type box is over the plus sign and the plus sign turns blue.
-
-.. image:: images/lab1-oktasamldragndrop.png
+.. image:: images/lab2-flowdraganddrop.png
+    :width: 600 px
 
 The result should look like the following screen shot.
 
-.. image:: images/lab1-oktasamldragndrop2.png
+.. image:: images/lab2-flow1.png
+    :width: 600 px
 
-#. Click inside the Flow type box. This show 3 buttons; **Delete**, **Edit**, and **Collapse** buttons. Click on the **Collapse** button to start adding Rules to the Flow.
+16. Click inside the Flow type box. This show 3 buttons; **Delete**, **Edit**, and **Collapse** buttons. Click on the **Collapse** button to start adding Rules to the Flow.
 
-.. image:: images/lab1-oktaflowbox1.png
+.. image:: images/lab2-flow2.png
+    :width: 600 px
 
-Clicking on the Collapse button will expand the SAML Federation Flow type box. 
+Clicking on the **Collapse** button will expand the Flow type box.
 
-.. image:: images/lab1-oktasamlflow1.png
+.. image:: images/lab2-flow3.png
+    :width: 600 px
 
-.. note:: Noticed the title on the top left hand corner is Generic-SAML-Federation follow by a series of unique number. This can help identify which Flow you're currently viewing in VPD.
+17. Click inside the SAML-Federation Rule box, and select the **Edit** button
 
-#. Click inside the **SAML-Federation** Rule box, and select the **Edit** button
+.. image:: images/lab2-flow4.png
+    :width: 600 px
 
-.. image:: images/lab1-oktasamlrule1.png
+This will open the **SAML Federation Rule** properties screen. Please follow the screenshots below for each section.
 
-This will open the SAML Federation Rule properties screen. Please follow the images below for each section.
+18. In the **SAML Rule Properties** configuration, replace the trailing number in the Name field to **azure_signed_policy**. Leave the **Provider Configuration** as **Basic**. Click **Continue**.
 
-#. In the **Rule Configuration**, **Rule Properties** screen, add **SAML-Federation-Okta-Rule** as the name of the rule, leave the rest as default. Click **Continue**.
+.. image:: images/lab2-ruleprop1.png
+    :width: 600 px
 
-.. image:: images/lab1-oktasamlrule2.png
+19. In the **Providers** screen, you can set the different Service and Identity Providers in this screen. In this lab we will setup both a Service Provider and Identity Provider.
 
-#. In the **Rule Configuration**, **Providers** screen, this is where you can configure Service Provider and Identity Provider. 
+.. image:: images/lab2-ruleprop2.png
+    :width: 600 px
 
-.. image:: images/lab1-oktasamlruleproviders.png
+20. Click on **Start Creating** under Service Provider. In the **Add Service Provider** screen input the following information, and then click **Save**.
 
-#. For this lab, we will need to configure both a **Service Provider** and **Identity Provider**.
+- **EntityID:** https://mbip-1.f5access.onmicrosoft.com 
+- **Host:** https://mbip-1.f5access.onmicrosoft.com 
+- **Security Properties:** check the box for **Want Signed Assertion**
 
-In the **Service Provider** section, click on the **Start Creating** button. 
+.. image:: images/lab2-serviceprovider.png
+    :width: 600 px
 
-.. image:: images/lab1-oktasamlrule3.png
+21. Click on **Start Creating** under Identity Provider. In the **Add Identity Provider** screen input the following information, and then click **Save**.
 
-#. In the **Add Service Provider** screen add the following parameters:
+- **Name:** remove the trailing number, and replace with **azure_signed_policy**
+- **EntityID:** https://sts.windows.net/8807dced-9637-4205-a520-423077750c60/  
+- **SSO URL:** https://login.microsoftonline.com/8807dced-9637-4205-a520-423077750c60/saml2  
+- **Identity Provider’s Assertion Verification Certificate:** click the drop down arrow, and select the *azure_signed_cert*
 
-- **EntityID:** https://signed.example.com
-- **Host:** https://signed.example.com
-- **Check Want Signed Assertion** box
-- Click **Save**
+.. image:: images/lab2-identityprovider.png
+    :width: 600 px
 
-.. image:: images/lab1-oktasamlrule4.png
+22. After you click **Save** this should take you back to the Rule Configuration Screen, click **Continue**.
 
-#. In the **Identity Provider** section, click on the **Start Creating** button. 
+23. In the **Branches** screen, keep the default. Click **Finish**.
 
-.. image:: images/lab1-oktasamlidentity.png
+24. Close the SAML Rule by clicking on the **Collapse** button.
 
-#. In the **Add Idnentity Provider** screen add the following parameters:
+.. image:: images/lab2-samlclose.png
+    :width: 600 px
 
-- **EntityID:** http://www.okta.com/exk93cs4on3gGVej44x7
-- **SSO URL:** https://dev-818899.okta.com/app/dev-818899_signedexamplecom_1/exk93cs4on3gGVej44x7/sso/saml
-- **Identity Provider’s Assertion Verification Certificate:** select the *okta_signed_cert* imported previously
-- Click **Save**
+25. In the SAML Flow Allow branch, set the policy to **Allow**.
 
-#. Below is a summary of the completed Providers screen confirm you have both a Service Provider and Identity Provider configured, then Click **Continue**.
+.. image:: images/lab2-samlending.png
+    :width: 600 px
 
-.. image:: images/lab1-oktasamlconfirm.png
+26. **Save** the policy and close the VPD by clicking on **Cancel**.
 
-#. In the **Branches** screen, keep the default. Click **Finish**.
+You have completed creating an security policy!
 
-.. image:: images/lab1-oktasamlrule6.png
 
-#. This should bring you back to the Visual Policy Designer. Close the SAML flow by clicking on the **Collapse** icon.
 
-#. In the SAML Flow, change the Allow flow ending from Deny to **Allow**.
 
-.. image:: images/lab1-oktasamlrule17.png
 
-#. Click **Save** button at the top right hand corner to save the policy. After the policy is saved, click **Cancel** to close the policy.
-
-.. image:: images/lab1-oktasamlflow2.png
-
-You have completed creating a security policy. Next we will deploy an Application and assigned the access policy. 
