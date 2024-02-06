@@ -16,7 +16,7 @@ import f5_sphinx_theme
 classname = "F5 BIG-IP Next Access Labs"
 
 # OPTIONAL: The URL to the GitHub Repository for this class
-github_repo = "https://github.com/f5devcentral/F5-appworld-next-access"
+github_repo = "https://github.com/f5devcentral/f5-agility-labs-Next-Access"
 
 #
 # END CONFIG
@@ -96,7 +96,7 @@ graphviz_dot_args = [
 ]
 
 html_context = {
-    "github_url": github_repo
+    "github_repo": github_repo
 }
 
 diag_fontpath = '/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf'
