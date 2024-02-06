@@ -3,9 +3,9 @@ Lab 1.3 - Test Application
 
 Test Connectivity to Application
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-#. In a new Chrome browser window type the following URL: https://signed.example.com
+1. In a new Chrome browser window type the following URL: https://signed.example.com
 
-#. When prompted for Okta authentication enter the following username/password: user1/user1
+2. When prompted for Okta authentication enter the following username/password: user1/user1
 
 .. image:: images/lab4-logon.png
 

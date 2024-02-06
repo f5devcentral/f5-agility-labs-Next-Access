@@ -1,18 +1,16 @@
-Lab 2 - Azure authentication with Kerberos
+Lab 3 - Certificate Authentication
 ==========================================
 
-Estimate time to complete: 25 minutes.
+Estimate time to complete: 20 minutes.
 
-In this lab we will explore how to setup authentication with Azure AD and single sign on with kerberos. 
+In this lab we will explore how to setup certificate based authentication. 
 
 **Learning Objectives:**
 
-- Create DNS resolver.  
-- Upload Certificate to the CM. 
+- Import CA Certificate to Central Manager
 - Create Policy via Visual Policy Designer (VPD).  
-- Include SSO in the configurations.  
 - Assign Flows and rules to the policy.  
-- Create Application following standard approach and assign Access policy.  
+- Create Application and associate it with policy
 
 
 .. toctree::
