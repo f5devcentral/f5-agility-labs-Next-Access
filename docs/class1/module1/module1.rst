@@ -12,7 +12,7 @@ In this lab we will explore how to setup SAML federation with Okta by deploying 
 - Upload Certificate to Central Manager
 - Create Access Policy via Visual Policy Designer (VPD)
 - Assign Flows and Rules to the Access policy
-- Create Applicaiton and attach it to the Access policy
+- Create Application and attach it to the Access policy
 
 .. toctree::
    :maxdepth: 1
