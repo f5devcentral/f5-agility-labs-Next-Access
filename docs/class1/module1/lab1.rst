@@ -1,7 +1,7 @@
 Lab 1.1 - Create an Access Security Policy
 ===========================================
 
-Creating an security policy with signed SAML assertion
+Creating a security policy with signed SAML assertion
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 1. Access **BIG-IP Next Central Manager** if you're not already logged in.
@@ -106,7 +106,7 @@ Clicking on the **Collapse** button will expand the SAML Federation Flow type bo
 .. image:: images/lab1-oktasamlflow1.png
     :width: 600 px
 
-.. note:: Noticed the title on the top left hand corner is Generic-SAML-Federation follow by a series of unique number. This can help identify which Flow you're currently viewing in VPD.
+.. note:: Noticed the title on the top left hand corner is Generic-SAML-Federation followed by a series of unique numbers. This can help identify which Flow you're currently viewing in VPD.
 
 15. Click inside the **SAML-Federation** Rule box, and select the **Edit** button
 
