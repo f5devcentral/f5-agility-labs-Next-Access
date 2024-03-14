@@ -14,12 +14,12 @@ Creating a security policy with authentication to Azure and Kerberos Single Sign
 .. image:: images/lab2-securitybtn.png
     :width: 600 px
 
-Click on **Access** from the Security menu.
+Click on the **Access** from the Security menu.
 
 .. image:: images/lab2-accessbtn.png
     :width: 600 px
 
-3. Click **Start Creating** button to create a new Access policy 
+3. Click the **Start Creating** button to create a new Access policy 
 
 .. image:: images/lab2-createapbtn.png
     :width: 600 px
@@ -46,7 +46,7 @@ In the **General Properties** screen set the following parameter(s), for the res
 .. image:: images/lab2-session.png
     :width: 600 px
 
-7. In the **Logging** screen, you may want to adjust the logging to debug for troubleshooting propose. For this lab we will keep all the default settings.
+7. In the **Logging** screen, you may want to adjust the logging to debug for troubleshooting proposes. For this lab we will keep all the default settings.
 
 .. image:: images/lab2-logging.png
     :width: 600 px
