@@ -96,7 +96,7 @@ Creating an application and assign an Access policy to the application.
 
 .. image:: images/lab2-deployto2.png
 
-18. In the **Virtual Address:** box type: **10.1.10.100** to associate with the virutal server vs_azure. 
+18. In the **Virtual Address:** box type: **10.1.10.100** to associate with the virtual server vs_azure. 
 
 .. image:: images/lab2-vsinstance.png
     :width: 600 px
