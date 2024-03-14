@@ -33,7 +33,7 @@ Click **Start Creating**
 .. image:: images/lab3-app5.png
     :width: 600 px
 
-6. In the **Application Services Propertes** screen, **Virtual Servers tab**, you will define the virtual servers, pools, and profiles. Let’s start with creating Pools.
+6. In the **Application Services Properties** screen, **Virtual Servers tab**, you will define the virtual servers, pools, and profiles. Let’s start with creating Pools.
 
 .. image:: images/lab3-app6.png
     :width: 600 px
