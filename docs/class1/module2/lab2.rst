@@ -74,7 +74,7 @@ Click on the drop-down arrow on the **Start Creating** button and select **Kerbe
 
 10. Click **Continue**, this will take you back to the Policy Configurations screen. Click **Continue** on the next screen.
 
-11. **Endpoint Security** screen, you can setup Endpoint Security such as ensuring firewall is enabled on a client workstation before access is granted. In this lab, we will not use this feature. Click Continue. 
+11. **Endpoint Security** screen, you can setup Endpoint Security such as ensuring the firewall is enabled on a client workstation before access is granted. In this lab, we will not use this feature. Click Continue. 
 
 12. **Resources screen**, you can set additional capabilities and features such as Network Access, and Webtops in this screen. In this lab we will not use these capabilities. Click Continue.
 
