@@ -1,7 +1,7 @@
 Lab 1.4 - Test Application
 =================================
 
-Test Connectivity to Application
+Test Connectivity to the Application
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 1. Open a new Chrome browser or tab and type: https://mbip-1.f5access.onmicrosoft.com 
 
