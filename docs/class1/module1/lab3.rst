@@ -1,7 +1,7 @@
 Lab 1.3 - Test Application
 =================================
 
-Test Connectivity to Application
+Test Connectivity to the Application
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 1. In a new Chrome browser window type the following URL: https://signed.example.com
 

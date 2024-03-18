@@ -1,7 +1,7 @@
 Lab 1.2 - Create an Access Security Policy
 ===========================================
 
-Creating an security policy with authentication to Azure and Kerberos Single Sign-On
+Creating a security policy with authentication to Azure and Kerberos Single Sign-On
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 1. Access **BIG-IP Next Central Manager** if you're not already logged in.
@@ -14,12 +14,12 @@ Creating an security policy with authentication to Azure and Kerberos Single Sig
 .. image:: images/lab2-securitybtn.png
     :width: 600 px
 
-Click on **Access** from the Security menu.
+Click on the **Access** from the Security menu.
 
 .. image:: images/lab2-accessbtn.png
     :width: 600 px
 
-3. Click **Start Creating** button to create a new Access policy 
+3. Click the **Start Creating** button to create a new Access policy 
 
 .. image:: images/lab2-createapbtn.png
     :width: 600 px
@@ -46,7 +46,7 @@ In the **General Properties** screen set the following parameter(s), for the res
 .. image:: images/lab2-session.png
     :width: 600 px
 
-7. In the **Logging** screen, you may want to adjust the logging to debug for troubleshooting propose. For this lab we will keep all the default settings.
+7. In the **Logging** screen, you may want to adjust the logging to debug for troubleshooting proposes. For this lab we will keep all the default settings.
 
 .. image:: images/lab2-logging.png
     :width: 600 px
@@ -74,7 +74,7 @@ Click on the drop-down arrow on the **Start Creating** button and select **Kerbe
 
 10. Click **Continue**, this will take you back to the Policy Configurations screen. Click **Continue** on the next screen.
 
-11. **Endpoint Security** screen, you can setup Endpoint Security such as ensuring firewall is enabled on a client workstation before access is granted. In this lab, we will not use this feature. Click Continue. 
+11. **Endpoint Security** screen, you can setup Endpoint Security such as ensuring the firewall is enabled on a client workstation before access is granted. In this lab, we will not use this feature. Click Continue. 
 
 12. **Resources screen**, you can set additional capabilities and features such as Network Access, and Webtops in this screen. In this lab we will not use these capabilities. Click Continue.
 
