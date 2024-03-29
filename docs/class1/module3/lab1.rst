@@ -1,63 +1,46 @@
 Lab 1.1 - Creating a Certificate
-==========================================
+================================
 
 Create a certificate in Next Central Manager
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-1. Access **BIG-IP Next Central Manager** if you're not already logged in.
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. image:: images/lab3-cmlogin.png
-    :width: 600 px
+1. Log in to your **BIG-IP Next Central Manager** on your web browser if you have not yet.
 
-2. Click on the Workspace button and select **Application**. 
+  .. image:: images/lab3-cmlogin.png
 
-.. image:: images/lab3-app1
-    :width: 600 px
+2. On to the top, click on the **Workspace** (icon with nine dots) button then
+select **Application**.
 
-3. Click on **Certificate & Keys**
+  .. image:: images/lab3-app1.png
 
-.. image:: images/lab3-certkeysbtn.png
-    :width: 600 px
+3. On the left, click on **Certificate & Keys**
 
-4. Click on **Add** button to add a certifcate. 
+  .. image:: images/lab3-certkeysbtn.png
 
-.. image:: images/lab3-certadd.png
-    :width: 600 px
+4. Near the top, click on the **+ Add** button.
 
-5. In the **Add Certificate & Keys** fly out menu 
+  .. image:: images/lab3-certadd.png
 
-- Select the **Import a Certificate**. 
-- Under **Name**, select **New**, and type: **ADDC_CA**
-- In the **Tag** drop down box, select **Access**
-- In the **Type** drop down box, select **Certificate**
-- In the **Source** section, select **Import**
-- In the **Certificate Section**, click on the **Import** button, and import the **f5access-ADDC-CA.crt** certificate
-.. note:: The certificates are in the Access Lab folder in Documents as well as pinned to the Windows Explorer Quick Access
+5. On the **Add Certificate & Keys** page to the right, take the following actions:
 
-The result should look like the image below.
+   a. Select **Import a Certificate**.
+   b. Select **Create New**.
+   c. In the **Name** area, select **Create New**, then use the following name for certificate
+      name: **ADDC_CA**
+   d. In the **Tag** list, select **Access**.
+   e. In the **Type** list, select **Certificate**.
+   f. In the **Source** area, select **Import**.
+   g. In the **Certificate** area, select the **Import** button
+   h. Select your **f5access-ADDC-CA.crt** certificate
+   i. Select **Upload**
 
-.. image:: images/lab3-cacert.png
-    :width: 600 px
+   .. note:: The certificates are in the *Access Lab* folder in **Documents** as well as pinned
+    to the *Windows Explorer Quick Access* on the **Windows Jump Host**.
 
-7. Click **Save**
+   The result should look like the image below.
 
-You have successfully uploaded a certificate. 
+    .. image:: images/lab3-cacert.png
 
+6. Select **Save**.
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+You have successfully uploaded a certificate.
