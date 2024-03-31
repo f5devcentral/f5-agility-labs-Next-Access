@@ -1,157 +1,250 @@
+.. Below is a rst substitution for defining a Workspace icon, more info below
+.. https://docutils.sourceforge.io/docs/ref/rst/restructuredtext.html#substitution-definitions
+.. |workspace| image:: images/workspace.svg
+   :height: 25px
+
 Lab 1.2 - Create an Access Security Policy
 ===========================================
 
-Creating an security policy with signed SAML assertion
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Creating a security policy using certificate authentication
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-1. Access **BIG-IP Next Central Manager** if you're not already logged in.
+1. Log in to your **BIG-IP Next Central Manager** on your web browser if you have not yet.
 
-.. image:: images/lab3-cmlogin.png
-    :width: 600 px
+    .. image:: images/lab3-cmlogin.png
 
-2. Click on the Workspace icon and select Security
+2. On to the top, select the |workspace| **Workspace**  button then select **Security**.
 
-.. image:: images/lab3-securitybtn.png
-    :width: 600 px
-3. Click on **Access** from the Security menu, this should default to Policies.
+    .. image:: images/lab3-securitybtn.png
 
-.. image:: images/lab3-accessbtn.png
-    :width: 600 px
+3. Select **Access** from the **Security** menu which defaults to **Policies** on the left side
+   of the page.
 
-4. Click **Start Creating** button to create a new Access policy 
+    .. image:: images/lab3-accessbtn.png
 
-.. image:: images/lab3-createapbtn.png
-    :width: 600 px
+4. Select the **Start Creating** button to create a new access policy.
 
-5. This will open Access Visual Policy Design screen. Click on the pencil next to create new policy.
+    .. image:: images/lab3-createapbtn.png
 
-.. image:: images/lab3-createpolicypencil.png
-    :width: 600 px
+5. A **Create Policy** page now appears.
 
-6. In the **Create Policy** screen, this is where you set the different properties of the policy, such as, logging, language, Single Sign On, etc… Let’s start configuring the policy Start Selecting policy name and adjust policy parameters.
+   a. Under **Choose policy type**, select **Per-Session Policy**.
 
-In the **General Properties** screen set the following parameters, for the rest of the settings you may leave it as default.
+       .. image:: images/lab2-createpolicy1.png
 
-- **Policy Name:** certAuth
-- **Cookie Option:** check the **Secure** box
-- Click **Continue** 
+   b. Under **How would you like to create it?**, select **Start from scratch**.
 
-.. note:: As you continue the rest of the policy creation process, see the screen shot in each section for a visual example of the configuration.
+       .. image:: images/lab2-createpolicy2.png
 
-7. In **Session Properties**, keep the default settings, click **Continue**.
+   c. On the top of the page, select **Next**.
 
-.. image:: images/lab3-session.png
-    :width: 600 px
+6. On the **Create Per-Session Policy** page, you see **Policy Configurations** on the left
+   where you set different properties, such as, Logging, Session Properties, Single Sign On, and
+   etc.
 
-8. **Logging screen** you can adjust the logging level to help with debugging or troubleshooting. For this lab we will keep the default settings. Click **Continue**. 
+   a. The first configuration we are setting is **General Properties**. Select or type in the
+      settings shown in the table below. We are accepting the default values for the other fields.
+      An example screenshot is also shown below.
 
-.. image:: images/lab3-logging.png
-    :width: 600 px
+       .. list-table:: General Properties Configuration
+          :widths: 25 25
+          :header-rows: 1
 
-9. **Single Sign On** screen, you can set the Single Sign On configuration with an IDP. For this lab we will not use any SSO. Click **Continue**.
+          * - Property
+            - Value
+          * - Policy Name
+            - ``certAuth``
+          * - Cookie Options
+            - Check **Secure** box
 
-.. image:: images/lab3-sso.png
-    :width: 600 px
+       .. image:: images/lab2-policygeneral.png
+          :width: 600 px
 
-10. **Endpoint Security** screen, you can setup Endpoint Security such as ensuring firewall is enabled on a client workstation before access is granted. For this lab we will not use this feature. Click **Continue**.
+      Select **Continue**
 
-.. image:: images/lab3-endpoint.png
-    :width: 600 px
+      .. note:: As you continue the rest of the policy creation process, we provide a screenshot in
+                each section for a visual example.
 
-11. **Resources** you can set additional capabilities and features such as Network Access, and Webtops in this screen. For this lab we will not use these capabilities. Click **Continue**.
+   b. On the **Session Properties** page, you can configure properties such as timeouts and failure
+      delays. For this lab, keep the default settings then select **Continue**.
 
-.. image:: images/lab3-resources.png
-    :width: 600 px
+       .. image:: images/lab3-session.png
+          :width: 600 px
 
-12. **Policy Endings** you can define additional policy ending logic as needed for your use case here. For this lab we will accept the default. Click **Finish**.
+   c. On the **Logging** page, you can adjust the logging levels to help with debugging or
+      troubleshooting. For this lab, keep the default settings then select **Continue**.
 
-.. image:: images/lab3-policyendings.png
-    :width: 600 px
+       .. image:: images/lab3-logging.png
+          :width: 600 px
 
-After clicking on **Finish** it should bring you back to the Create Policy screen. Now, we will use the Visual Policy Designer (VPD) to build the policy.
+   d. On the **Single Sign On** page, you can set the Single Sign On (SSO) configuration with an
+      IDP. For this lab, we are not using SSO so select **Continue**.
 
-.. image:: images/lab3-createpolicy2.png
-    :width: 600 px
+       .. image:: images/lab3-sso.png
+          :width: 600 px
 
-13. Under **Flows**, drag and drop **Empty** flow to the VPD. You will need click on the little dots to the right of the flow type to grab the flow and drop into the VPD. 
+   e. On the **Endpoint Security** page, you can setup Endpoint Security such as ensuring firewall
+      is enabled on a client workstation before access is granted. For this lab, we are not using
+      this feature so select **Continue**.
 
-.. image:: images/lab3-emptyflow.png
-    :width: 600 px
+       .. image:: images/lab3-endpoint.png
+          :width: 600 px
 
-When dropping the flow type onto the VPD, you will want to make sure the flow type box is over the plus sign and the plus sign turns blue.
+   f. On the **Resources** page, you can set additional capabilities and features such as Network
+      Access and Webtops. For this lab, we are not using these capabilities so select **Continue**.
 
-.. image:: images/lab3-emptydd.png
-The result should look like the following screen shot.
+       .. image:: images/lab3-resources.png
+          :width: 600 px
 
-.. image:: images/lab3-emptyok.png
-    :width: 600 px
+   g. On the **Connectivity** page, you can set remote access configurations such as BIG-IP Edge
+      Client properties, Mobile Client properties, and Compression. For this lab, keep the defaults
+      then select **Continue**.
 
-14. Click inside the Flow type box. This show 3 buttons; **Delete**, **Edit**, and **Collapse** buttons. Click on the **Collapse** button to start adding Rules to the Flow.
+       .. image:: images/lab2-policyconnectivity.png
+          :width: 600 px
 
-.. image:: images/lab3-allthebtns.png
-    :width: 600 px
+   h. On the **Policy Endings** page, you can define additional policy ending logic as needed for
+      your use case. For this lab, keep the default settings then finish the policy configuration
+      by selecting **Finish**.
 
-15. On the left hand side menu, select the **R** (Rules) button, and scroll down on the **Rules** till you find **On-Demand Certificate Authentication**.
+       .. image:: images/lab3-policyendings.png
+          :width: 600 px
 
-.. image:: images/lab3-rules1.png
-    :width: 600 px
+7. You are now on the **Visual Policy Designer (VPD)** page. We are continuing to configure this
+   security policy by adding a new **Flow**. Below is a screenshot of the VPD at this step.
 
- 16. Click and drag **On-Demand Certificate Authenticate** to the VPD.
+    .. image:: images/lab3-createpolicy2.png
+       :width: 600 px
 
-.. image:: images/lab3-rules2.png
-    :width: 600 px
+   a. Under **Flows**, drag and drop the **Empty** flow object to the VPD.
 
-17. Edit the **On-Demand Certificate** rule by clicking on the edit button.
+       .. image:: images/lab3-emptyflow.png
 
-.. image:: images/lab3-rules3.png
-    :width: 600 px
+      When dropping the flow to the VPD, you will want to make sure the flow box is over the plus
+      sign and the plus sign turns blue.
 
-18. In the **Rule Configurations**, **Rule Properties**, change **Authentication Mode** to **Require**. Click **Continue**.
+       .. image:: images/lab3-emptydd.png
 
-.. image:: images/lab3-rules4.png
-    :width: 600 px
+      The result looks like the following screenshot below.
 
-19. In the **Rule Configurations**, **Branches** screen we will add another branch for a successful authentication. 
+       .. image:: images/lab3-emptyok.png
+          :width: 600 px
 
-Click on **Create** button to add a new Branch 
+   b. By default, only one flow ending, *Deny*, is created. We need to create another one. Hover
+      over the Empty flow on the VPD to show 3 buttons: **Delete**, **Edit**, and **Expand**.
+      Select the **Edit** button.
 
-.. image:: images/lab3-branches.png
-    :width: 600 px
+       .. image:: images/lab2-editflow.png
+          :width: 600 px
 
-20. In the **Create Branch** screen, adjust the parameters to the following, and click **Save** when done. 
+   c. Under Flow Endings, select **Create** to add a new one using the information from the
+      table below.
 
-- **Name:** Successful
-- **Context:** Client Certificate
-- **Condition:** Validity
-- **Client Certificate:** Valid
+       .. list-table:: New Flow Ending, Allow
+          :widths: 15 25
+          :header-rows: 1
 
-.. image:: images/lab3-branches2.png
-    :width: 600 px
+          * - Name
+            - Color
+          * - ``Allow``
+            - Select **#1999D4D**, the color green
 
-You should now have two branches in Successful and Fallback, see image below. Click **Finish**.
+       .. image:: images/lab2-allowflow1.png
+          :width: 600 px
 
-.. image:: images/lab3-branchcomp.png
-    :width: 600 px
+   d. Select **Save**.
 
-21. Click on the **Collapse** button to close the **Rules and Flow** box so you’re back to the main VPD. See image below for reference.
+   e. Update the **Allow** Flow Ending to **Allow**.
 
-.. image:: images/lab3-branchclose.png
-    :width: 600 px
+       .. image:: images/lab2-allowflow2.png
+          :width: 600 px
 
-22. Click on **Edit** button on the **Empty Flow** box. This will open up the **Empty Flow** property screen. 
+   f. The new **Empty** flow looks like below.
 
-.. image:: images/lab3-term1.png
-    :width: 600 px
+       .. image:: images/lab2-flowfinal.png
+          :width: 600 px
 
-23. We want to add another terminal or Flow Ending for an Allow policy if the certificate matches. 
+8. We now will add a new Rule to the new Empty flow.
 
-- Click on **Create** to add another Flow Ending
-- In the **Name** box type **Allow** 
-- Select the color **#199D4D** (Green) for the Allow ending
+   a. Select the **Expand** button to start adding Rules to this Empty flow.
 
-.. image:: images/lab3-flowending.png
-    :width: 600 px
+       .. image:: images/lab3-allthebtns.png
+          :width: 600 px
 
- 24. Save the policy and close the VPD by clicking on **Cancel**.
+   b. On the left side of the page, select the **R (Rules)** button, then scroll down on the
+      **Rules** list until you find **On-Demand Certificate Authentication**.
 
-You have completed creating a security policy. Next we will deploy an Application and assigned the access policy. 
+       .. image:: images/lab3-rules1.png
+
+   c. Drag and drop the **On-Demand Certificate Authentication** Rule to the plus sign of the
+      Empty flow.
+
+       .. image:: images/lab3-rules2.png
+
+9. The new rule is now in our flow. Edit the **On-Demand Certificate** rule by hovering over the
+   **On-Demand Certificate Authentication** rule then selecting the **Edit** button.
+
+    .. image:: images/lab3-rules3.png
+
+   a. The first configuration to set is the **Rules Properties**. Under **Authentication Mode**,
+      select **Require** then select **Continue**.
+
+       .. image:: images/lab3-rules4.png
+          :width: 600 px
+
+   b. We are now on the **Branches** page. We are adding another branch in this rule for successful
+      authentication. Select the **Create** button.
+
+       .. image:: images/lab3-branches.png
+         :width: 600 px
+
+   c. On the **Create Branch** page, type or select the paramaters shown in the table below., and click **Save** when done.
+
+       .. list-table:: New Rule Branch, Successful
+          :widths: 15 25
+          :header-rows: 1
+
+          * - Property
+            - Value
+          * - Name
+            - ``Successful``
+          * - Context
+            - ``Client Certificate``
+          * - Condition
+            - ``Validity``
+          * - Client Certificate
+            - ``Valid``
+
+       .. image:: images/lab3-branches2.png
+          :width: 600 px
+
+   d. Two are a total of two branches in this rule: **Successful** and **Fallback** shown in the
+      image below.
+
+       .. image:: images/lab3-branchcomp.png
+          :width: 600 px
+
+   e. Select **Finish** to complete configuring this rule.
+
+10. Update the new **Successful** branch so it flows to **Allow**
+
+    .. image:: images/lab2-rulebranchupdate.png
+
+11. Your flow and rule should look like the screenshot below.
+
+    .. image:: images/lab2-flowrule.png
+
+12. Select the **Collapse** button to bring you back to the main VPD.
+
+     .. image:: images/lab2-flowcollapse.png
+        :width: 600 px
+
+13. Your main VPD view should look like the screenshot below.
+
+     .. image:: images/lab2-finalvpd.png
+        :width: 600 px
+
+14. Select the **Save** to complete configuring the **certAuth** Access Policy.
+
+You have completed creating a security policy for **Certificate Authentication**. Next we will
+deploy an **Application** with this access policy.
