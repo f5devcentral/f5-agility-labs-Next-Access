@@ -244,7 +244,10 @@ Creating a security policy using certificate authentication
      .. image:: images/lab2-finalvpd.png
         :width: 600 px
 
-14. Select the **Save** to complete configuring the **certAuth** Access Policy.
+14. Select the **Save** to save your Access Policy configuration.
 
-You have completed creating a security policy for **Certificate Authentication**. Next we will
+15. Finally select **Exit** complete configuring the **certAuth** Access Policy. Notice the *Draft*
+    **Status** because this policy is not assigned to an application.
+
+You have completed creating a security policy for **Certificate Authentication**. Next, we will
 deploy an **Application** with this access policy.

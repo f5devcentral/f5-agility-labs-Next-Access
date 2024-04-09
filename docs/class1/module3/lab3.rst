@@ -1,157 +1,209 @@
+.. Below is a rst substitution for defining a Workspace icon, more info below
+.. https://docutils.sourceforge.io/docs/ref/rst/restructuredtext.html#substitution-definitions
+.. |workspace| image:: images/workspace.svg
+   :height: 25px
+
 Lab 1.3 - Create an Application
-=================================
+================================
 
 Creating an application and assign an Access policy to the application.
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-1. Access **BIG-IP Next Central Manager** if you're not already logged in.
+1. Log in to your **BIG-IP Next Central Manager** on your web browser if you have not yet.
 
-.. image:: images/lab3-cmlogin.png
-    :width: 600 px
+    .. image:: images/lab3-cmlogin.png
 
-2. Click on the Workspace icon and select Application.
+2. On to the top, select the |workspace| **Workspace**  button then select **Application**.
 
-.. image:: images/lab3-app1.png
-    :width: 600 px
+    .. image:: images/lab3-app1.png
 
-3. Click on **Start Adding Apps** button to create an Application.
+3. Select **Start Adding Apps** to create an Application.
 
-.. image:: images/lab3-addapp.png
-    :width: 600 px
+    .. image:: images/lab3-addapp.png
 
-4. In the **Add Application** screen, set the following parameters:
+4. On the **Add Application** page, use the information in the table to set the configuration.
 
-- In **Application Service Name** type: *cert_app*
-- Under **What kind of Application Service are you creating?**: select Standard
-- Click on **Start Creating** button
+     .. list-table:: Application configuration
+        :widths: 15 25
+        :header-rows: 1
 
-.. image:: images/lab3-createapp1.png
-    :width: 600 px
+        * - Parameter
+          - Value
+        * - Application Service Name
+          - ``cert_app``
+        * - What kind of Application Service are you creating?
+          - Select **Standard**
 
-5. In the Application Services Properties, click **Start Creating**.
+5. Select **Start Creating**.
 
-.. image:: images/lab3-createapp2.png
-    :width: 600 px
+    .. image:: images/lab3-addapp2.png
 
-6. In the Virtual Servers configuration screen, we will define the Pool first, so click on **Pools** tab, click **Create**, and type in **Pool Name:** cert_auth_pool.
+6. The configuration page for your application named **cert_app** appears. In the
+   **Application Services Properties**, select **Start Creating** to create a **Virtual Server**.
 
-.. image:: images/lab3-createapp3.png
-    :width: 600 px
+    .. image:: images/lab3-createapp2.png
 
-7. Switch to the **Virtual Servers** tab. Now let’s define the Virtual Server properties.
+7. The **Virtual Servers** and **Pool** configuration portion of this configuration appears. Before
+   setting the **Virtual Server**, a **Pool** must first be defined. Select the **Pools** tab.
 
-- **Virtual Server Name:** vs_cert
-- **Pool:** cert_auth_pool
-- **Virtual Port:** 443
+    .. image:: images/lab3-createapp6.png
 
-.. image:: images/lab3-createapp4.png
-    :width: 600 px
+8. Select **Create**, and create a pool using the table below.
 
-8. Click on the **Edit** button under **Protocols & Profiles** to enable HTTPS 
+    .. list-table:: Pool Configuration
+       :widths: 15 25
+       :header-rows: 1
 
-9. In the **Protocols and Profiles**, tick the slider button for **Enable HTTPS (Client-Side TLS)**. This will enable the features under HTTPS.
+       * - Parameter
+         - Value
+       * - Pool Name
+         - ``cert_auth_pool``
 
-.. image:: images/lab3-pp.png
-    :width: 600 px
+    .. image:: images/lab3-createapp3.png
 
-10. Next to **Please choose an trust CA certificate**, select the CA certificate we uploaded earlier in the lab.
+9.  Now a **Pool** exists, select the **Virtual Servers** tab. Now let’s define the
+    **Virtual Server** properties using the information below.
 
-.. image:: images/lab3-cacert2.png
-    :width: 600 px
+     .. list-table:: Pool Configuration
+        :widths: 15 25
+        :header-rows: 1
 
-11. Click on the **Add** button under the **No Client-Side TLS** to add a certificate.
+        * - Parameter
+          - Value
+        * - Virtual Server Name
+          - ``vs_cert``
+        * - Pool
+          - ``cert_auth_pool``
+        * - Virtual Port
+          - ``443``
 
-.. image:: images/lab3-tls.png
-    :width: 600 px
+     ..  image:: images/lab3-createapp4.png
 
-12. In the Add **Client-Side TLS** screen, input the following information
+11. We will now enable HTTPS because we are using port **443**. Select the **Edit** button under
+    the **Protocols & Profiles** column.
 
-- **Name:** cert_auth
-- **RSA Certificate:** self_demo.f5.com
-- Click **Save**
+     .. image:: images/lab3-pp0.png
 
-.. image:: images/lab3-addtls.png
-    :width: 600 px
+12. On the **Protocols and Profiles** page, select the slider button to
+    **Enable HTTPS (Client-Side TLS)**.
 
-Before continuing, please verify the proper certificates has been applied, see image below for reference.
+     .. image:: images/lab3-pp.png
 
-.. image:: images/lab3-certcheck.png
-    :width: 600 px
+13. The configuration page for client-side TLS appears. Under
+    **Please choose an trust CA certificate**, select the CA certificate we uploaded earlier in
+    the lab.
 
-13. This will take you back to the **Protocols and Profiles** screen. Keep the rest of the settings as default. Click **Save**. 
+     .. image:: images/lab3-cacert2.png
 
-.. image:: images/lab3-addtls2.png
-    :width: 600 px
+14. We will now configure the certificate on the client-side. Select the **Add** button in the
+    **SPECIFY THE CERTIFICATES DETAILS FOR THIS APPLICATION** section to add a certificate.
 
-14.  This will take you back to the **Virtual Server** screen. Now we will attach the Access Policy we created previously to this application. Click on the **Edit** button under Security Policies.
+     .. image:: images/lab3-tls.png
 
-.. image:: images/lab3-vscertauth.png
-    :width: 600 px
+15. On the **Add Client-Side TLS** page, set the configuration using information from the table
+    below
 
-15. This will open the **Security Policies** screen. Slide the button next to **Use an Access Policy**. Under **Specify the Access Policy for this Application**, click the drop-down box and select the **certAuth** created previously. Click **Save**.
+     .. list-table:: Client-side TLS Configuration
+        :widths: 15 25
+        :header-rows: 1
 
-.. image:: images/lab3-vsaddpolicy.png
-    :width: 600 px
+        * - Parameter
+          - Value
+        * - Name
+          - ``cert_auth``
+        * - RSA Certificate
+          - Select **self_demo.f5.com**
 
-16.  After clicking **Save**, you should be returned to the Virtual Server property page. Click on **Review & Deploy** at the bottom right-hand corner.    
+     .. image:: images/lab3-addtls.png
 
-.. image:: images/lab3-revdeploy.png
-    :width: 600 px
+16. Select **Save**. Verify the certificate configuration shown below.
 
-1.  In the **Deploy** screen, this is where you define which BIG-IP Next instance to deploy the application. Click on **Start Adding** to select a BIG-IP Next Instance.
+     .. image:: images/lab3-certcheck.png
 
-.. image:: images/lab3-deployto.png
-    :width: 600 px
+17. Select **Save** once more. This will take you back to the **Protocols and Profiles** page.
 
-18. In the drop down box, select *big-ip-next-03.example.com*, then click on **Add to List** button.
+18. Leave the default values for the remaining configurations then select **Save**.
 
-.. image:: images/lab3-deployto2.png
-    :width: 600 px
+     .. image:: images/lab3-addtls2.png
 
-19. In the **Virtual Address:** box type: **10.1.10.112** to associate with the virutal server vs_cert. 
+19. This will take you back to the **Virtual Server** page. Now we will attach the
+    **Access Policy** we created previously to this application. Select the **Edit** button
+    under the **Security Policies** column.
 
-.. image:: images/lab3-vsinstance.png
-    :width: 600 px
+     .. image:: images/lab3-vscertauth.png
 
-20.  Click on the drop down arrow under the Members column. This is where you can add the backend pool members to the virtual server. 
+20. This will open the **Security Policies** page. Select the slider next to
+    **Use an Access Policy**.
 
-.. image:: images/lab3-poolmember.png
-    :width: 600 px
+21. On the **Specify the Access Policy for this Application** page, Select **certAuth**.
 
-21. In the cert_auth_pool screen, click on **Add Row**, and enter the following information for the pool member.
+     .. image:: images/lab3-vsaddpolicy.png
 
-- **Name:** be_cert_auth
-- **IP Address:** 10.1.20.6
-- Click **Save**
+22. Select **Save** which returns you to the **Virtual Server** property page.
 
-.. image:: images/lab3-certauthpool.png
-    :width: 600 px
+     .. image:: images/lab3-revdeploy.png
 
-1.  Now you’re ready to Deploy your application. Click on **Deploy Changes** at the bottom right-hand corner.
+23. Select **Review & Deploy**.
 
-.. image:: images/lab3-deploychanges.png
-    :width: 600 px
+24. On the **Deploy** page, you define which BIG-IP Next Instances to deploy the application.
+    Select the **Start Adding** button to choose the BIG-IP Next Instances.
 
-1.  Confirm in the pop-up window that you’re deploy to *big-ip-next-03.example.com* instance.
+     .. image:: images/lab3-deployto.png
 
-.. image:: images/lab3-yesdeploy.png
-    :width: 600 px
+25. For the case here, we will deploy to one BIG-IP NEXT Instance. Select
+    **big-ip-next-03.example.com**, then select the **Add to List** button.
 
-Click on **Yes, Deploy**
+     .. image:: images/lab3-deployto2.png
 
-23. You will get a status pop up window, and after a few seconds the screen should refresh and show you the My Application Service dashboard, with a confirmation that Deployment Complete.
+26. Under the **Virtual Address** column, type **10.1.10.112**.
 
-.. image:: images/lab3-deploystatus.png
-    :width: 600 px
-.. image:: images/lab3-deploycomp.png
-    :width: 600 px
+     .. image:: images/lab3-vsinstance.png
 
-24. My Application Services Dashboard should show you one application has been deployed, and Health is Good. 
+27. Select the drop down arrow under the **Members** column then select **+ Pool Members**.
+    This is where you add the backend pool members to the virtual server.
 
-.. image:: images/lab3-appdash.png
-    :width: 600 px
+     .. image:: images/lab3-poolmember.png
 
-You have successfully created an application and assigned an access policy to it. Let's test the application!
+28. On the cert_auth_pool page, select **Add Row**, then enter the using the information below.
+
+     .. list-table:: Pool Member Configuration
+        :widths: 15 25
+        :header-rows: 1
+
+        * - Parameter
+          - Value
+        * - Name
+          - ``be_cert_auth``
+        * - IP Address
+          - ``10.1.20.6``
+
+     .. image:: images/lab3-certauthpool.png
+
+29. Select **Save**
+
+30. Now we are ready to deploy the application. Select **Deploy Changes**.
+
+     .. image:: images/lab3-deploychanges.png
+
+31. Confirm the deploy location is **big-ip-next-03.example.com** the select **Yes, Deploy**.
+
+     .. image:: images/lab3-yesdeploy.png
+
+32. A status page appears.
+
+     .. image:: images/lab3-deploystatus.png
+33. After a few seconds the screen refreshes and shows the **My Application Service** dashboard
+    with a confirmation showing **Deployment Complete**.
+
+     .. image:: images/lab3-deploycomp.png
+
+34. The **My Application Services** dashboard now shows the application, **cert_app**, is deployed
+    and **Health** is good.
+
+     .. image:: images/lab3-appdash.png
+
+You have successfully created an application and assigned an access policy to it.
+Let's test the application!
 
 
 
