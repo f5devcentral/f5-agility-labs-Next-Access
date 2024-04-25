@@ -14,24 +14,20 @@ Creating a security policy with authentication to Azure and Kerberos Single Sign
 .. image:: images/lab2-securitybtn.png
     :width: 600 px
 
-Click on the **Access** from the Security menu.
-
-.. image:: images/lab2-accessbtn.png
-    :width: 600 px
-
-3. Click the **Start Creating** button to create a new Access policy 
+3. Click on the **Access** from the Security menu.
+   Click the **Start Creating** button to create a new Access policy 
 
 .. image:: images/lab2-createapbtn.png
     :width: 600 px
 
-4. This will open Access Visual Policy Design screen. Click on the pencil next to create new policy.
+1. This will open Access Visual Policy Design screen. Under **Choose policy type** select Per-Session Policy.  Under **How would you like to create it** select **SAML as a Service Provider** and Click **Next**.
 
-.. image:: images/lab2-createpolicypencil.png
+.. image:: images/lab2-createsamlpolicy.png
     :width: 600 px
 
-5. In the **Create Policy** screen, let's start configuring the policy.
+5. In the **Create Per-Session Policy** screen, let's start configuring the policy.
 
-In the **General Properties** screen set the following parameter(s), for the rest of the settings you may leave it as default.
+In the **General Properties** screen set the following parameter(s), for the rest of the settings you may leave the defaults.
 
 - **Policy Name:** signed_azure_policy
 - Click **Continue** 
@@ -46,7 +42,7 @@ In the **General Properties** screen set the following parameter(s), for the res
 .. image:: images/lab2-session.png
     :width: 600 px
 
-7. In the **Logging** screen, you may want to adjust the logging to debug for troubleshooting proposes. For this lab we will keep all the default settings.
+7. In the **Logging** screen, you may want to adjust the logging to debug for troubleshooting proposes. For this lab we will keep all the default settings. Click **Continue**
 
 .. image:: images/lab2-logging.png
     :width: 600 px
@@ -74,11 +70,11 @@ Click on the drop-down arrow on the **Start Creating** button and select **Kerbe
 
 10. Click **Continue**, this will take you back to the Policy Configurations screen. Click **Continue** on the next screen.
 
-11. **Endpoint Security** screen, you can setup Endpoint Security such as ensuring the firewall is enabled on a client workstation before access is granted. In this lab, we will not use this feature. Click Continue. 
+11. **Endpoint Security** screen, you can setup Endpoint Security such as ensuring the firewall is enabled on a client workstation before access is granted. In this lab, we will not use this feature. Click **Continue**. 
 
-12. **Resources screen**, you can set additional capabilities and features such as Network Access, and Webtops in this screen. In this lab we will not use these capabilities. Click Continue.
+12. **Resources screen**, you can set additional capabilities and features such as Network Access, and Webtops in this screen. In this lab we will not use these capabilities. Click **Continue**.
 
-13. **Policy Endings**, you can define addition policy ending logic as needed for your use case here. In this lab we will accept the default. Click Finish.
+13. **Policy Endings**, you can define addition policy ending logic as needed for your use case here. In this lab we will accept the default. Click **Finish**.
 
 14. After clicking on **Finish** it should bring you back to the **Create Policy** screen. Now, we will use the Visual Policy Designer (VPD) to continue building the policy.
 
