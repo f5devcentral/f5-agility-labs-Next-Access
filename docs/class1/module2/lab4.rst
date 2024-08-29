@@ -1,8 +1,9 @@
 Lab 1.4 - Test Application
-=================================
+##########################
 
 Test Connectivity to the Application
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+************************************
+
 1. Open a new Chrome browser or tab and type: https://mbip-1.f5access.onmicrosoft.com 
 
 You may get a security warning **Your Connection is Not Private**, this is because we're using a self-signed certificate. It is safe to proceed. 

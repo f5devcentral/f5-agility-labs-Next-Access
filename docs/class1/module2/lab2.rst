@@ -1,8 +1,8 @@
 Lab 1.2 - Create an Access Security Policy
-===========================================
+##########################################
 
 Creating a security policy with authentication to Azure and Kerberos Single Sign-On
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+***********************************************************************************
 
 1. Access **BIG-IP Next Central Manager** if you're not already logged in.
 

@@ -1,8 +1,8 @@
 Lab 1.3 - Create an Application
-=================================
+###############################
 
-Creating an application and assign an Access policy to the application.
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Creating an application and assign an Access policy to the application
+**********************************************************************
 
 1. Access **BIG-IP Next Central Manager** if you're not already logged in.
 

@@ -1,8 +1,8 @@
 F5 BIG-IP Next Access - Introduction
-====================================
+####################################
 
 Welcome
--------
+*******
 
 Welcome to the |classbold| for F5 AppWorld |year|
 
