@@ -11,7 +11,7 @@ Create a certificate in Next Central Manager
 
 2. Click on the Workspace button and select **Application**. 
 
-.. image:: images/lab3-app1
+.. image:: images/lab3-app1.png
     :width: 600 px
 
 3. Click on **Certificate & Keys**
@@ -32,6 +32,7 @@ Create a certificate in Next Central Manager
 - In the **Type** drop down box, select **Certificate**
 - In the **Source** section, select **Import**
 - In the **Certificate Section**, click on the **Import** button, and import the **f5access-ADDC-CA.crt** certificate
+  
 .. note:: The certificates are in the Access Lab folder in Documents as well as pinned to the Windows Explorer Quick Access
 
 The result should look like the image below.
@@ -39,7 +40,7 @@ The result should look like the image below.
 .. image:: images/lab3-cacert.png
     :width: 600 px
 
-7. Click **Save**
+1. Click **Save**
 
 You have successfully uploaded a certificate. 
 
