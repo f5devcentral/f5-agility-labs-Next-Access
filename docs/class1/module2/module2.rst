@@ -1,5 +1,5 @@
 Lab 2 - Azure authentication with Kerberos
-==========================================
+##########################################
 
 Estimate time to complete: 25 minutes.
 

@@ -1,5 +1,5 @@
 Lab 1 - SAML Federation with Okta
-==========================================
+#################################
 
 Estimate time to complete: 25 minutes.
 

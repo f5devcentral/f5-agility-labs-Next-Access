@@ -1,8 +1,8 @@
 Lab 1.1 - Next Access through API
-===========================================
+#################################
 
 Deploy an Access policy and deploy to an application through API call
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+*********************************************************************
 
 1. Open Postman on the Desktop
 

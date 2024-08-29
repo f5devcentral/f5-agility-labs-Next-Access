@@ -1,8 +1,8 @@
-Lab 1.2 - Create an Access Security Policy
-===========================================
+Lab 3.2 - Create an Access Security Policy
+##########################################
 
-Creating an security policy with signed SAML assertion
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Creating an security policy with client cert authentication
+***********************************************************
 
 1. Access **BIG-IP Next Central Manager** if you're not already logged in.
 
@@ -13,6 +13,7 @@ Creating an security policy with signed SAML assertion
 
 .. image:: images/lab3-securitybtn.png
     :width: 600 px
+    
 3. Click on **Access** from the Security menu, this should default to Policies.
 
 .. image:: images/lab3-accessbtn.png
@@ -81,6 +82,7 @@ After clicking on **Finish** it should bring you back to the Create Policy scree
 When dropping the flow type onto the VPD, you will want to make sure the flow type box is over the plus sign and the plus sign turns blue.
 
 .. image:: images/lab3-emptydd.png
+
 The result should look like the following screen shot.
 
 .. image:: images/lab3-emptyok.png
@@ -96,7 +98,7 @@ The result should look like the following screen shot.
 .. image:: images/lab3-rules1.png
     :width: 600 px
 
- 16. Click and drag **On-Demand Certificate Authenticate** to the VPD.
+16. Click and drag **On-Demand Certificate Authenticate** to the VPD.
 
 .. image:: images/lab3-rules2.png
     :width: 600 px
@@ -152,6 +154,6 @@ You should now have two branches in Successful and Fallback, see image below. Cl
 .. image:: images/lab3-flowending.png
     :width: 600 px
 
- 24. Save the policy and close the VPD by clicking on **Cancel**.
+24. Save the policy and close the VPD by clicking on **Cancel**.
 
 You have completed creating a security policy. Next we will deploy an Application and assigned the access policy. 

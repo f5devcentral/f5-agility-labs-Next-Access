@@ -1,5 +1,5 @@
 Lab 3 - Certificate Authentication
-==========================================
+##################################
 
 Estimate time to complete: 20 minutes.
 

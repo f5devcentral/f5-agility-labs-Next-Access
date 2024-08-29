@@ -1,8 +1,9 @@
-Lab 1.4 - Test Application
-=================================
+Lab 3.4 - Test Application
+##########################
 
 Test Connectivity to Application
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+********************************
+
 1. Open a new Chrome browser or tab and type: https://10.1.10.112  
 
 .. image:: images/lab3-security.png

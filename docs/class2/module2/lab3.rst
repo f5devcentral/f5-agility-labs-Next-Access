@@ -1,4 +1,4 @@
-Lab 1.3 - Test Application
+Lab 2.3 - Test Application
 ##########################
 
 Test Connectivity to the Application
