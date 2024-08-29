@@ -1,9 +1,9 @@
-Lab 2 - SAML Azure authentication with Kerberos SSO
-###################################################
+Lab 2 - OIDC Azure authentication with Kerberos SSO (under construction)
+########################################################################
 
 Estimate time to complete: 25 minutes.
 
-In this lab we will explore how to setup SAML authentication with EntraID as SAML IDP and single sign on with kerberos. 
+In this lab we will explore how to setup Oauth OIDC authentication with EntraID as Oauth Authorization Server and single sign on with kerberos. 
 
 **Learning Objectives:**
 
