@@ -1,9 +1,9 @@
-Lab 2 - Azure authentication with Kerberos
-##########################################
+Lab 2 - SAML Azure authentication with Kerberos SSO
+###################################################
 
 Estimate time to complete: 25 minutes.
 
-In this lab we will explore how to setup authentication with Azure AD and single sign on with kerberos. 
+In this lab we will explore how to setup SAML authentication with EntraID as SAML IDP and single sign on with kerberos. 
 
 **Learning Objectives:**
 
