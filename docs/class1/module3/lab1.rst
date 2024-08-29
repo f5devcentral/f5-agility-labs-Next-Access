@@ -1,4 +1,4 @@
-Lab 1.1 - Creating a Certificate
+Lab 3.1 - Creating a Certificate
 ################################
 
 Create a certificate in Next Central Manager

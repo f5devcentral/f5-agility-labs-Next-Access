@@ -1,4 +1,4 @@
-Lab 1.2 - Create an Access Security Policy
+Lab 3.2 - Create an Access Security Policy
 ##########################################
 
 Creating an security policy with client cert authentication

@@ -1,4 +1,4 @@
-Lab 1.3 - Create an Application
+Lab 3.3 - Create an Application
 ###############################
 
 Creating an application and assign an Access policy to the application
