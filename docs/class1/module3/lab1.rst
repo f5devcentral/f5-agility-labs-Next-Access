@@ -1,8 +1,9 @@
 Lab 1.1 - Creating a Certificate
-==========================================
+################################
 
 Create a certificate in Next Central Manager
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+********************************************
+
 1. Access **BIG-IP Next Central Manager** if you're not already logged in.
 
 .. image:: images/lab3-cmlogin.png

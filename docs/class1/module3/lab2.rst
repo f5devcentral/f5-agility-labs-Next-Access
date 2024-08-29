@@ -1,8 +1,8 @@
 Lab 1.2 - Create an Access Security Policy
-===========================================
+##########################################
 
-Creating an security policy with signed SAML assertion
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Creating an security policy with client cert authentication
+***********************************************************
 
 1. Access **BIG-IP Next Central Manager** if you're not already logged in.
 
@@ -13,6 +13,7 @@ Creating an security policy with signed SAML assertion
 
 .. image:: images/lab3-securitybtn.png
     :width: 600 px
+    
 3. Click on **Access** from the Security menu, this should default to Policies.
 
 .. image:: images/lab3-accessbtn.png
