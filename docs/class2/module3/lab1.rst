@@ -1,4 +1,4 @@
-Lab 2.1 - Create an Access Security Policy
+Lab 3.1 - Create an Access Security Policy
 ##########################################
 
 Creating a security policy with signed SAML assertion

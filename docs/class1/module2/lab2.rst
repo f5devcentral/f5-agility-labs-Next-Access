@@ -1,4 +1,4 @@
-Lab 1.2 - Create an Access Security Policy
+Lab 2.2 - Create an Access Security Policy
 ##########################################
 
 Creating a security policy with authentication to Azure and Kerberos Single Sign-On

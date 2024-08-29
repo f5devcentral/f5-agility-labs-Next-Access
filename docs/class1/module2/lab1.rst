@@ -1,4 +1,4 @@
-Lab 1.1 - Create DNS Resolver
+Lab 2.1 - Create DNS Resolver
 #############################
 
 Configuring a L3 DNS Resolver
