@@ -1,4 +1,4 @@
-Lab 2 - OIDC Azure authentication with Kerberos SSO (under construction)
+Lab 4 - OIDC Azure authentication with Kerberos SSO (under construction)
 ########################################################################
 
 DO NOT RYN THROUGH THIS LAB
