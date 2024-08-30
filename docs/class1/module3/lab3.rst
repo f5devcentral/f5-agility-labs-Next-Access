@@ -54,33 +54,28 @@ Creating an application and assign an Access policy to the application
 .. image:: images/lab3-pp.png
     :width: 600 px
 
-10. Next to **Please choose an trust CA certificate**, select the CA certificate we uploaded earlier in the lab.
+10. Click on the **Add** button to create a new client ssl profile, and add the following information
 
-.. image:: images/lab3-cacert2.png
-    :width: 600 px
-
-11. Click on the **Add** button under the **No Client-Side TLS** to add a certificate.
-
-.. image:: images/lab3-tls.png
-    :width: 600 px
-
-12. In the Add **Client-Side TLS** screen, input the following information
-
-- **Name:** cert_auth
+- **Name:** client-cert-auth
 - **RSA Certificate:** self_demo.f5.com
+- Click **Continue**
+
+.. image:: images/lab3-client-cert-config.png
+    :width: 600 px
+
+11.  In Authentication menu, **Enable Authentication** with the following information
+
+- **Client certificate authentication mode** : Request
+- **Trusted Certificate Authorities** : xca-demo
 - Click **Save**
 
-.. image:: images/lab3-addtls.png
+.. image:: images/lab3-profile-auth.png
     :width: 600 px
 
-Before continuing, please verify the proper certificates has been applied, see image below for reference.
 
-.. image:: images/lab3-certcheck.png
-    :width: 600 px
+12.   This will take you back to the **Protocols and Profiles** screen. Enable the **HTTP Profile**. Click **Save**. 
 
-13. This will take you back to the **Protocols and Profiles** screen. Keep the rest of the settings as default. Click **Save**. 
-
-.. image:: images/lab3-addtls2.png
+.. image:: images/lab3-http-profile.png
     :width: 600 px
 
 14.  This will take you back to the **Virtual Server** screen. Now we will attach the Access Policy we created previously to this application. Click on the **Edit** button under Security Policies.
