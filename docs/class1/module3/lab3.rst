@@ -66,7 +66,7 @@ Creating an application and assign an Access policy to the application
 11.  In Authentication menu, **Enable Authentication** with the following information
 
 - **Client certificate authentication mode** : Request
-- **Trusted Certificate Authorities** : xca-demo
+- **Trusted Certificate Authorities** : CA-DEMO
 - Click **Save**
 
 .. image:: images/lab3-profile-auth.png
