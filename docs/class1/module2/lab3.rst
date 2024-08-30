@@ -1,8 +1,8 @@
-Lab 1.3 - Create an Application
-=================================
+Lab 2.3 - Create an Application
+###############################
 
-Creating an application and assign an Access policy to the application.
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Creating an application and assign an Access policy to the application
+**********************************************************************
 
 1. Access **BIG-IP Next Central Manager** if you're not already logged in.
 
@@ -96,7 +96,7 @@ Creating an application and assign an Access policy to the application.
 
 .. image:: images/lab2-deployto2.png
 
-18. In the **Virtual Address:** box type: **10.1.10.100** to associate with the virutal server vs_azure. 
+18. In the **Virtual Address:** box type: **10.1.10.100** to associate with the virtual server vs_azure. 
 
 .. image:: images/lab2-vsinstance.png
     :width: 600 px

@@ -1,16 +1,7 @@
-Lab 4 - Create Access Policy through API
-==========================================
+Lab 4 - OIDC Azure authentication with Kerberos SSO (under construction)
+########################################################################
 
-Estimate time to complete: 10 minutes.
-
-In this lab we will explore how to create an Access policy and deploy it to an application using API. 
-
-**Learning Objectives:**
-
-- Log into Next Central Manager
-- Create an Access Policy
-- Create an Application
-- Deploy the Application
+DO NOT RYN THROUGH THIS LAB
 
 
 .. toctree::

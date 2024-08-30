@@ -1,8 +1,9 @@
 Lab 1.3 - Test Application
-=================================
+##########################
 
-Test Connectivity to Application
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Test Connectivity to the Application
+************************************
+
 1. In a new Chrome browser window type the following URL: https://signed.example.com
 
 You may get a security warning **Your Connection is Not Private**, this is because we're using a self-signed certificate. It is safe to proceed. 
