@@ -31,7 +31,7 @@ Click on **Access** from the Security menu, this should default to Policies.
 .. image:: images/lab1-selecttemplate.png
     :width: 600 px
 
-6. In the **Create PEr-Session Policy** screen, this is where you set the different properties of the policy, such as, logging, language, Single Sign On, etc… Let’s start configuring the policy by setting a policy name and policy parameters.
+6. In the **Create Per-Session Policy** screen, this is where you set the different properties of the policy, such as, logging, language, Single Sign On, etc… Let’s start configuring the policy by setting a policy name and policy parameters.
 
 In the **General Properties** screen set the following parameters, for the rest of the settings you may leave it as default.
 
@@ -81,10 +81,8 @@ After clicking on **Finish** it should bring you back to the Create Policy scree
 
 In Next Access we have two terms in the Visual Policy Designer (VPD); **Flows** and **Rules**. We set the Flows in the Visual Policy Designer (VPD) and within each Flow we can define multiple Rules.
 
-.. image:: images/lab1-createpolicy2.png
+.. image:: images/lab1-vpd-flow.png
     :width: 600 px
-
-
 
 14. As we use a template, the **flow** is already there. We must configure it now.
 

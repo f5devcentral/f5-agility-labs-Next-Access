@@ -71,12 +71,12 @@ In the **Application Service Name** type: demo_okta_app, click **Start Creating*
 - **RSA Certificate:** Select the *self_demo.f5.com* certificate
 - Click **Save**
 
-.. image:: images/lab3-app11.png
+.. image:: images/lab3-client-cert.png
     :width: 600 px
 
-13. This should take you back to the **Protocols and Profiles** screen. Keep the rest of the settings as default. Click **Save**. 
+13. This should take you back to the **Protocols and Profiles** screen. Enable **HTTP Profile**. Click **Save**. 
 
-.. image:: images/lab3-app12.png
+.. image:: images/lab3-http-profile.png
     :width: 600 px
 
 14. This will take you back to the Virtual Server screen. Now we will attach the Access Policy we have created previously to this application. Click on the edit button under **Security Policies**.
