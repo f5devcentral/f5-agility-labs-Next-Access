@@ -64,12 +64,12 @@ Creating an application and assign an Access policy to the application
 - **RSA Certificate:** self_demo.f5.com
 - Click **Save**
 
-.. image:: images/lab2-addtls.png
+.. image:: images/lab2-client-cert.png
     :width: 600 px
 
-12. This will take you back to the **Protocols and Profiles** screen. Keep the rest of the settings as default. Click **Save**. 
+12. This will take you back to the **Protocols and Profiles** screen. Enable **HTTP Profile**. Click **Save**.
 
-.. image:: images/lab2-addtls2.png
+.. image:: images/lab2-http-profile.png
     :width: 600 px
 
 13. This will take you back to the **Virtual Server** screen. Now we will attach the Access Policy we created previously to this application. Click on the **Edit** button under Security Policies.

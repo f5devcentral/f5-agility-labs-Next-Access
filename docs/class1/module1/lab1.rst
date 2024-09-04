@@ -21,16 +21,17 @@ Click on **Access** from the Security menu, this should default to Policies.
 .. image:: images/lab1-accessbtn.png
     :width: 600 px
 
-4. Click **Start Creating** button to create a new Access policy 
+4. Click **Start Creating** button to create a new Access policy, or click **create** on top right
 
 .. image:: images/lab1-createapbtn.png
     :width: 600 px
-5. This will open Access Visual Policy Design screen. Click on the pencil next to create new policy.
 
-.. image:: images/lab1-createpolicypencil.png
+5. This will open Access Visual Policy Design screen. Select **Per-Session** and **using a policy template**. Select template **SAML as Service Provider**
+
+.. image:: images/lab1-selecttemplate.png
     :width: 600 px
 
-6. In the **Create Policy** screen, this is where you set the different properties of the policy, such as, logging, language, Single Sign On, etc… Let’s start configuring the policy by setting a policy name and policy parameters.
+6. In the **Create Per-Session Policy** screen, this is where you set the different properties of the policy, such as, logging, language, Single Sign On, etc… Let’s start configuring the policy by setting a policy name and policy parameters.
 
 In the **General Properties** screen set the following parameters, for the rest of the settings you may leave it as default.
 
@@ -69,7 +70,9 @@ In the **General Properties** screen set the following parameters, for the rest 
 .. image:: images/lab1-oktaresources.png
     :width: 600 px
 
-12. **Policy Endings** screen, you can define additional policy ending logic as needed for your use case here. For this lab we will accept the default settings. Click **Finish**.
+12. **Connectivity** you can set the SSL VPN (Network Access) connectivity settings. Keep as default and click **Continue**
+
+13. **Policy Endings** screen, you can define additional policy ending logic as needed for your use case here. For this lab we will accept the default settings. Click **Finish**.
 
 .. image:: images/lab1-oktapolicyendings.png
     :width: 600 px
@@ -78,61 +81,32 @@ After clicking on **Finish** it should bring you back to the Create Policy scree
 
 In Next Access we have two terms in the Visual Policy Designer (VPD); **Flows** and **Rules**. We set the Flows in the Visual Policy Designer (VPD) and within each Flow we can define multiple Rules.
 
-.. image:: images/lab1-createpolicy2.png
+.. image:: images/lab1-vpd-flow.png
     :width: 600 px
 
-13. Under **Flows**, drag and drop **Generic SAML Federation** flow to the VPD. You will need click on the little dots to the right of the flow type to grab the flow and drop into the VPD. 
+14. As we use a template, the **flow** is already there. We must configure it now.
 
-.. image:: images/lab1-oktasaml.png
+15. Click on the **Collapse** button to see the content of the **flow**. You can see 2 rules.
+
+.. image:: images/lab1-flowrules.png
     :width: 600 px
 
-When dropping the flow type onto the VPD, you will want to make sure the flow type box is over the plus sign and the plus sign turns blue.
-
-.. image:: images/lab1-oktasamldragndrop.png
-    :width: 600 px
-
-The result should look like the following screen shot.
-
-.. image:: images/lab1-oktasamldragndrop2.png
-    :width: 600 px
-
-14. Click inside the **Flow** type box. This show 3 buttons; **Delete**, **Edit**, and **Collapse** buttons. Click on the **Collapse** button to start adding **Rules** to the Flow.
-
-.. image:: images/lab1-oktaflowbox1.png
-    :width: 600 px
-
-Clicking on the **Collapse** button will expand the SAML Federation Flow type box. 
-
-.. image:: images/lab1-oktasamlflow1.png
-    :width: 600 px
-
-.. note:: Noticed the title on the top left hand corner is Generic-SAML-Federation followed by a series of unique numbers. This can help identify which Flow you're currently viewing in VPD.
-
-15. Click inside the **SAML-Federation** Rule box, and select the **Edit** button
+16.  Edit inside the **SAML-Federation** Rule box
 
 .. image:: images/lab1-oktasamlrule1.png
     :width: 600 px
 
 This will open the SAML Federation Rule properties screen. Please follow the images below for each section.
 
-16. In the **Rule Configuration**, **Rule Properties** screen, add **SAML-Federation-Okta-Rule** as the name of the rule, leave the rest as default. Click **Continue**.
+17. In the **Rule Configuration**, **Rule Properties** screen, add **SAML-Federation-Okta-Rule** as the name of the rule, leave the rest as default. Click **Continue**.
 
 .. image:: images/lab1-oktasamlrule2.png
     :width: 600 px
 
-17. In the **Rule Configuration**, **Providers** screen, this is where you can configure Service Provider and Identity Provider. 
+18. In the **Rule Configuration**, **Providers** screen, this is where you can configure Service Provider and Identity Provider. A generic SP is already set. **Edit** it
 
-.. image:: images/lab1-oktasamlruleproviders.png
+.. image:: images/lab1-saml-provider.png
     :width: 600 px
-
-18. For this lab, we will need to configure both a **Service Provider** and **Identity Provider**.
-
-In the **Service Provider** section, click on the **Start Creating** button. 
-
-.. image:: images/lab1-oktasamlrule3.png
-    :width: 600 px
-
-19. In the **Add Service Provider** screen add the following parameters:
 
 - **EntityID:** https://signed.example.com
 - **Host:** https://signed.example.com
@@ -142,37 +116,27 @@ In the **Service Provider** section, click on the **Start Creating** button.
 .. image:: images/lab1-oktasamlrule4.png
     :width: 600 px
 
-20. In the **Identity Provider** section, click on the **Start Creating** button. 
+19. In the **Identity Provider** section, click on the **Start Creating** button. 
 
 .. image:: images/lab1-oktasamlidentity.png
     :width: 600 px
 
-21. In the **Add Idnentity Provider** screen add the following parameters:
+20. In the **Add Idnentity Provider** screen add the following parameters:
 
 - **EntityID:** http://www.okta.com/exk93cs4on3gGVej44x7
 - **SSO URL:** https://dev-818899.okta.com/app/dev-818899_signedexamplecom_1/exk93cs4on3gGVej44x7/sso/saml
 - **Identity Provider’s Assertion Verification Certificate:** select the *okta_signed_cert* 
 - Click **Save**
 
-22. Below is a summary of the completed Providers screen confirm you have both a Service Provider and Identity Provider configured, then Click **Continue**.
+21. Below is a summary of the completed Providers screen confirm you have both a Service Provider and Identity Provider configured, then Click **Continue**.
 
 .. image:: images/lab1-oktasamlconfirm.png
     :width: 600 px
 
-23. In the **Branches** screen, keep the default. Click **Finish**.
+22. In the **Branches** screen, keep the default. Click **Finish**.
 
 .. image:: images/lab1-oktasamlrule6.png
 
-24. This should bring you back to the Visual Policy Designer. Close the SAML flow by clicking on the **Collapse** icon.
-
-25. In the SAML Flow, change the Allow flow ending from Deny to **Allow**.
-
-.. image:: images/lab1-oktasamlrule7.png
-    :width: 600 px
-
-26. Click **Save** button at the top right hand corner to save the policy. After the policy is saved, click **Cancel** to close the policy.
-
-.. image:: images/lab1-policycreated.png
-    :width: 600 px
+23. Click **Save** button at the top right hand corner to save the policy. After the policy is saved, click **Exit** to close the policy.
 
 You have completed creating a security policy. Next we will deploy an Application and assigned the access policy. 
