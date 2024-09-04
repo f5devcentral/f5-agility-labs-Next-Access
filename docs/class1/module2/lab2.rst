@@ -19,19 +19,21 @@ Click on the **Access** from the Security menu.
 .. image:: images/lab2-accessbtn.png
     :width: 600 px
 
-3. Click the **Start Creating** button to create a new Access policy 
+3. Click the **Start Creating** button to create a new Access policy, or the **create** button on top right corner.
 
 .. image:: images/lab2-createapbtn.png
     :width: 600 px
 
-4. This will open Access Visual Policy Design screen. Click on the pencil next to create new policy.
 
-.. image:: images/lab2-createpolicypencil.png
+4. This will open Access Visual Policy Design screen. Select **Per-Session** and **using a policy template**. Select template **SAML as Service Provider**
+
+.. image:: images/lab2-selecttemplate.png
     :width: 600 px
 
-5. In the **Create Policy** screen, let's start configuring the policy.
+5. In the **Create Per-Session Policy** screen, this is where you set the different properties of the policy, such as, logging, language, Single Sign On, etc… Let’s start configuring the policy by setting a policy name and policy parameters.
 
-In the **General Properties** screen set the following parameter(s), for the rest of the settings you may leave it as default.
+In the **General Properties** screen set the following parameters, for the rest of the settings you may leave it as default.
+
 
 - **Policy Name:** signed_azure_policy
 - Click **Continue** 
@@ -78,53 +80,38 @@ Click on the drop-down arrow on the **Start Creating** button and select **Kerbe
 
 12. **Resources screen**, you can set additional capabilities and features such as Network Access, and Webtops in this screen. In this lab we will not use these capabilities. Click Continue.
 
-13. **Policy Endings**, you can define addition policy ending logic as needed for your use case here. In this lab we will accept the default. Click Finish.
+13. **Connectivity** you can set the SSL VPN (Network Access) connectivity settings. Keep as default and click **Continue**
 
-14. After clicking on **Finish** it should bring you back to the **Create Policy** screen. Now, we will use the Visual Policy Designer (VPD) to continue building the policy.
+14. **Policy Endings**, you can define addition policy ending logic as needed for your use case here. In this lab we will accept the default. Click Finish.
 
-15. Under Flows, drag and drop **Generic SAML Federation** flow to the VPD. You will need click on the little dots to the right of the flow type to grab the flow and drop into the VPD. 
+15. After clicking on **Finish** it should bring you back to the **Create Policy** screen. Now, we will use the Visual Policy Designer (VPD) to continue building the policy.
 
-.. image:: images/lab2-samlflow.png
+In Next Access we have two terms in the Visual Policy Designer (VPD); **Flows** and **Rules**. We set the Flows in the Visual Policy Designer (VPD) and within each Flow we can define multiple Rules.
+
+.. image:: images/lab2-vpd-flow.png
     :width: 600 px
 
-:bulb: **Tip:** When dropping the flow type onto the VPD, you want to make sure the flow type box is over the plus sign and the plus sign turns blue.
+16. As we use a template, the **flow** is already there. We must configure it now.
 
-.. image:: images/lab2-flowdraganddrop.png
+17. Click on the **Collapse** button to see the content of the **flow**. You can see 2 rules.
+
+.. image:: images/lab2-flowrules.png
     :width: 600 px
 
-The result should look like the following screen shot.
+18.  Edit inside the **SAML-Federation** Rule box
 
-.. image:: images/lab2-flow1.png
+.. image:: images/lab2-edit-saml.png
     :width: 600 px
 
-16. Click inside the Flow type box. This show 3 buttons; **Delete**, **Edit**, and **Collapse** buttons. Click on the **Collapse** button to start adding Rules to the Flow.
+This will open the SAML Federation Rule properties screen. Please follow the images below for each section.
 
-.. image:: images/lab2-flow2.png
-    :width: 600 px
 
-Clicking on the **Collapse** button will expand the Flow type box.
-
-.. image:: images/lab2-flow3.png
-    :width: 600 px
-
-17. Click inside the SAML-Federation Rule box, and select the **Edit** button
-
-.. image:: images/lab2-flow4.png
-    :width: 600 px
-
-This will open the **SAML Federation Rule** properties screen. Please follow the screenshots below for each section.
-
-18. In the **SAML Rule Properties** configuration, replace the trailing number in the Name field to **azure_signed_policy**. Leave the **Provider Configuration** as **Basic**. Click **Continue**.
+19.  In the **SAML Rule Properties** configuration, replace the trailing number in the Name field to **azure_signed_policy**. Leave the **Provider Configuration** as **Basic**. Click **Continue**.
 
 .. image:: images/lab2-ruleprop1.png
     :width: 600 px
 
-19. In the **Providers** screen, you can set the different Service and Identity Providers in this screen. In this lab we will setup both a Service Provider and Identity Provider.
-
-.. image:: images/lab2-ruleprop2.png
-    :width: 600 px
-
-20. Click on **Start Creating** under Service Provider. In the **Add Service Provider** screen input the following information, and then click **Save**.
+20. In the **Rule Configuration**, **Providers** screen, this is where you can configure Service Provider and Identity Provider. A generic SP is already set. **Edit** it
 
 - **EntityID:** https://mbip-1.f5access.onmicrosoft.com 
 - **Host:** https://mbip-1.f5access.onmicrosoft.com 
@@ -147,17 +134,7 @@ This will open the **SAML Federation Rule** properties screen. Please follow the
 
 23. In the **Branches** screen, keep the default. Click **Finish**.
 
-24. Close the SAML Rule by clicking on the **Collapse** button.
-
-.. image:: images/lab2-samlclose.png
-    :width: 600 px
-
-25. In the SAML Flow Allow branch, set the policy to **Allow**.
-
-.. image:: images/lab2-samlending.png
-    :width: 600 px
-
-26. **Save** the policy and close the VPD by clicking on **Cancel**.
+24. **Save** the policy and close the VPD by clicking on **Exit**.
 
 You have completed creating an security policy!
 

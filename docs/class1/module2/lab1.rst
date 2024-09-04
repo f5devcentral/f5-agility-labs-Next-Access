@@ -19,39 +19,22 @@ Configuring a L3 DNS Resolver
 .. image:: images/lab2-myinstances.png
     :width: 600 px
 
-4. This will open the Instance Settings screen. On the left side, click on **Networking & Proxy**. Click on **Routes** tab from the menu across the top. 
+4. This will open the Instance Settings screen. On the left side, click on **Routing & Forwarding**. Click on **Default** VRF. 
 
-.. image:: images/lab2-routes.png
+.. image:: images/lab2-routingforwarding.png
     :width: 600 px
 
-5. Click on **Start Adding Routes**
+5. Enable **DNS Resolver** and add a new entry
 
-6. We will add a new **L3 Forward Type** DNS resolver. In the New Route screen, please enter the following parameters.
+* Name : global_f5_internal_net_resolver
+* Forward Zone : create a new zone
 
-- **Name:** global_f5_internal_net_resolver 
-- **VLANs:** external-vlan, internal-vlan
-- **Config:** L3 DNS Cache Net Resolver
+  * forwardZone : . <- this is a period or single dot
+  * nameserver : 10.1.1.6:53
 
-.. image:: images/lab2-l3fwd.png
+.. image:: images/lab2-dnsresolver.png
     :width: 600 px
 
-7. In the same screen, scroll down to **Forward Zone** in the L3 DNS Cache Net Resolver, and click **Create**. Enter the following parameters.
-
-- **Forward zone:** .  This is a period or single dot
-- **Nameserver:** 10.1.1.6:53
-
-.. image:: images/lab2-dnscache.png
-    :width: 600 px
-
-8. Scroll down to **L3 Forward Type**, set the following parameters.
-
-**L3 Forward Type:** netResolver
-**Name:** global_f5_internal_net_resolver
-**Select:** Use IPv4, Use TCP, Use UDP
-
-.. image:: images/lab2-l3types.png
-    :width: 600 px
-
-9. Click **Save**, and then click **Cancel & Exit** to exit out of the Instance Setting screen.
+9. Click **Save** and **Save**, and then click **Cancel & Exit** to exit out of the Instance Setting screen.
 
 This ends this section of the lab, onto the next. 
