@@ -4,6 +4,8 @@ Lab 2.1 - Create DNS Resolver
 Configuring a L3 DNS Resolver
 *****************************
 
+.. note:: In this lab, we are adding a Single Sign-on with Kerberos Constrained Delegation to authenticate users to the back-end application (IIS server). This requires to configure a DNS resolver so that Next Access can reach the Kerberos server (Active Directory)
+
 1. Access **BIG-IP Next Central Manager** if you're not already logged in.
 
 .. image:: images/lab2-cmlogin.png
