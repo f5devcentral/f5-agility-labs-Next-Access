@@ -1,5 +1,5 @@
-Use Cases (under construction)
-##############################
+Use Cases
+#########
 
 In this new lab we will explore a couple of the use cases for release with BIG-IP Next Access.
 
