@@ -16,17 +16,11 @@ Creating an application and assign an Access policy to the application
 
 3. Click on **Start Adding Apps** button to create an Application.
 
-.. image:: images/lab3-addapp.png
-    :width: 600 px
-
 4. In the **Add Application** screen, set the following parameters:
 
 - In **Application Service Name** type: *cert_app*
 - Under **What kind of Application Service are you creating?**: select Standard
 - Click on **Start Creating** button
-
-.. image:: images/lab3-createapp1.png
-    :width: 600 px
 
 5. In the Application Services Properties, click **Start Creating**.
 

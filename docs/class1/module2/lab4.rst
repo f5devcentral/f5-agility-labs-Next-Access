@@ -4,14 +4,16 @@ Lab 2.4 - Test Application
 Test Connectivity to the Application
 ************************************
 
-1. Open a new Chrome browser or tab and type: https://mbip-1.f5access.onmicrosoft.com 
+1. Open an RDP session to Windows-Client-Testing VM
+
+2. Open a new Firefox browser or tab and type: https://mbip-1.f5access.onmicrosoft.com 
 
 You may get a security warning **Your Connection is Not Private**, this is because we're using a self-signed certificate. It is safe to proceed. 
 
 .. image:: images/lab2-loginwin.png
     :width: 600 px
 
-2. Log in with the following username/password: 
+3. Log in with the following username/password: 
 - **username:** user@f5access.onmicrosoft.com
 - **password:** user
 
