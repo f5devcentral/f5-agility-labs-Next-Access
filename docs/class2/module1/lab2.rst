@@ -78,18 +78,18 @@ Creating an application and assign an Access policy to the application
 .. image:: images/lab2-revdeploy.png
     :width: 600 px
 
-1.  In the **Deploy** screen, this is where you define which BIG-IP Next instance to deploy the application. Click on **Start Adding** to select a BIG-IP Next Instance.
+16.  In the **Deploy** screen, this is where you define which BIG-IP Next instance to deploy the application. Click on **Start Adding** to select a BIG-IP Next Instance.
 
-18. In the drop down box, select *big-ip-next-03.example.com*, then click on **Add to List** button.
+17. In the drop down box, select *big-ip-next-03.example.com*, then click on **Add to List** button.
 
-19. In the **Virtual Address:** box type: **10.1.10.160** to associate with the virutal server vs-vpn. 
+18. In the **Virtual Address:** box type: **10.1.10.160** to associate with the virutal server vs-vpn. 
 
-20. You must configure your Lease Pool for this Next instance. To do so, click on **Configure** (the one next to the ...Actions button)
+19. You must configure your Lease Pool for this Next instance. To do so, click on **Configure** (the one next to the ...Actions button)
 
 .. image:: images/lab2-clickconfigure.png
     :width: 600 px
 
-21. Click on your Per-Session policy and set the Lease Pool range to ``10.1.20.230`` to ``10.1.20.235``
+20. Click on your Per-Session policy and set the Lease Pool range to ``10.1.20.230`` to ``10.1.20.235``
 
 .. image:: images/lab2-clicksslvpn.png
     :width: 600 px
@@ -100,9 +100,9 @@ Creating an application and assign an Access policy to the application
 * Click **Save** and **Finish**
 
 
-22. Now you’re ready to Deploy your application. Click on **Deploy Changes** at the bottom right-hand corner.
+21. Now you’re ready to Deploy your application. Click on **Deploy Changes** at the bottom right-hand corner.
 
-23.  Confirm in the pop-up window that you’re deploy to *big-ip-next-03.example.com* instance.
+22.  Confirm in the pop-up window that you’re deploy to *big-ip-next-03.example.com* instance.
 
 * Click on **Yes, Deploy**
 
