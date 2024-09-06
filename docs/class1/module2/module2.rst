@@ -8,7 +8,6 @@ In this lab we will explore how to setup SAML authentication with EntraID as SAM
 **Learning Objectives:**
 
 - Create DNS resolver.  
-- Upload Certificate to the CM. 
 - Create Policy via Visual Policy Designer (VPD).  
 - Include SSO in the configurations.  
 - Assign Flows and rules to the policy.  

@@ -60,13 +60,14 @@ In the **General Properties** screen set the following parameters, for the rest 
 
 * Click **Start Creating**, and create a **Network Access** resource. Configure as below
 
-  * Change to split tunneling
+  * Change to ``split tunneling``, with ``address space`` 10.1.20.0/24
+
 
     .. image:: images/lab1-networkaccess.png
        :width: 800 px
 
-  * Give a name to the lease pool : leasepool1
-  * DNS/Host, set IPv4 primary Name Server to : 10.1.20.6
+  * Continue and give a name to the lease pool : leasepool1
+  * Continue to DNS/Host, set IPv4 primary Name Server to : 10.1.20.6
   * Click **continue** till end and **Finish**
 
 * Click **Create** and create a new resource type **Webtop**
@@ -153,6 +154,9 @@ The result should look like the following screen shot.
 
 21. Add a new rule **Advanced Resource Assign** next to the Successful branch, **edit** it, and add your **webtop** and **network access** resources.
 
+.. image:: images/lab1-advresource.png
+    :width: 600 px
+
 * Do not select any context, keep it empty
 * Add your webtop and Network Access
 
@@ -165,9 +169,9 @@ The result should look like the following screen shot.
 * Click **finish** and save your Advanced Resource Assign rule (by clicking to **continue**).
 
 
-22.   Click on the **Collapse** button to close the **Rules and Flow** box so you’re back to the main VPD. S
+1.    Click on the **Collapse** button to close the **Rules and Flow** box so you’re back to the main VPD. S
 
-23. On the **Allow** branch, change the ending to **Allow**.
+2.  On the **Allow** branch, change the ending to **Allow**.
 
 .. image:: images/lab1-final-allow.png
     :width: 600 px
